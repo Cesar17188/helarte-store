@@ -13,6 +13,9 @@ import { TypeProductsComponent } from './type-products/type-products.component';
 import { ContactComponent } from './contact/contact.component';
 import { IceproductsComponent } from './iceproducts/iceproducts.component';
 import { SaboresComponent } from './sabores/sabores.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { SaboresComponent } from './sabores/sabores.component';
     TypeProductsComponent,
     ContactComponent,
     IceproductsComponent,
-    SaboresComponent
+    SaboresComponent,
+    HeaderComponent,
+    FooterComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
