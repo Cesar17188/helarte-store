@@ -1,12 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { Product } from '../product.model';
+import { Injectable } from '@angular/core';
+import { Product } from './product.model';
 
-@Component({
-  selector: 'app-iceproducts',
-  templateUrl: './iceproducts.component.html',
-  styleUrls: ['./iceproducts.component.css']
+@Injectable({
+  providedIn: 'root'
 })
-export class IceproductsComponent implements OnInit {
+export class HeladosService {
 
   helados: Product[] = [
     {
@@ -67,12 +65,11 @@ export class IceproductsComponent implements OnInit {
 ];
   constructor() { }
 
-  ngOnInit(): void {
+  getAllIceCream() {
+    return this.helados;
   }
 
-  clickProduct(codigo: string) {
-    console.log('producto');
-    console.log(codigo);
+  getIceCream(codigo: string){
+    return this.helados.find(item => codigo === item.codigo);
   }
-
 }

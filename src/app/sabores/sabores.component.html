@@ -1,7 +1,6 @@
-<app-header></app-header>
+<app-sabores></app-sabores>
 <div class="product-grid">
-    <app-product *ngFor="let product of products" 
+    <app-product *ngFor="let helado of helados" 
     (productAdd)="clickProduct($event)" 
     [product]='product'></app-product>  
 </div>
-   

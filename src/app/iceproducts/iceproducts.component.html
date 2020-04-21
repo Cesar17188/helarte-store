@@ -1,1 +1,7 @@
-<p>iceproducts works!</p>
+<app-header></app-header>
+<div class="product-grid">
+    <app-product *ngFor="let helado of helados" 
+    (productAdd)="clickProduct($event)" 
+    [product]='product'></app-product>  
+</div>
+   
