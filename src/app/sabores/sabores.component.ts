@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../product.model';
 
 
+
 @Component({
   selector: 'app-sabores',
   templateUrl: './sabores.component.html',
