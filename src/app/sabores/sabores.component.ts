@@ -10,7 +10,7 @@ import { Product } from '../product.model';
 })
 export class SaboresComponent implements OnInit {
 
-  products: Product[] = [
+  sabores: Product[] = [
     {
         codigo: '1',
         image: 'assets/images/hchocolate.jpg',

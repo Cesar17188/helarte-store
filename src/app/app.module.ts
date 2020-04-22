@@ -18,6 +18,7 @@ import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { IcecreamDetailComponent } from './icecream-detail/icecream-detail.component';
 
 
 
@@ -35,7 +36,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    IcecreamDetailComponent
   ],
   imports: [
     BrowserModule,

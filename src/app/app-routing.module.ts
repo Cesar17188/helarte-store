@@ -6,6 +6,8 @@ import { IceproductsComponent } from './iceproducts/iceproducts.component';
 import { ContactComponent } from './contact/contact.component';
 import { SaboresComponent } from './sabores/sabores.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { IcecreamDetailComponent } from './icecream-detail/icecream-detail.component';
+
 
 const routes: Routes = [
   {
@@ -20,6 +22,10 @@ const routes: Routes = [
   {
     path: 'helados',
     component: IceproductsComponent
+  },
+  {
+    path: 'helados/:codigo',
+    component: IcecreamDetailComponent
   },
   {
     path: 'contacto',

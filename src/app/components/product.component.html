@@ -5,3 +5,4 @@
 <p>{{ product.description_larga | slice:0:20 }}</p>
 <p>{{ today | date: 'HH:mm' }}</p>
 <button (click)="addcart()">Agregar al carrito</button>
+<a [routerLink]="['/helados', 'h'+product.codigo]">Elegir el producto</a>
