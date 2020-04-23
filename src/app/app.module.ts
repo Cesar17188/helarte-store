@@ -9,7 +9,6 @@ import { ProductComponent } from './components/product.component';
 import { CartComponent } from './cart/cart.component';
 import { HighlightDirective } from './highlight.directive';
 import { HomeComponent } from './home/home.component';
-import { TypeProductsComponent } from './type-products/type-products.component';
 import { ContactComponent } from './contact/contact.component';
 import { IceproductsComponent } from './iceproducts/iceproducts.component';
 import { SaboresComponent } from './sabores/sabores.component';
@@ -19,7 +18,12 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { IcecreamDetailComponent } from './icecream-detail/icecream-detail.component';
-
+import { HeladosComponent } from './components/helados/helados.component';
+import { ProductsComponent } from './products/products.component';
+import { BackeriesComponent } from './components/backeries/backeries.component';
+import { BackeriesproductsComponent } from './backeriesproducts/backeriesproducts.component';
+import { CafesproductsComponent } from './cafesproducts/cafesproducts.component';
+import { CafesComponent } from './components/cafes/cafes.component';
 
 
 @NgModule({
@@ -29,7 +33,6 @@ import { IcecreamDetailComponent } from './icecream-detail/icecream-detail.compo
     CartComponent,
     HighlightDirective,
     HomeComponent,
-    TypeProductsComponent,
     ContactComponent,
     IceproductsComponent,
     SaboresComponent,
@@ -37,7 +40,13 @@ import { IcecreamDetailComponent } from './icecream-detail/icecream-detail.compo
     FooterComponent,
     SidebarComponent,
     PageNotFoundComponent,
-    IcecreamDetailComponent
+    IcecreamDetailComponent,
+    HeladosComponent,
+    ProductsComponent,
+    BackeriesComponent,
+    BackeriesproductsComponent,
+    CafesproductsComponent,
+    CafesComponent
   ],
   imports: [
     BrowserModule,

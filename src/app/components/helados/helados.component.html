@@ -4,4 +4,4 @@
 <strong>{{product.precioCompra | currency }}</strong>
 <p>{{ product.description_larga | slice:0:20 }}</p>
 <p>{{ today | date: 'HH:mm' }}</p>
-<a [routerLink]="'/'+[product.producto]">Elegir el producto</a>
+<a [routerLink]="['/helados', product.codigo]">Elegir el producto</a>
