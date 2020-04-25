@@ -10,7 +10,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { IcecreamDetailComponent } from './icecream-detail/icecream-detail.component';
 import { ProductsComponent } from './products/products.component';
 import { CafesproductsComponent } from './cafesproducts/cafesproducts.component';
-
+import { SnacksproductsComponent } from './snacksproducts/snacksproducts.component';
 
 const routes: Routes = [
   {
@@ -53,6 +53,14 @@ const routes: Routes = [
   {
     path: 'cafes/:codigo',
     component: CafesproductsComponent
+  },
+  {
+    path: 'snacks',
+    component: SnacksproductsComponent
+  },
+  {
+    path: 'snacks/:codigo',
+    component: SnacksproductsComponent
   },
   {
     path: 'contacto',

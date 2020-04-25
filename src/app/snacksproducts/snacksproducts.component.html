@@ -1,0 +1,6 @@
+<app-header></app-header>
+<div class="product-grid">
+    <app-snacks *ngFor="let snack of snacks" 
+    (productAdd)="clickProduct($event)" 
+    [product]='snack'></app-snacks>  
+</div>

@@ -24,6 +24,9 @@ import { BackeriesComponent } from './components/backeries/backeries.component';
 import { BackeriesproductsComponent } from './backeriesproducts/backeriesproducts.component';
 import { CafesproductsComponent } from './cafesproducts/cafesproducts.component';
 import { CafesComponent } from './components/cafes/cafes.component';
+import { SnacksComponent } from './components/snacks/snacks.component';
+import { SnacksproductsComponent } from './snacksproducts/snacksproducts.component';
+import { LayoutComponent } from './layout/layout.component';
 
 
 @NgModule({
@@ -46,7 +49,10 @@ import { CafesComponent } from './components/cafes/cafes.component';
     BackeriesComponent,
     BackeriesproductsComponent,
     CafesproductsComponent,
-    CafesComponent
+    CafesComponent,
+    SnacksComponent,
+    SnacksproductsComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,

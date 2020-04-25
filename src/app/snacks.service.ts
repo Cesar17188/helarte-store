@@ -7,7 +7,7 @@ import { Product } from './product.model';
 export class SnacksService {
   snacks: Product[] = [
     {
-        codigo: 'h1',
+        codigo: 'sn1',
         image: 'assets/images/hchocolate.jpg',
         producto: 'Cono simple',
         sabores: [],
@@ -17,7 +17,7 @@ export class SnacksService {
         precioVenta: 1.30
     },
     {
-      codigo: 'h2',
+      codigo: 'sn2',
       image: 'assets/images/hvainilla.jpg',
       producto: 'Cono doble',
       sabores: [],
@@ -26,7 +26,7 @@ export class SnacksService {
       precioVenta: 2.25
   },
   {
-    codigo: 'h3',
+    codigo: 'sn3',
     image: 'assets/images/hchocolate.jpg',
     producto: 'Tulipan Simple',
     sabores: [],
@@ -35,7 +35,7 @@ export class SnacksService {
     precioVenta: 1.50
   },
   {
-    codigo: 'h4',
+    codigo: 'sn4',
     image: 'assets/images/hchocolate.jpg',
     producto: 'Tulipan Doble',
     sabores: [],
@@ -44,7 +44,7 @@ export class SnacksService {
     precioVenta: 1.50
   },
   {
-    codigo: 'h5',
+    codigo: 'sn5',
     image: 'assets/images/hchocolate.jpg',
     producto: 'Copa',
     sabores: [],
@@ -53,7 +53,7 @@ export class SnacksService {
     precioVenta: 2.95
   },
   {
-    codigo: 'h6',
+    codigo: 'sn6',
     image: 'assets/images/hchocolate.jpg',
     producto: 'Milshake',
     sabores: [],
@@ -64,11 +64,11 @@ export class SnacksService {
 ];
   constructor() { }
 
-  getAllIceCream() {
+  getAllSnacks() {
     return this.snacks;
   }
 
-  getIceCream(codigo: string){
+  getSnack(codigo: string){
     return this.snacks.find(item => codigo === item.codigo);
   }
 }
