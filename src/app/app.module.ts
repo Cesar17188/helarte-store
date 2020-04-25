@@ -24,6 +24,7 @@ import { FlavorComponent } from './components/flavor/flavor.component';
 
 
 import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,12 +2,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules} from '@angular/router';
 
 import { IceproductsComponent } from './iceproducts/iceproducts.component';
-import {BackeriesproductsComponent } from './backeriesproducts/backeriesproducts.component';
+import { BackeriesproductsComponent } from './backeriesproducts/backeriesproducts.component';
 import { ContactComponent } from './contact/contact.component';
 import { SaboresComponent } from './sabores/sabores.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { IcecreamDetailComponent } from './icecream-detail/icecream-detail.component';
-import { ProductsComponent } from './home/components/products/products.component';
 import { CafesproductsComponent } from './cafesproducts/cafesproducts.component';
 import { SnacksproductsComponent } from './snacksproducts/snacksproducts.component';
 import { LayoutComponent } from './layout/layout.component';
