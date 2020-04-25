@@ -5,21 +5,14 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductComponent } from './components/product.component';
 import { CartComponent } from './cart/cart.component';
-import { HighlightDirective } from './highlight.directive';
-import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { IceproductsComponent } from './iceproducts/iceproducts.component';
 import { SaboresComponent } from './sabores/sabores.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { IcecreamDetailComponent } from './icecream-detail/icecream-detail.component';
 import { HeladosComponent } from './components/helados/helados.component';
-import { ProductsComponent } from './products/products.component';
 import { BackeriesComponent } from './components/backeries/backeries.component';
 import { BackeriesproductsComponent } from './backeriesproducts/backeriesproducts.component';
 import { CafesproductsComponent } from './cafesproducts/cafesproducts.component';
@@ -27,38 +20,36 @@ import { CafesComponent } from './components/cafes/cafes.component';
 import { SnacksComponent } from './components/snacks/snacks.component';
 import { SnacksproductsComponent } from './snacksproducts/snacksproducts.component';
 import { LayoutComponent } from './layout/layout.component';
+import { FlavorComponent } from './components/flavor/flavor.component';
 
+
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductComponent,
     CartComponent,
-    HighlightDirective,
-    HomeComponent,
     ContactComponent,
     IceproductsComponent,
     SaboresComponent,
-    HeaderComponent,
-    FooterComponent,
-    SidebarComponent,
     PageNotFoundComponent,
     IcecreamDetailComponent,
     HeladosComponent,
-    ProductsComponent,
     BackeriesComponent,
     BackeriesproductsComponent,
     CafesproductsComponent,
     CafesComponent,
     SnacksComponent,
     SnacksproductsComponent,
-    LayoutComponent
+    LayoutComponent,
+    FlavorComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
