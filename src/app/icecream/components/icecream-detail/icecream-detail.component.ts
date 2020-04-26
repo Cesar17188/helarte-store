@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params} from '@angular/router';
 
-import {HeladosService} from '../core/services/helados/helados.service';
-import { Product } from '../product.model';
+import { HeladosService } from '../../../core/services/helados/helados.service';
+import { Product } from '../../../product.model';
 
 @Component({
   selector: 'app-icecream-detail',

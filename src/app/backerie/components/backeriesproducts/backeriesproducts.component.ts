@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../product.model';
-import { BackeriesService } from '../core/services/backeries/backeries.service';
+import { Product } from '../../../product.model';
+import { BackeriesService } from '../../../core/services/backeries/backeries.service';
 
 @Component({
   selector: 'app-backeriesproducts',
