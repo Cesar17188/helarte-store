@@ -2,37 +2,27 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+import { AppComponent } from './app.component';
+import { LayoutComponent } from './layout/layout.component';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { CartComponent } from './cart/cart.component';
-import { ContactComponent } from './contact/contact.component';
-import { SaboresComponent } from './sabores/sabores.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { SnacksComponent } from './components/snacks/snacks.component';
-import { SnacksproductsComponent } from './snacksproducts/snacksproducts.component';
-import { LayoutComponent } from './layout/layout.component';
-import { FlavorComponent } from './components/flavor/flavor.component';
-
 
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { IcecreamModule } from './icecream/icecream.module';
 import { CafeModule } from './cafe/cafe.module';
 import { BackerieModule } from './backerie/backerie.module';
+import { SnackModule } from './snack/snack.module';
+import { SaborModule } from './sabor/sabor.module';
+import { ContactoModule } from './contacto/contacto.module';
+import { PageNotFoundModule } from './page-not-found/page-not-found.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CartComponent,
-    ContactComponent,
-    SaboresComponent,
-    PageNotFoundComponent,
-    SnacksComponent,
-    SnacksproductsComponent,
     LayoutComponent,
-    FlavorComponent
+
   ],
   imports: [
     BrowserModule,
@@ -43,7 +33,11 @@ import { BackerieModule } from './backerie/backerie.module';
     CoreModule,
     IcecreamModule,
     CafeModule,
-    BackerieModule
+    BackerieModule,
+    SnackModule,
+    SaborModule,
+    ContactoModule,
+    PageNotFoundModule
   ],
   providers: [],
   bootstrap: [AppComponent]

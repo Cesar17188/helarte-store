@@ -1,0 +1,11 @@
+<div>
+    <img [src]="snack.image" alt="">
+</div>
+<div>
+    <ul>
+        <li>Producto: {{snack.producto}}</li>
+        <li>Descripción: {{snack.descripcion_corta}}</li>
+        <li>Precio: {{snack.precioVenta | currency}}</li>
+    </ul>
+    <p>{{snack.description_larga}}</p>
+</div>

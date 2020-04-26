@@ -1,10 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules} from '@angular/router';
 
-import { ContactComponent } from './contact/contact.component';
-import { SaboresComponent } from './sabores/sabores.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { SnacksproductsComponent } from './snacksproducts/snacksproducts.component';
+import { ContactComponent } from './contacto/components/contact/contact.component';
+import { PageNotFoundComponent } from './page-not-found/components/page-not-found/page-not-found.component';
 import { LayoutComponent } from './layout/layout.component';
 
 
@@ -32,7 +30,7 @@ const routes: Routes = [
       },
       {
         path: 'sabores',
-        component: SaboresComponent
+        loadChildren: () => import ('./sabor/sabor.module').then(m => m.SaborModule)
       },
       {
         path: 'backeries',
@@ -44,22 +42,18 @@ const routes: Routes = [
       },
       {
         path: 'snacks',
-        component: SnacksproductsComponent
-      },
-      {
-        path: 'snacks/:codigo',
-        component: SnacksproductsComponent
+        loadChildren: () => import('./snack/snack.module').then(m => m.SnackModule)
       },
       {
         path: 'contacto',
-        component: ContactComponent
-      },
-      {
-        path: '**',
-        component: PageNotFoundComponent
+        loadChildren: () => import('./contacto/contacto.module').then(m => m.ContactoModule)
       },
     ]
   },
+  {
+    path: '**',
+    loadChildren: () => import('./page-not-found/page-not-found.module').then(m => m.PageNotFoundModule)
+  }
 ];
 
 @NgModule({
