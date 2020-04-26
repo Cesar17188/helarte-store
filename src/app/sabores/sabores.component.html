@@ -1,0 +1,6 @@
+
+<div class="product-grid">
+    <app-flavor *ngFor="let sabor of sabores" 
+     (productAdd)="clickProduct($event)"
+    [product]='sabor'></app-flavor>  
+</div>

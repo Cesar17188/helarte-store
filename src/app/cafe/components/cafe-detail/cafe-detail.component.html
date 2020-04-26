@@ -1,0 +1,11 @@
+<div>
+    <img [src]="cafe.image" alt="">
+</div>
+<div>
+    <ul>
+        <li>Producto: {{cafe.producto}}</li>
+        <li>Descripción: {{cafe.descripcion_corta}}</li>
+        <li>Precio: {{cafe.precioVenta | currency}}</li>
+    </ul>
+    <p>{{cafe.description_larga}}</p>
+</div>

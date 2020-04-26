@@ -1,0 +1,7 @@
+<h3>{{ product.producto | uppercase }}</h3>
+<h3>{{ product.descripcion_corta }}</h3>
+<img [src]="product.image" alt="">
+<strong>{{product.precioCompra | currency }}</strong>
+<p>{{ product.description_larga | slice:0:20 }}</p>
+<p>{{ today | date: 'HH:mm' }}</p>
+<a [routerLink]="['/snacks', product.codigo]">Elegir el producto</a>

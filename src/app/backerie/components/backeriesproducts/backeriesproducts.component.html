@@ -1,0 +1,5 @@
+<div class="product-grid">
+    <app-backeries *ngFor="let backerie of backeries" 
+    (productAdd)="clickProduct($event)" 
+    [product]='backerie'></app-backeries>  
+</div>
