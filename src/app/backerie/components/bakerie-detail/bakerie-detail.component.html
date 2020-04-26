@@ -1,1 +1,11 @@
-<p>bakerie-detail works!</p>
+<div>
+    <img [src]="backerie.image" alt="">
+</div>
+<div>
+    <ul>
+        <li>Producto: {{backerie.producto}}</li>
+        <li>Descripción: {{backerie.descripcion_corta}}</li>
+        <li>Precio: {{backerie.precioVenta | currency}}</li>
+    </ul>
+    <p>{{backerie.description_larga}}</p>
+</div>
