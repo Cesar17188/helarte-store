@@ -17,6 +17,8 @@ import { SnackModule } from './snack/snack.module';
 import { SaborModule } from './sabor/sabor.module';
 import { ContactoModule } from './contacto/contacto.module';
 import { PageNotFoundModule } from './page-not-found/page-not-found.module';
+import { MaterialModule } from './material/material.module';
+
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { PageNotFoundModule } from './page-not-found/page-not-found.module';
     SnackModule,
     SaborModule,
     ContactoModule,
-    PageNotFoundModule
+    PageNotFoundModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

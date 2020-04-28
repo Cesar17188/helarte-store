@@ -8,7 +8,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CartComponent } from './components/cart/cart.component';
 
 import { HighlightDirective } from './directives/highlight/highlight.directive';
-
+import { MaterialModule } from './../material/material.module';
 
 
 
@@ -22,7 +22,8 @@ import { HighlightDirective } from './directives/highlight/highlight.directive';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    MaterialModule
   ],
   exports: [
     HeaderComponent,
