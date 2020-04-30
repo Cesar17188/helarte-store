@@ -35,7 +35,20 @@
        `<body>` to be our scrolling element for mobile layouts. */
     flex: 1 0 auto;
   }
-  
-  a.active {
-    background-color: blue;
+
+  mat-sidenav {
+    background: -webkit-linear-gradient(left, 
+    rgba(147,206,222,1) 0%, 
+    rgba(117,189,209,0.68) 41%, 
+    rgba(51,255,238,0.21) 100%);
+  }
+
+  mat-sidenav mat-nav-list > a {
+  padding-bottom: 5px;
+  text-decoration: none;
+}
+
+mat-sidenav mat-nav-list > a.active {
+    background: -webkit-linear-gradient(left, rgba(181,238,226,1) 0%, rgba(42,229,179,0.78) 42%, rgba(75,231,190,0.72) 53%, rgba(190,239,228,0.72) 91%);
+
 }
