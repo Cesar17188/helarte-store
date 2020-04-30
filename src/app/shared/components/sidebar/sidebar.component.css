@@ -49,6 +49,27 @@
 }
 
 mat-sidenav mat-nav-list > a.active {
-    background: -webkit-linear-gradient(left, rgba(181,238,226,1) 0%, rgba(42,229,179,0.78) 42%, rgba(75,231,190,0.72) 53%, rgba(190,239,228,0.72) 91%);
+    background: -webkit-linear-gradient(left, 
+    rgba(181,238,226,1) 0%,
+    rgba(42,229,179,0.78) 42%,
+    rgba(75,231,190,0.72) 53%, 
+    rgba(190,239,228,0.72) 91%);
 
 }
+
+mat-toolbar{
+  background: -webkit-linear-gradient(-45deg, 
+  rgba(183,222,237,0.55) 11%, 
+  rgba(113,206,239,0.55) 23%,
+  rgba(96,200,236,0.55) 30%,
+  rgba(33,180,226,0.8) 55%, 
+  rgba(110,202,232,1) 75%, 
+  rgba(183,222,237,1) 94%);
+  
+}
+
+mat-toolbar app-header{
+  display: inherit;
+  width: 90%;
+}
+

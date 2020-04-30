@@ -1,7 +1,12 @@
-nav > a {
-    padding: 5px;
-    text-decoration: none;
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Damion&family=Fredoka+One&display=swap');
+span{
+    margin: auto;
 }
-nav > a.active {
-    background-color: blue;
+span h1{
+    font-family: 'Aclonica', sans-serif;
+    font-size: xx-large;
+}
+img{
+    width: 80px;
+    border-radius: 35px;
 }
