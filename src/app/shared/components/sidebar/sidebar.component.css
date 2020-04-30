@@ -6,6 +6,7 @@
     bottom: 0;
     left: 0;
     right: 0;
+    
   }
   
   .example-is-mobile .example-toolbar {
@@ -22,6 +23,11 @@
     /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
        causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
     flex: 1;
+    padding: 0px;
+    margin: 0px;
+    background-image: url('./../../../../assets/images/fondo.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
   }
   
   .example-is-mobile .example-sidenav-container {
