@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  title = 'helarte';
+  title = 'helados y crepes';
   constructor() { }
 
   ngOnInit(): void {

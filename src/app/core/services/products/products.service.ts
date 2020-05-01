@@ -21,7 +21,7 @@ export class ProductsService {
   {
     codigo: 'p3',
     image: 'assets/images/hchocolate.jpg',
-    producto: 'backeries',
+    producto: 'crepes',
     descripcion_corta: 'Exquisitos bocadillos y postres',
   },
   {

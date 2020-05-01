@@ -1,12 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Damion&family=Fredoka+One&display=swap');
+
+
 span{
     margin: auto;
 }
 span h1{
     font-family: 'Aclonica', sans-serif;
     font-size: xx-large;
+    color: #D2691E;
 }
 img{
-    width: 80px;
+    max-width: 80px;
     border-radius: 35px;
+    margin-left: 15px;
 }

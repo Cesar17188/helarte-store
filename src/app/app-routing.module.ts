@@ -31,7 +31,7 @@ const routes: Routes = [
         loadChildren: () => import ('./sabor/sabor.module').then(m => m.SaborModule)
       },
       {
-        path: 'backeries',
+        path: 'crepes',
         loadChildren: () => import('./backerie/backerie.module').then(m => m.BackerieModule)
       },
       {

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Rum+Raisin&display=swap');
+
 .example-container {
     display: flex;
     flex-direction: column;
@@ -46,6 +48,8 @@
   mat-sidenav mat-nav-list > a {
   padding-bottom: 5px;
   text-decoration: none;
+  font-family: 'Rum Raisin', sans-serif;
+  font-size: large;
 }
 
 mat-sidenav mat-nav-list > a.active {
