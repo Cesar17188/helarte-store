@@ -6,9 +6,17 @@ span{
 }
 span h1{
     font-family: 'Aclonica', sans-serif;
-    font-size: xx-large;
+    font-size: medium;
     color: #D2691E;
 }
+@media(min-width: 768px) {
+    span h1{
+        font-family: 'Aclonica', sans-serif;
+        font-size: xx-large;
+        color: #D2691E;
+    }
+}
+
 img{
     max-width: 80px;
     border-radius: 35px;

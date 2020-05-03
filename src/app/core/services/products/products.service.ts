@@ -11,24 +11,28 @@ export class ProductsService {
         image: 'assets/images/hchocolate.jpg',
         producto: 'helados',
         descripcion_corta: 'Helados de casa',
+        description_larga: 'Deliciosos helados preparados con sabores naturales'
     },
     {
       codigo: 'p2',
-      image: 'assets/images/hvainilla.jpg',
+      image: 'assets/images/cafe.jpg',
       producto: 'cafes',
       descripcion_corta: 'Cafes para suavizar tu día',
+      description_larga: 'Relajantes cafes preparados con grano ecuatoriano molido'
   },
   {
     codigo: 'p3',
-    image: 'assets/images/hchocolate.jpg',
+    image: 'assets/images/crepes.jpg',
     producto: 'crepes',
-    descripcion_corta: 'Exquisitos bocadillos y postres',
+    descripcion_corta: 'Exquisitos crepes',
+    description_larga: 'Exóticos crepes con sabores de dulce y sal para experimentar y disfrutar'
   },
   {
     codigo: 'p4',
-    image: 'assets/images/hchocolate.jpg',
+    image: 'assets/images/snacks.jpg',
     producto: 'snacks',
     descripcion_corta: 'Snacks para acompañar en el camino',
+    description_larga: 'Bocaditos para llevar en el camino y disfrutar donde quieras'
   },
 ];
   constructor() { }

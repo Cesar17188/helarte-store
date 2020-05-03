@@ -7,13 +7,13 @@
             {{ product.descripcion_corta }}
         </mat-card-subtitle>
     </mat-card-header>
-    <img [src]="product.image" alt="">
-    <mat-card-content class="content">
-        <p>{{ product.description_larga | slice:0:20 }}</p>
-    </mat-card-content>   
+    <a [routerLink]="'/'+[product.producto]"> <mat-card-content class="content">
+        <img [src]="product.image" alt="">
+        <p class="descripcion"><strong>{{ product.description_larga}}</strong></p>
+    </mat-card-content> </a>  
     <mat-card-actions>
         <!-- <p>{{ today | date: 'HH:mm' }}</p> -->
-        <a [routerLink]="'/'+[product.producto]">Elegie tu favorito</a>
+        <a mat-raised-button  color="warn" [routerLink]="'/'+[product.producto]">Elige tus {{product.producto}}</a>
     </mat-card-actions>
 </mat-card>
 
