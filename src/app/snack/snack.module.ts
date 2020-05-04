@@ -7,6 +7,7 @@ import { SnacksproductsComponent } from './components/snacksproducts/snacksprodu
 
 import { SnackRoutingModule } from './snacks-routing.module';
 import { SharedModule } from './../shared/shared.module';
+import { MaterialModule } from './../material/material.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SharedModule } from './../shared/shared.module';
   imports: [
     CommonModule,
     SnackRoutingModule,
-    SharedModule
+    SharedModule,
+    MaterialModule
   ]
 })
 export class SnackModule { }

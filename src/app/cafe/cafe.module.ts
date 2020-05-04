@@ -7,6 +7,7 @@ import { CafesproductsComponent } from './components/cafesproducts/cafesproducts
 
 import { CafeRoutingModule } from './cafe-routing.module';
 import { SharedModule } from './../shared/shared.module';
+import { MaterialModule } from './../material/material.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SharedModule } from './../shared/shared.module';
   imports: [
     CommonModule,
     CafeRoutingModule,
-    SharedModule
+    SharedModule,
+    MaterialModule
   ]
 })
 export class CafeModule { }

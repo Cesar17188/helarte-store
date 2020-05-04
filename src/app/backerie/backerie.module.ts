@@ -7,6 +7,7 @@ import { BackeriesproductsComponent } from './components/backeriesproducts/backe
 
 import { BackerieRoutingModule } from './backerie-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { MaterialModule } from './../material/material.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     BackerieRoutingModule,
-    SharedModule
+    SharedModule,
+    MaterialModule
   ]
 })
 export class BackerieModule { }

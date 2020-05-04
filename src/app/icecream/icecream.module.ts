@@ -7,17 +7,19 @@ import { HeladosComponent } from './components/helados/helados.component';
 
 import { IceCreamRoutingModule } from './icecream-routing.module';
 import { SharedModule } from './../shared/shared.module';
+import { MaterialModule } from './../material/material.module';
 
 @NgModule({
   declarations: [
     IceproductsComponent,
     IcecreamDetailComponent,
-    HeladosComponent
+    HeladosComponent,
   ],
   imports: [
     CommonModule,
     IceCreamRoutingModule,
-    SharedModule
+    SharedModule,
+    MaterialModule
   ]
 })
 export class IcecreamModule { }
