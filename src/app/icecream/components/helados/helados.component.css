@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Rum+Raisin&display=swap');
 
 @media(min-width: 768px) {
-
     .example-card {
         max-width: 500px;
         margin: 2px;

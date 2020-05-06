@@ -1,11 +1,23 @@
-<div>
-    <img [src]="helado.image" alt="">
-</div>
-<div>
-    <ul>
-        <li>Producto: {{helado.producto}}</li>
-        <li>Descripción: {{helado.descripcion_corta}}</li>
-        <li>Precio: {{helado.precioVenta | currency}}</li>
-    </ul>
-    <p>{{helado.description_larga}}</p>
+<div class="container">
+    <mat-card class="example-card">
+        <mat-card-header>
+           <h1>{{helado.producto | titlecase}}</h1> 
+        </mat-card-header>
+    <mat-card-content>
+        <div class="img">
+            <img [src]="helado.image" alt="">
+        </div>
+        <div class="descr">
+            <ul>
+                <li>Producto: {{helado.producto}}</li>
+                <li>Descripción: {{helado.descripcion_corta}}</li>
+                <li>Precio: {{helado.precioVenta | currency}}</li>
+                <li><p>{{helado.description_larga}}</p></li>
+            </ul>
+        </div>
+    
+</mat-card-content>
+
+</mat-card>
+
 </div>
