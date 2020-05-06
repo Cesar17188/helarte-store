@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Rum+Raisin&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 
 @media(min-width: 768px) {
     .example-card {
@@ -8,6 +9,32 @@
         border-radius: 5px;
         position: relative;
         display: block;
+      }
+      .img .descr{
+        display: block;
+      }
+      
+      ul{
+        display: grid;
+      }
+      .sabor{
+        display: grid;
+        padding-left: 20px;
+      }
+      .img {
+        margin-top: 3px;
+        background-size: cover;
+        border-radius: 15px;
+        border: 1px solid white;
+        width: 50%;
+        margin-bottom: 0;
+        padding-bottom: 0;
+        float: left;
+      }
+      .header{
+        font-family: 'Rum Raisin', sans-serif;
+        justify-content: center;
+        color: #D2691E;
       }
 }
 @media(min-width: 1024px) {
@@ -32,11 +59,9 @@
       }
 }
 
-mat-card-header{
+.header {
   font-family: 'Rum Raisin', sans-serif;
-  justify-content: center;
   color: #D2691E;
-  
 }
 
 .container{
@@ -50,22 +75,18 @@ mat-card-header{
   rgba(51,255,238,0.21) 100%);
   display: inline-block;
 }
-.img .descr{
-  display: block;
-}
 
-ul{
-  display: grid;
+ul li{
+  font-family: 'Satisfy', cursive;
+  font-size: large;
 }
-
 img {
   margin-top: 3px;
   background-size: cover;
   border-radius: 15px;
   border: 1px solid white;
-  width: 50%;
+  width: 100%; 
   margin-bottom: 0;
   padding-bottom: 0;
-  float: left;
 }
 
