@@ -81,7 +81,7 @@ mat-toolbar{
 }
 
 mat-toolbar app-header{
-  display: inherit;
+  display: contents;
   width: 90%;
 }
 
