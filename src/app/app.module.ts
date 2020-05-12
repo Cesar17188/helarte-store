@@ -14,7 +14,6 @@ import { IcecreamModule } from './icecream/icecream.module';
 import { CafeModule } from './cafe/cafe.module';
 import { BackerieModule } from './backerie/backerie.module';
 import { SnackModule } from './snack/snack.module';
-import { SaborModule } from './sabor/sabor.module';
 import { ContactoModule } from './contacto/contacto.module';
 import { PageNotFoundModule } from './page-not-found/page-not-found.module';
 import { MaterialModule } from './material/material.module';
@@ -37,7 +36,6 @@ import { MaterialModule } from './material/material.module';
     CafeModule,
     BackerieModule,
     SnackModule,
-    SaborModule,
     ContactoModule,
     PageNotFoundModule,
     MaterialModule

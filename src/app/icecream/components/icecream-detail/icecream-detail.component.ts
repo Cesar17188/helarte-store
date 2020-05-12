@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params} from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 import { HeladosService } from '../../../core/services/helados/helados.service';
 import { Product } from '../../../product.model';
 import { stringify } from 'querystring';
+import { SaboresComponent } from '../sabores/sabores.component';
 
 @Component({
   selector: 'app-icecream-detail',
@@ -18,7 +19,8 @@ export class IcecreamDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private heladosService: HeladosService
+    private heladosService: HeladosService,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -29,7 +31,9 @@ export class IcecreamDetailComponent implements OnInit {
       this.sabor = sabor(this.helado.codigo);
     });
   }
-
+  selectFlavor(){
+    this.dialog.open(SaboresComponent);
+  }
 }
 
 function sabor(codigo: string){
@@ -53,3 +57,4 @@ function sabor(codigo: string){
   }
   return title;
 }
+

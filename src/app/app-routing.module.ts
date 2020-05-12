@@ -27,10 +27,6 @@ const routes: Routes = [
         loadChildren: () => import('./icecream/icecream.module').then(m => m.IcecreamModule)
       },
       {
-        path: 'sabores',
-        loadChildren: () => import ('./sabor/sabor.module').then(m => m.SaborModule)
-      },
-      {
         path: 'crepes',
         loadChildren: () => import('./backerie/backerie.module').then(m => m.BackerieModule)
       },
