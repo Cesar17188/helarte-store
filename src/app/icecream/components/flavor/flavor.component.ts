@@ -1,5 +1,8 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, Inject } from '@angular/core';
 import { Product } from '../../../product.model';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DialogData } from '../icecream-detail/icecream-detail.component';
+import { SaboresComponent } from '../sabores/sabores.component';
 
 @Component({
   selector: 'app-flavor',
@@ -10,12 +13,25 @@ export class FlavorComponent implements OnInit {
   @Input() product: Product;
   @Output() productAdd: EventEmitter<any> = new EventEmitter();
 
+    constructor(
+    public dialogRef: MatDialogRef<SaboresComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData
+    ) {
+    }
+
   today = new Date();
   addcart() {
       console.log('añadir al carrito');
       this.productAdd.emit(this.product.codigo);
   }
   ngOnInit(): void {
+  }
+
+  select(): void{
+    this.data.codflavor = this.product.codigo;
+  }
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
 }

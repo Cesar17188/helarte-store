@@ -6,6 +6,13 @@ import { HeladosService } from '../../../core/services/helados/helados.service';
 import { Product } from '../../../product.model';
 import { stringify } from 'querystring';
 import { SaboresComponent } from '../sabores/sabores.component';
+import { SaboresService } from 'src/app/core/services/sabores/sabores.service';
+
+
+export interface DialogData {
+  sabor: Product;
+  codflavor: string;
+}
 
 @Component({
   selector: 'app-icecream-detail',
@@ -15,12 +22,15 @@ import { SaboresComponent } from '../sabores/sabores.component';
 export class IcecreamDetailComponent implements OnInit {
 
   helado: Product;
-  sabor: string;
+  sabor: Product;
+  cono: string;
+  codflavor: string;
 
   constructor(
     private route: ActivatedRoute,
     private heladosService: HeladosService,
-    private dialog: MatDialog
+    private saborService: SaboresService,
+    public dialog: MatDialog,
   ) {}
 
   ngOnInit(): void {
@@ -28,15 +38,29 @@ export class IcecreamDetailComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       const codigo = params.codigo;
       this.helado = this.heladosService.getIceCream(codigo);
-      this.sabor = sabor(this.helado.codigo);
+      this.cono = cono(codigo);
     });
   }
-  selectFlavor(){
-    this.dialog.open(SaboresComponent);
+
+  selectFlavor(): void{
+    const dialogRef = this.dialog.open(SaboresComponent, {
+      width: '60%',
+      data: {
+        codflavor: this.codflavor,
+        sabor: this.saborService.getFlavor(this.codflavor),
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.codflavor = result;
+      this.sabor = this.saborService.getFlavor(this.codflavor);
+      console.log( this.sabor );
+    });
   }
 }
 
-function sabor(codigo: string){
+function cono(codigo: string){
   let title: string;
   switch (codigo){
     case 'h2':

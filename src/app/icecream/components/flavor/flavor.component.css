@@ -1,10 +1,38 @@
-:host {
-    margin: 2px;
-    border: 1px solid black;
-    border-radius: 5px;
-    display: block;
+@media(min-width: 760px) {
+    .sabor {
+        max-width: 500px;
+        margin: 2px;
+        border: 1px solid white;
+        border-radius: 5px;
+        position: relative;
+        display: inline-block;
+      }
+      img {
+        margin-top: 3px;
+        background-size: cover;
+        border-radius: 15px;
+        border: 1px solid white;
+        width: 100%; 
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
 }
 
-img {
-    width: 100%;
-}
+.sabor {
+    max-width: 500px;
+    margin: 2px;
+    border: 1px solid white;
+    border-radius: 5px;
+    position: relative;
+    display: inline-block;
+    
+  }
+ img {
+    margin-top: 3px;
+    background-size: cover;
+    border-radius: 15px;
+    border: 1px solid white;
+    width: 100%; 
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
