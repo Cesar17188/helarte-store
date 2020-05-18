@@ -36,6 +36,11 @@
         justify-content: center;
         color: #D2691E;
       }
+
+      .sabor img{
+        width: 20%;
+        border-radius: 60px;
+      }
 }
 @media(min-width: 1024px) {
     .example-card {

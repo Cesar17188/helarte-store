@@ -13,7 +13,7 @@
                     <h2>{{cono}}</h2>
                     <h4 *ngIf="sabor">{{sabor.producto}}</h4>
                     <img *ngIf="sabor" [src]="sabor.image" alt="">
-                    <button mat-raised-button (click)="selectFlavor()">
+                    <button mat-fab color="warn" mat-raised-button (click)="selectFlavor()">
                         Sabor
                     </button>
                 </div>

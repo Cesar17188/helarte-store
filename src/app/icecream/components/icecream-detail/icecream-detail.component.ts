@@ -44,7 +44,7 @@ export class IcecreamDetailComponent implements OnInit {
 
   selectFlavor(): void{
     const dialogRef = this.dialog.open(SaboresComponent, {
-      width: '60%',
+      width: '50%',
       data: {
         codflavor: this.codflavor,
         sabor: this.saborService.getFlavor(this.codflavor),
