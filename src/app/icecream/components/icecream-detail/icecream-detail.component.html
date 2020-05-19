@@ -13,9 +13,25 @@
                     <h2>{{cono}}</h2>
                     <h4 *ngIf="sabor">{{sabor.producto}}</h4>
                     <img *ngIf="sabor" [src]="sabor.image" alt="">
-                    <button mat-fab color="warn" mat-raised-button (click)="selectFlavor()">
-                        Sabor
+                    <button mat-raised-button color="warn" mat-raised-button (click)="selectFlavor()">
+                        Sabor 1
                     </button>
+                    <h4 *ngIf="sabor2">{{sabor2.producto}}</h4>
+                    <img *ngIf="sabor2" [src]="sabor2.image" alt="">
+                    <button *ngIf="EneFlavorDos; else elseBlock1" mat-raised-button color="warn" mat-raised-button (click)="selectFlavordos()">
+                        Sabor 2
+                    </button>
+                    <ng-template #elseBlock1>
+                        <button mat-raised-button disabled>Sabor 2</button>
+                    </ng-template>
+                    <h4 *ngIf="sabor3">{{sabor3.producto}}</h4>
+                    <img *ngIf="sabor3" [src]="sabor3.image" alt="">
+                    <button *ngIf="EneFlavorTres; else elseBlock2 "mat-raised-button color="warn" mat-raised-button (click)="selectFlavortres()">
+                        Sabor 3
+                    </button>
+                    <ng-template #elseBlock2>
+                        <button mat-raised-button disabled>Sabor 3</button>
+                    </ng-template>
                 </div>
             <ul>
                 <li>Producto: {{helado.producto}}</li>

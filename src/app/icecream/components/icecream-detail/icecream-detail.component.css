@@ -36,10 +36,12 @@
         justify-content: center;
         color: #D2691E;
       }
-
       .sabor img{
-        width: 20%;
-        border-radius: 60px;
+        width: 33%;
+        border-radius: 27px;
+      }
+      .sabor h2{
+        text-align: center;
       }
 }
 @media(min-width: 1024px) {
@@ -95,6 +97,7 @@ img {
   padding-bottom: 0;
 }
 
-#saborh{
-  width: 80px;
+.sabor{
+  padding-left: 20px;
 }
+

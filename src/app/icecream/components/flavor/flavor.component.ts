@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, Inject } from '@angular/core';
 import { Product } from '../../../product.model';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { DialogData } from '../icecream-detail/icecream-detail.component';
+import { DialogData, DialogDatados, DialogDatatres } from '../icecream-detail/icecream-detail.component';
 import { SaboresComponent } from '../sabores/sabores.component';
 
 @Component({
@@ -15,7 +15,9 @@ export class FlavorComponent implements OnInit {
 
     constructor(
     public dialogRef: MatDialogRef<SaboresComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+    @Inject(MAT_DIALOG_DATA) public datados: DialogDatados,
+    @Inject(MAT_DIALOG_DATA) public datatres: DialogDatatres,
     ) {
     }
 
