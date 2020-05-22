@@ -37,12 +37,30 @@
         color: #D2691E;
       }
       .sabor img{
-        width: 33%;
-        border-radius: 27px;
+        width: 65%;
+        border-radius: 12px;
       }
-      .sabor h2{
+      .descr h2{
+        font-family: 'Rum Raisin', sans-serif;
+        text-align: center;
+
+      }
+      .sabor div{
+        width: 150px;
+        padding: 0 0;
+        margin: 0;
+      }
+      #sabor1, #sabor2, #sabor3 {
         text-align: center;
       }
+      .sabor h3{
+        font-family: 'Satisfy', cursive;
+        margin-bottom: 10px;
+      }
+      .sabor button{
+        font-family: 'Rum Raisin', sans-serif;
+      }
+      
 }
 @media(min-width: 1024px) {
     .example-card {
@@ -72,7 +90,7 @@
 }
 
 .container{
-  margin-top: 5px;
+  margin: 0px;
   width: 100%;
 }
 .example-card {
@@ -99,5 +117,33 @@ img {
 
 .sabor{
   padding-left: 20px;
+  display: flex;
 }
 
+.sabor div{
+  width: 90%;
+  padding: 0 0;
+  margin: 0;
+  text-align: center;
+}
+
+.descr h2{
+  text-align: center;
+  margin: 0px;
+}
+.sabor h3{
+  font-family: 'Satisfy', cursive;
+  margin-bottom: 10px;
+}
+.sabor button{
+  font-family: 'Rum Raisin', sans-serif;
+  width: 95%;
+}
+
+mat-card-actions {
+  text-align: center;
+}
+
+mat-card-actions button{
+  font-family: 'Rum Raisin', sans-serif;
+}

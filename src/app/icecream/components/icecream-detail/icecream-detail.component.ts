@@ -153,6 +153,8 @@ function EneFlavorDos(codigo: string){
   return flag;
 }
 
+
+// Función de bandera con booleano para habilitar el sabor tres
 function EneFlavorTres(codigo: string){
   let flag: boolean;
   switch (codigo){

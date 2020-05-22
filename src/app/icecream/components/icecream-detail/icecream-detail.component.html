@@ -9,41 +9,51 @@
         </div>
         <div class="descr">
             <strong>
+                <h2>{{cono}}</h2>
                 <div class="sabor" >
-                    <h2>{{cono}}</h2>
-                    <h4 *ngIf="sabor">{{sabor.producto}}</h4>
-                    <img *ngIf="sabor" [src]="sabor.image" alt="">
-                    <button mat-raised-button color="warn" mat-raised-button (click)="selectFlavor()">
-                        Sabor 1
-                    </button>
-                    <h4 *ngIf="sabor2">{{sabor2.producto}}</h4>
-                    <img *ngIf="sabor2" [src]="sabor2.image" alt="">
-                    <button *ngIf="EneFlavorDos; else elseBlock1" mat-raised-button color="warn" mat-raised-button (click)="selectFlavordos()">
-                        Sabor 2
-                    </button>
-                    <ng-template #elseBlock1>
-                        <button mat-raised-button disabled>Sabor 2</button>
-                    </ng-template>
-                    <h4 *ngIf="sabor3">{{sabor3.producto}}</h4>
-                    <img *ngIf="sabor3" [src]="sabor3.image" alt="">
-                    <button *ngIf="EneFlavorTres; else elseBlock2 "mat-raised-button color="warn" mat-raised-button (click)="selectFlavortres()">
-                        Sabor 3
-                    </button>
-                    <ng-template #elseBlock2>
-                        <button mat-raised-button disabled>Sabor 3</button>
-                    </ng-template>
+                    <div id="sabor1">
+                        <h3 *ngIf="sabor">{{sabor.producto}}</h3>
+                        <img *ngIf="sabor" [src]="sabor.image" alt="">
+                        <button mat-raised-button color="warn" mat-raised-button (click)="selectFlavor()">
+                            Sabor 1
+                        </button>
+                    </div>
+                    <div id="sabor2">
+                        <h3 *ngIf="sabor2">{{sabor2.producto}}</h3>
+                        <img *ngIf="sabor2" [src]="sabor2.image" alt="">
+                        <button *ngIf="EneFlavorDos; else elseBlock1" mat-raised-button color="warn" mat-raised-button (click)="selectFlavordos()">
+                            Sabor 2
+                        </button>
+                        <ng-template #elseBlock1>
+                            <button mat-raised-button disabled>Sabor 2</button>
+                        </ng-template>
+                    </div>
+                    <div id="sabor3">
+                        <h3 *ngIf="sabor3">{{sabor3.producto}}</h3>
+                        <img *ngIf="sabor3" [src]="sabor3.image" alt="">
+                        <button *ngIf="EneFlavorTres; else elseBlock2 "mat-raised-button color="warn" mat-raised-button (click)="selectFlavortres()">
+                            Sabor 3
+                        </button>
+                        <ng-template #elseBlock2>
+                            <button mat-raised-button disabled>Sabor 3</button>
+                        </ng-template>
+                    </div>
                 </div>
             <ul>
                 <li>Producto: {{helado.producto}}</li>
                 <li>Descripción: {{helado.descripcion_corta}}</li>
                 <li>Precio: {{helado.precioVenta | currency}}</li>  
             </ul>
-            
         </strong>
         </div>
-    
 </mat-card-content>
-
+<mat-card-actions>
+    <button mat-flat-button color="primary">
+        Añadir al carrito
+        <span class="material-icons">
+            shopping_cart
+            </span>
+    </button>
+</mat-card-actions>
 </mat-card>
-
 </div>
