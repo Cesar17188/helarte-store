@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 
 @media(min-width: 768px) {
-    .example-card {
+    .icecream-card {
         max-width: 100%;
         margin: 2px;
         border: 1px solid white;
@@ -63,7 +63,7 @@
       
 }
 @media(min-width: 1024px) {
-    .example-card {
+    .icecream-card {
         min-width: 400px;
         max-width: 100%;
         margin: 2px;
@@ -74,7 +74,7 @@
 }
 
 @media(min-width: 1400px) {
-    .example-card {
+    .icecream-card {
         min-width: 300px;
         max-width: 100%;
         margin: 2px;
@@ -93,7 +93,7 @@
   margin: 0px;
   width: 100%;
 }
-.example-card {
+.icecream-card {
   background: -webkit-linear-gradient(left, 
   rgba(147,206,222,1) 0%, 
   rgba(117,189,209,0.68) 41%, 
