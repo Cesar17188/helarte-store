@@ -29,9 +29,9 @@ export class ToppingSalService {
     {
       codigo: 'ts3',
       image: 'assets/images/hchocolate.jpg',
-      producto: 'Peperoni',
-      descripcion_corta: 'Complemento de peperoni',
-      description_larga: 'Complementa tu elección con el sabor de peperoni',
+      producto: 'Pollo',
+      descripcion_corta: 'Complemento de pollo',
+      description_larga: 'Complementa tu elección con el sabor de pollo',
       stock: 100,
       unidadMedida: 'unidad',
       precioCompra: 15
