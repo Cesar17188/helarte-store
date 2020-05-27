@@ -37,7 +37,7 @@
        `<body>` to be our scrolling element for mobile layouts. */
     flex: 1 ;
     padding: 0px;
-    margin: 0px;
+    margin-top: 110px;
     background-image: url('./../../../../assets/images/fondo.jpg');
     background-repeat: no-repeat;
     background-size: 100%;
@@ -70,6 +70,8 @@ mat-sidenav mat-nav-list span{
   padding-left: 5px;
 }
 mat-toolbar{
+
+  height: auto;
   background: -webkit-linear-gradient(-45deg, 
   rgba(183,222,237,0.55) 11%, 
   rgba(113,206,239,0.55) 23%,

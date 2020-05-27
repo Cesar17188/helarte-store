@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @NgModule({
   declarations: [],
@@ -26,7 +27,8 @@ import { MatTableModule } from '@angular/material/table';
     MatButtonModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatTableModule
+    MatTableModule,
+    MatBadgeModule
   ],
   exports: [
     MatSidenavModule,
@@ -39,7 +41,8 @@ import { MatTableModule } from '@angular/material/table';
     MatButtonModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatTableModule
+    MatTableModule,
+    MatBadgeModule
   ]
 })
 export class MaterialModule { }

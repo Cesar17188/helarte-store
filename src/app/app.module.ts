@@ -17,12 +17,24 @@ import { SnackModule } from './snack/snack.module';
 import { ContactoModule } from './contacto/contacto.module';
 import { PageNotFoundModule } from './page-not-found/page-not-found.module';
 import { MaterialModule } from './material/material.module';
+import { BebidasComponent } from './bebida/components/bebidas/bebidas.component';
+import { BebidasproductsComponent } from './bebida/components/bebidasproducts/bebidasproducts.component';
+import { BebidadetailComponent } from './bebida/components/bebidadetail/bebidadetail.component';
+import { ShakedetailComponent } from './shake/components/shakedetail/shakedetail.component';
+import { ShakesComponent } from './shake/components/shakes/shakes.component';
+import { ShakesproductsComponent } from './shake/components/shakesproducts/shakesproducts.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LayoutComponent,
+    BebidasComponent,
+    BebidasproductsComponent,
+    BebidadetailComponent,
+    ShakedetailComponent,
+    ShakesComponent,
+    ShakesproductsComponent,
 
   ],
   imports: [
