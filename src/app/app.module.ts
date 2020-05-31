@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
@@ -17,24 +19,14 @@ import { SnackModule } from './snack/snack.module';
 import { ContactoModule } from './contacto/contacto.module';
 import { PageNotFoundModule } from './page-not-found/page-not-found.module';
 import { MaterialModule } from './material/material.module';
-import { BebidasComponent } from './bebida/components/bebidas/bebidas.component';
-import { BebidasproductsComponent } from './bebida/components/bebidasproducts/bebidasproducts.component';
-import { BebidadetailComponent } from './bebida/components/bebidadetail/bebidadetail.component';
-import { ShakedetailComponent } from './shake/components/shakedetail/shakedetail.component';
-import { ShakesComponent } from './shake/components/shakes/shakes.component';
-import { ShakesproductsComponent } from './shake/components/shakesproducts/shakesproducts.component';
+import { ShakeModule } from './shake/shake.module';
+import { BebidaModule } from './bebida/bebida.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LayoutComponent,
-    BebidasComponent,
-    BebidasproductsComponent,
-    BebidadetailComponent,
-    ShakedetailComponent,
-    ShakesComponent,
-    ShakesproductsComponent,
 
   ],
   imports: [
@@ -48,9 +40,12 @@ import { ShakesproductsComponent } from './shake/components/shakesproducts/shake
     CafeModule,
     BackerieModule,
     SnackModule,
+    ShakeModule,
+    BebidaModule,
     ContactoModule,
     PageNotFoundModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

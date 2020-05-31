@@ -12,6 +12,10 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+
 
 @NgModule({
   declarations: [],
@@ -28,7 +32,11 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatDialogModule,
     MatFormFieldModule,
     MatTableModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatInputModule,
+    MatSelectModule,
+    MatRadioModule,
+
   ],
   exports: [
     MatSidenavModule,
@@ -42,7 +50,11 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatDialogModule,
     MatFormFieldModule,
     MatTableModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatInputModule,
+    MatSelectModule,
+    MatRadioModule,
+
   ]
 })
 export class MaterialModule { }
