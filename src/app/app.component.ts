@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { Product } from './product.model';
 
 @Component({
@@ -7,6 +8,7 @@ import { Product } from './product.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  constructor(firestore: AngularFirestore){}
   title = 'helarte-store';
 
 }

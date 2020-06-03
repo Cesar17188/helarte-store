@@ -56,7 +56,16 @@ export class HeladosService {
   {
     codigo: 'h6',
     image: 'assets/images/hchocolate.jpg',
-    producto: 'Milshake',
+    producto: 'Medio Litro',
+    sabores: [],
+    descripcion_corta: 'Vaso con un combinación de un sabor de helado con leche',
+    unidadMedida: 'unidad',
+    precioVenta: 2.50
+  },
+  {
+    codigo: 'h7',
+    image: 'assets/images/hchocolate.jpg',
+    producto: 'Litro',
     sabores: [],
     descripcion_corta: 'Vaso con un combinación de un sabor de helado con leche',
     unidadMedida: 'unidad',

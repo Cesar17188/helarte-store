@@ -10,7 +10,5 @@ export class AuthService {
     private afa: AngularFireAuth
   ) { }
 
-  createUser() {
-    this.afa.authState
-  }
+
 }

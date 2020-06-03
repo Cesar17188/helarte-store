@@ -7,7 +7,7 @@ import { Product } from '../../../product.model';
 export class BackeriesService {
   backeries: Product[] = [
     {
-        codigo: 'b1',
+        codigo: 'cp1',
         image: 'assets/images/hchocolate.jpg',
         producto: 'Crepe de dulce',
         sabores: [],
@@ -17,7 +17,7 @@ export class BackeriesService {
         precioVenta: 2.95
     },
     {
-      codigo: 'b2',
+      codigo: 'cp2',
       image: 'assets/images/hvainilla.jpg',
       producto: 'Crepe de sal',
       sabores: [],
