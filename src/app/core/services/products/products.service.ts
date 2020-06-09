@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Product } from '../../../product.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -50,7 +51,32 @@ export class ProductsService {
     description_larga: 'Variadas bebidas entre gaseosas, aguas'
   },
 ];
-  constructor() { }
+  constructor(
+    private firestore: AngularFirestore
+  ) { }
+
+
+    public createProducto(data: {
+      codigo: string,
+      producto: string,
+      image: string,
+      descripcion_corta: string,
+      descripcion_larga: string
+    }) {
+      return this.firestore.collection('Productos').add(data);
+    }
+
+    public getProducto(documentId: string) {
+      return this.firestore.collection('Productos').doc(documentId).snapshotChanges();
+    }
+
+    public getProductos() {
+      return this.firestore.collection('Productos').snapshotChanges();
+    }
+
+    public updateProducto(documentId: string, data: any){
+      return this.firestore.collection('Productos').doc(documentId).set(data);
+    }
 
   getAllProducts() {
     return this.products;
