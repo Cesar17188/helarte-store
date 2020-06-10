@@ -8,7 +8,7 @@
         </mat-card-subtitle>
     </mat-card-header>
     <a [routerLink]="'/'+[product.producto]"> <mat-card-content class="content">
-        <img [src]="product.image" alt="">
+        <img [src]="product.img | async" alt="Helado">
         <p class="descripcion"><strong>{{ product.description_larga}}</strong></p>
     </mat-card-content> </a>  
     <mat-card-actions>
