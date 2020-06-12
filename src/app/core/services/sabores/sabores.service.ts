@@ -13,7 +13,7 @@ export class SaboresService {
         producto: 'Chocolate',
         sabores: ['Chocolate'],
         descripcion_corta: 'Sabor de helado sabor Chocolate',
-        description_larga: 'Sabor de helado sabor chocolate suizo mejorado con cacao ecuatoriano',
+        descripcion_larga: 'Sabor de helado sabor chocolate suizo mejorado con cacao ecuatoriano',
         stock: 1200,
         unidadMedida: 'gramos',
         precioCompra: 15

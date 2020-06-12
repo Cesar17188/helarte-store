@@ -11,7 +11,7 @@ export class FrutasService {
         image: 'assets/images/hchocolate.jpg',
         producto: 'Durazno',
         descripcion_corta: 'Complemento de durazno',
-        description_larga: 'Complementa tu elección con el sabor de durazno',
+        descripcion_larga: 'Complementa tu elección con el sabor de durazno',
         stock: 100,
         unidadMedida: 'gramos',
         precioCompra: 15
@@ -21,7 +21,7 @@ export class FrutasService {
       image: 'assets/images/hchocolate.jpg',
       producto: 'Fresa',
       descripcion_corta: 'Complemento de fresa',
-      description_larga: 'Complementa tu elección con el sabor de fresa',
+      descripcion_larga: 'Complementa tu elección con el sabor de fresa',
       stock: 100,
       unidadMedida: 'gramos',
       precioCompra: 15
@@ -31,7 +31,7 @@ export class FrutasService {
       image: 'assets/images/hchocolate.jpg',
       producto: 'Uva',
       descripcion_corta: 'Complemento de uva',
-      description_larga: 'Complementa tu elección con el sabor de uva',
+      descripcion_larga: 'Complementa tu elección con el sabor de uva',
       stock: 100,
       unidadMedida: 'gramos',
       precioCompra: 15
@@ -41,7 +41,7 @@ export class FrutasService {
       image: 'assets/images/hchocolate.jpg',
       producto: 'Mango',
       descripcion_corta: 'Complemento de mango',
-      description_larga: 'Complementa tu elección con el sabor del mango',
+      descripcion_larga: 'Complementa tu elección con el sabor del mango',
       stock: 100,
       unidadMedida: 'gramos',
       precioCompra: 15
@@ -51,7 +51,7 @@ export class FrutasService {
       image: 'assets/images/hchocolate.jpg',
       producto: 'Banana',
       descripcion_corta: 'Complemento de banana',
-      description_larga: 'Complementa tu elección con el sabor del banana',
+      descripcion_larga: 'Complementa tu elección con el sabor del banana',
       stock: 100,
       unidadMedida: 'gramos',
       precioCompra: 15

@@ -12,7 +12,7 @@ export class SnacksService {
         producto: 'Cono simple',
         sabores: [],
         descripcion_corta: 'Cono waffer con un sabor de helado',
-        description_larga: 'Cono wafer con un sabor de helado a tu elección',
+        descripcion_larga: 'Cono wafer con un sabor de helado a tu elección',
         unidadMedida: 'unidad',
         precioVenta: 1.30
     },

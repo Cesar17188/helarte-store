@@ -15,7 +15,6 @@ import { Observable } from 'rxjs';
 export class ProductsComponent implements OnInit {
 
   products: Product[];
-  productoss: Product [];
   data: any;
   img: any;
   constructor(
@@ -26,7 +25,6 @@ export class ProductsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.products = this.productsService.getAllProducts();
     this.getProducts();
   }
 
@@ -38,7 +36,7 @@ export class ProductsComponent implements OnInit {
 
   getProducts() {
     this.productsService.getProductos().subscribe(data => {
-      this.productoss = data.map( e => {
+      this.products = data.map( e => {
         const ref = this.storage.storage.refFromURL(e.payload.doc.data()['image']);
         this.img = ref.getDownloadURL();
         return {
@@ -46,10 +44,10 @@ export class ProductsComponent implements OnInit {
           producto: e.payload.doc.data()['producto'],
           img: this.img,
           descripcion_corta: e.payload.doc.data()['descripcion_corta'],
-          description_larga: e.payload.doc.data()['descripcion_larga']
+          descripcion_larga: e.payload.doc.data()['descripcion_larga']
         };
       });
-      console.log(this.productoss);
+      console.log(this.products);
     });
   }
 }

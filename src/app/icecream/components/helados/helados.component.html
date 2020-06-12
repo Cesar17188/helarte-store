@@ -9,7 +9,7 @@
     </mat-card-header>
     <a [routerLink]="'/'+[product.producto]"> <mat-card-content class="content">
         <img [src]="product.image" alt="">
-        <p class="descripcion"><strong>{{ product.description_larga}}</strong></p>
+        <p class="descripcion"><strong>{{ product.descripcion_larga}}</strong></p>
     </mat-card-content> </a>  
     <mat-card-actions>
         <a mat-raised-button  color="warn" [routerLink]="['/helados', product.codigo]">Elige tu {{product.producto}}</a>

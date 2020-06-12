@@ -11,7 +11,7 @@ export class ToppingDulceService {
         image: 'assets/images/hchocolate.jpg',
         producto: 'Oreo',
         descripcion_corta: 'Complemento de galleta oreo',
-        description_larga: 'Complementa tu elección con el sabor de la galleta oreo',
+        descripcion_larga: 'Complementa tu elección con el sabor de la galleta oreo',
         stock: 100,
         unidadMedida: 'unidad',
         precioCompra: 15
@@ -21,7 +21,7 @@ export class ToppingDulceService {
       image: 'assets/images/hchocolate.jpg',
       producto: 'Chispas de chocolate',
       descripcion_corta: 'Complemento de chispas de chocolate',
-      description_larga: 'Complementa tu elección con el sabor de chispas de chocolate',
+      descripcion_larga: 'Complementa tu elección con el sabor de chispas de chocolate',
       stock: 100,
       unidadMedida: 'gramos',
       precioCompra: 15
@@ -31,7 +31,7 @@ export class ToppingDulceService {
       image: 'assets/images/hchocolate.jpg',
       producto: 'Grajeas',
       descripcion_corta: 'Complemento de grajeas',
-      description_larga: 'Complementa tu elección con el sabor de grajeas',
+      descripcion_larga: 'Complementa tu elección con el sabor de grajeas',
       stock: 100,
       unidadMedida: 'gramos',
       precioCompra: 15
@@ -41,7 +41,7 @@ export class ToppingDulceService {
       image: 'assets/images/hchocolate.jpg',
       producto: 'Coco',
       descripcion_corta: 'Complemento de coco',
-      description_larga: 'Complementa tu elección con el sabor del Coco',
+      descripcion_larga: 'Complementa tu elección con el sabor del Coco',
       stock: 100,
       unidadMedida: 'gramos',
       precioCompra: 15
@@ -51,7 +51,7 @@ export class ToppingDulceService {
       image: 'assets/images/hchocolate.jpg',
       producto: 'Granola',
       descripcion_corta: 'Complemento de granola',
-      description_larga: 'Complementa tu elección con el sabor de la granola',
+      descripcion_larga: 'Complementa tu elección con el sabor de la granola',
       stock: 100,
       unidadMedida: 'gramos',
       precioCompra: 15
@@ -61,7 +61,7 @@ export class ToppingDulceService {
       image: 'assets/images/hchocolate.jpg',
       producto: 'Arándanos',
       descripcion_corta: 'Complemento de arándanos',
-      description_larga: 'Complementa tu elección con el sabor de arándanos',
+      descripcion_larga: 'Complementa tu elección con el sabor de arándanos',
       stock: 100,
       unidadMedida: 'gramos',
       precioCompra: 15
@@ -71,7 +71,7 @@ export class ToppingDulceService {
       image: 'assets/images/hchocolate.jpg',
       producto: 'Almendras',
       descripcion_corta: 'Complemento de almendras',
-      description_larga: 'Complementa tu elección con el sabor de almendras',
+      descripcion_larga: 'Complementa tu elección con el sabor de almendras',
       stock: 100,
       unidadMedida: 'gramos',
       precioCompra: 15
@@ -81,7 +81,7 @@ export class ToppingDulceService {
       image: 'assets/images/hchocolate.jpg',
       producto: 'Nueces',
       descripcion_corta: 'Complemento de nueces',
-      description_larga: 'Complementa tu elección con el sabor de nueces',
+      descripcion_larga: 'Complementa tu elección con el sabor de nueces',
       stock: 100,
       unidadMedida: 'gramos',
       precioCompra: 15

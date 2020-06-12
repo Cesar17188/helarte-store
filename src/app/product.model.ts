@@ -12,7 +12,7 @@ export interface Product {
     backerie?: string;
     snack?: string;
     descripcion_corta?: string;
-    description_larga?: string;
+    descripcion_larga?: string;
     stock?: number;
     unidadMedida?: string;
     precioCompra?: number;

@@ -12,7 +12,7 @@ export class BackeriesService {
         producto: 'Crepe de dulce',
         sabores: [],
         descripcion_corta: 'Crepe de dulce con topping de dulce',
-        description_larga: 'Crepe de dulce con un topping de dulce a tu elección',
+        descripcion_larga: 'Crepe de dulce con un topping de dulce a tu elección',
         unidadMedida: 'unidad',
         precioVenta: 2.95
     },
@@ -22,7 +22,7 @@ export class BackeriesService {
       producto: 'Crepe de sal',
       sabores: [],
       descripcion_corta: 'Crepe de sal con topping de sal',
-      description_larga: 'Crepe de sal con un topping de sal a tu elección',
+      descripcion_larga: 'Crepe de sal con un topping de sal a tu elección',
       unidadMedida: 'unidad',
       precioVenta: 3.25
   },

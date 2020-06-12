@@ -11,7 +11,7 @@ export class SalsasService {
         image: 'assets/images/hchocolate.jpg',
         producto: 'Crema',
         descripcion_corta: 'Complemento de crema',
-        description_larga: 'Complementa tu elección con el sabor de crema',
+        descripcion_larga: 'Complementa tu elección con el sabor de crema',
         stock: 100,
         unidadMedida: 'gramos',
         precioCompra: 15
@@ -21,7 +21,7 @@ export class SalsasService {
       image: 'assets/images/hchocolate.jpg',
       producto: 'chocolate',
       descripcion_corta: 'Complemento de chocolate',
-      description_larga: 'Complementa tu elección con el sabor de chocolate',
+      descripcion_larga: 'Complementa tu elección con el sabor de chocolate',
       stock: 100,
       unidadMedida: 'gramos',
       precioCompra: 15
@@ -31,7 +31,7 @@ export class SalsasService {
       image: 'assets/images/hchocolate.jpg',
       producto: 'Fresa',
       descripcion_corta: 'Complemento de fresa',
-      description_larga: 'Complementa tu elección con el sabor de fresa',
+      descripcion_larga: 'Complementa tu elección con el sabor de fresa',
       stock: 100,
       unidadMedida: 'gramos',
       precioCompra: 15
@@ -41,7 +41,7 @@ export class SalsasService {
       image: 'assets/images/hchocolate.jpg',
       producto: 'Mangar',
       descripcion_corta: 'Complemento de mangar',
-      description_larga: 'Complementa tu elección con el sabor del mangar',
+      descripcion_larga: 'Complementa tu elección con el sabor del mangar',
       stock: 100,
       unidadMedida: 'gramos',
       precioCompra: 15
@@ -51,7 +51,7 @@ export class SalsasService {
       image: 'assets/images/hchocolate.jpg',
       producto: 'Chicles',
       descripcion_corta: 'Complemento de chicles',
-      description_larga: 'Complementa tu elección con el sabor del chicles',
+      descripcion_larga: 'Complementa tu elección con el sabor del chicles',
       stock: 100,
       unidadMedida: 'gramos',
       precioCompra: 15
@@ -61,7 +61,7 @@ export class SalsasService {
       image: 'assets/images/hchocolate.jpg',
       producto: 'Mani',
       descripcion_corta: 'Complemento de mani',
-      description_larga: 'Complementa tu elección con el sabor del mani',
+      descripcion_larga: 'Complementa tu elección con el sabor del mani',
       stock: 100,
       unidadMedida: 'gramos',
       precioCompra: 15
