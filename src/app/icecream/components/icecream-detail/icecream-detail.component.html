@@ -1,11 +1,11 @@
 <div class="container">
     <mat-card class="icecream-card">
         <mat-card-header class="header">
-           <h1>{{helado.producto | titlecase}}</h1> 
+           <h1>{{helado[0].producto | titlecase}}</h1> 
         </mat-card-header>
     <mat-card-content>
         <div class="img">
-            <img [src]="helado.image" alt="">
+            <img [src]="helado[0].img | async" alt="">
         </div>
         <div class="descr">
             <strong>
@@ -40,9 +40,9 @@
                     </div>
                 </div>
             <ul>
-                <li> {{helado.producto}}</li>
-                <li> {{helado.descripcion_corta}}</li>
-                <li> {{helado.precioVenta | currency}}</li>  
+                <li> {{helado[0].producto}}</li>
+                <li> {{helado[0].descripcion_corta}}</li>
+                <li> {{helado[0].precioVenta | currency}}</li>  
             </ul>
         </strong>
         </div>
@@ -52,7 +52,7 @@
         Añadir al carrito
         <span class="material-icons">
             shopping_cart
-            </span>
+        </span>
     </button>
 </mat-card-actions>
 </mat-card>

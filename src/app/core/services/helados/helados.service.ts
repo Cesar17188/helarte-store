@@ -14,14 +14,18 @@ export class HeladosService {
   ) { }
 
   public createProducto(data: Product) {
-    return this.firestore.collection('Productos').add(data);
+    return this.firestore.collection<Product>('Productos').add(data);
   }
 
 
-  public getProducto(documentId: string) {
-    return this.firestore.collection('Productos').doc(this.idHelado).collection('Helados').doc(documentId).snapshotChanges();
+  public getHelado<Product>(codigo: string) {
+    return this.firestore.collection('Productos').doc(this.idHelado)
+    .collection('Helados', ref => ref.where('codigo', '==', codigo)).snapshotChanges();
   }
 
+  // public getHelado(ice: Product[], codigo: string) {
+  //   return ice.find(item => codigo === item.codigo);
+  // }
 
   public getHelados() {
     return this.firestore.collection('Productos').doc(this.idHelado)
@@ -30,12 +34,12 @@ export class HeladosService {
 
 
   public updateProducto(documentId: string, partialData: Partial<Product>){
-    return this.firestore.collection('Helados').doc(documentId).set(partialData);
+    return this.firestore.collection<Product>('Helados').doc(documentId).set(partialData);
   }
 
 
   public deleteProduct(documentId: string) {
-    this.firestore.collection('Helados').doc(documentId).delete().then( () => {
+    this.firestore.collection<Product>('Helados').doc(documentId).delete().then( () => {
       console.log('Producto Eliminado exitosamente!');
     }).catch((error) => {
       console.error('Error al eliminar el producto: ', error);

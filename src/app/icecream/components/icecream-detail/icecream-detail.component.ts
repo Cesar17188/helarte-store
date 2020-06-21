@@ -6,6 +6,9 @@ import { HeladosService } from '../../../core/services/helados/helados.service';
 import { Product } from '../../../product.model';
 import { SaboresComponent } from '../sabores/sabores.component';
 import { SaboresService } from 'src/app/core/services/sabores/sabores.service';
+import { Observable } from 'rxjs';
+import { AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 
 export interface DialogData {
@@ -28,7 +31,7 @@ export interface DialogDatatres {
 })
 export class IcecreamDetailComponent implements OnInit {
 
-  helado: Product;
+  helado: Product[];
   sabor: Product;
   sabor2: Product;
   sabor3: Product;
@@ -38,26 +41,47 @@ export class IcecreamDetailComponent implements OnInit {
   codflavor3: string;
   EneFlavorDos: boolean;
   EneFlavorTres: boolean;
+  data: any;
+  img: any;
 
   constructor(
     private route: ActivatedRoute,
     private heladosService: HeladosService,
     private saborService: SaboresService,
     public dialog: MatDialog,
+    private storage: AngularFireStorage,
   ) {}
 
   ngOnInit(): void {
 
     this.route.params.subscribe((params: Params) => {
       const codigo = params.codigo;
-      this.helado = this.heladosService.getIceCream(codigo);
+      this.fetchHelado(codigo);
       this.cono = cono(codigo);
       this.EneFlavorDos = EneFlavorDos(codigo);
       this.EneFlavorTres = EneFlavorTres(codigo);
     });
   }
 
-  selectFlavor(): void{
+  fetchHelado(codigo: string) {
+    this.heladosService.getHelado(codigo).subscribe(data => {
+      this.helado = data.map ( e => {
+        const ref = this.storage.storage.refFromURL(e.payload.doc.data().image);
+        this.img = ref.getDownloadURL();
+        return {
+          codigo: e.payload.doc.data().codigo,
+          producto: e.payload.doc.data().producto,
+          img: this.img,
+          descripcion_corta: e.payload.doc.data().descripcion_corta,
+          descripcion_larga: e.payload.doc.data().descripcion_larga,
+          precioVenta: e.payload.doc.data().precioVenta
+        };
+      });
+      console.log(this.helado);
+    });
+  }
+
+    selectFlavor(): void{
     const dialogRef = this.dialog.open(SaboresComponent, {
       width: '50%',
       data: {
@@ -74,7 +98,7 @@ export class IcecreamDetailComponent implements OnInit {
     });
   }
 
-  selectFlavordos(): void{
+    selectFlavordos(): void{
     const dialogRef = this.dialog.open(SaboresComponent, {
       width: '50%',
       data: {
@@ -91,7 +115,7 @@ export class IcecreamDetailComponent implements OnInit {
     });
   }
 
-  selectFlavortres(): void{
+    selectFlavortres(): void{
     const dialogRef = this.dialog.open(SaboresComponent, {
       width: '50%',
       data: {
