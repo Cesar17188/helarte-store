@@ -10,7 +10,6 @@ import { AngularFireStorage } from '@angular/fire/storage';
 export class ListaProductosComponent implements OnInit {
 
   products = [];
-  typeProducts = [];
   img: any;
   data: any;
   displayedColumns: string[] = ['codigo', 'producto', 'actions'];

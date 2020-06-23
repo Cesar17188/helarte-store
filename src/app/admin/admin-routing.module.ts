@@ -5,7 +5,7 @@ import { ProductFormComponent } from './components/product-form/product-form.com
 import { NavComponent } from './components/nav/nav.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { InventarioComponent } from './components/inventario/inventario.component';
-import { ListaProductosComponent } from './components/lista-productos/lista-productos.component';
+import { ListasComponent } from './components/listas/listas.component';
 
 const routes: Routes = [
   {
@@ -22,7 +22,7 @@ const routes: Routes = [
       },
       {
         path: 'productos',
-        component: ListaProductosComponent
+        component: ListasComponent
       }
     ]
   },
