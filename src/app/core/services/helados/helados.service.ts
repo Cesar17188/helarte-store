@@ -18,20 +18,15 @@ export class HeladosService {
   }
 
 
-  public getHelado<Product>(codigo: string) {
+  public getHelado(codigo: string) {
     return this.firestore.collection('Productos').doc(this.idHelado)
     .collection('Helados', ref => ref.where('codigo', '==', codigo)).snapshotChanges();
   }
-
-  // public getHelado(ice: Product[], codigo: string) {
-  //   return ice.find(item => codigo === item.codigo);
-  // }
 
   public getHelados() {
     return this.firestore.collection('Productos').doc(this.idHelado)
     .collection('Helados', ref => ref.orderBy('codigo', 'asc')).snapshotChanges();
   }
-
 
   public updateProducto(documentId: string, partialData: Partial<Product>){
     return this.firestore.collection<Product>('Helados').doc(documentId).set(partialData);

@@ -1,37 +1,27 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductsService } from './../../../core/services/products/products.service';
 import { AngularFireStorage } from '@angular/fire/storage';
 
-import { ProductsService } from '../../../core/services/products/products.service';
-import { Product } from '../../../product.model';
-
-
-
-
 @Component({
-  selector: 'app-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  selector: 'app-lista-productos',
+  templateUrl: './lista-productos.component.html',
+  styleUrls: ['./lista-productos.component.css']
 })
-export class ProductsComponent implements OnInit {
+export class ListaProductosComponent implements OnInit {
 
-  products: Product[];
-  data: any;
+  products = [];
+  typeProducts = [];
   img: any;
+  data: any;
+  displayedColumns: string[] = ['codigo', 'producto', 'actions'];
+
   constructor(
     private productsService: ProductsService,
-    private storage: AngularFireStorage,
-  ) {
-
-  }
+    private storage: AngularFireStorage
+  ) { }
 
   ngOnInit(): void {
     this.getProducts();
-  }
-
-
-  clickProduct(codigo: string) {
-    console.log('producto');
-    console.log(codigo);
   }
 
   getProducts() {
@@ -41,6 +31,7 @@ export class ProductsComponent implements OnInit {
         const ref = this.storage.storage.refFromURL(e.payload.doc.data()['image']);
         this.img = ref.getDownloadURL();
         return {
+          id: e.payload.doc.id,
           // tslint:disable-next-line: no-string-literal
           codigo: e.payload.doc.data()['codigo'],
           // tslint:disable-next-line: no-string-literal
@@ -55,4 +46,6 @@ export class ProductsComponent implements OnInit {
       console.log(this.products);
     });
   }
+
+
 }

@@ -4,6 +4,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProductFormComponent } from './components/product-form/product-form.component';
 import { NavComponent } from './components/nav/nav.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { InventarioComponent } from './components/inventario/inventario.component';
+import { ListaProductosComponent } from './components/lista-productos/lista-productos.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -16,6 +19,10 @@ const routes: Routes = [
       {
         path: 'create',
         component: ProductFormComponent,
+      },
+      {
+        path: 'productos',
+        component: ListaProductosComponent
       }
     ]
   },
