@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductsService } from './../../../core/services/products/products.service';
+import { ProductsService } from '../../../../core/services/products/products.service';
 import { AngularFireStorage } from '@angular/fire/storage';
 
 @Component({

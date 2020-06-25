@@ -9,10 +9,9 @@ import { MaterialModule } from '../material/material.module';
 import { NavComponent } from './components/nav/nav.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { InventarioComponent } from './components/inventario/inventario.component';
-import { ListaProductosComponent } from './components/lista-productos/lista-productos.component';
+import { ListaProductosComponent } from './components/listado/lista-productos/lista-productos.component';
 import { ListasComponent } from './components/listas/listas.component';
-import { ListaHeladosComponent } from './components/lista-helados/lista-helados.component';
-
+import { ListaHeladosComponent } from './components/listado/lista-helados/lista-helados.component';
 
 
 
@@ -24,7 +23,7 @@ import { ListaHeladosComponent } from './components/lista-helados/lista-helados.
     InventarioComponent,
     ListaProductosComponent,
     ListasComponent,
-    ListaHeladosComponent
+    ListaHeladosComponent,
   ],
   imports: [
     CommonModule,
