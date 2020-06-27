@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { finalize } from 'rxjs/operators';
 
 import { HeladosService } from './../../../../core/services/helados/helados.service';
 import { Product } from 'src/app/product.model';
+import { Observable } from 'rxjs';
+
 
 
 @Component({
@@ -14,32 +18,20 @@ import { Product } from 'src/app/product.model';
 export class FormheladoComponent implements OnInit {
 
   newHelado: Product;
-
+  image$: Observable<any>;
   form: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
     private heladoService: HeladosService,
-    private router: Router
+    private router: Router,
+    private storage: AngularFireStorage
   ) {
     this.buildForm();
    }
 
   ngOnInit(): void {
   }
-
-  // saveProduct(event: Event) {
-  //   event.preventDefault();
-  //   if (this.form.valid) {
-  //     const helado = this.form.value;
-  //     this.heladoService.createHelado(helado)
-  //     .subscribe((newHelado) => {
-  //       console.log(newHelado);
-  //       this.router.navigate(['./admin/productos'])
-  //     });
-  //   }
-  //   console.log(this.form.value);
-  // }
 
   saveHelado(event: Event) {
     event.preventDefault();
@@ -53,6 +45,26 @@ export class FormheladoComponent implements OnInit {
       console.log(error);
     });
   }
+
+  uploadFile(event) {
+    const file = event.target.files[0];
+    const name = file.name;
+    const fileRef = this.storage.ref(name);
+    const task = this.storage.upload(name, file);
+
+    task.snapshotChanges()
+    .pipe(
+      finalize(() => {
+        this.image$ = fileRef.getDownloadURL();
+        this.image$.subscribe(url => {
+          console.log(url);
+          this.form.get('image').setValue(url);
+        })
+      })
+    )
+    .subscribe();
+  }
+
 
   private buildForm() {
     this.form = this.formBuilder.group({
