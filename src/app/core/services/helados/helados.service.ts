@@ -13,8 +13,9 @@ export class HeladosService {
     private firestore: AngularFirestore,
   ) { }
 
-  public createProducto(data: Product) {
-    return this.firestore.collection<Product>('Productos').add(data);
+  public createHelado(data: Product) {
+    return this.firestore.collection<Product>('Productos').doc(this.idHelado)
+    .collection('Helados').add(data);
   }
 
 

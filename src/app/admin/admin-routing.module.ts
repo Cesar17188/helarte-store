@@ -6,6 +6,8 @@ import { NavComponent } from './components/nav/nav.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { InventarioComponent } from './components/inventario/inventario.component';
 import { ListasComponent } from './components/listas/listas.component';
+import { FormheladoComponent } from './components/formularios/formhelado/formhelado.component';
+
 
 const routes: Routes = [
   {
@@ -23,6 +25,10 @@ const routes: Routes = [
       {
         path: 'productos',
         component: ListasComponent
+      },
+      {
+        path: 'productos/helado/create',
+        component: FormheladoComponent
       }
     ]
   },

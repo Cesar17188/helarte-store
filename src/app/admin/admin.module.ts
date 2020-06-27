@@ -12,6 +12,7 @@ import { InventarioComponent } from './components/inventario/inventario.componen
 import { ListaProductosComponent } from './components/listado/lista-productos/lista-productos.component';
 import { ListasComponent } from './components/listas/listas.component';
 import { ListaHeladosComponent } from './components/listado/lista-helados/lista-helados.component';
+import { FormheladoComponent } from './components/formularios/formhelado/formhelado.component';
 
 
 
@@ -24,6 +25,7 @@ import { ListaHeladosComponent } from './components/listado/lista-helados/lista-
     ListaProductosComponent,
     ListasComponent,
     ListaHeladosComponent,
+    FormheladoComponent,
   ],
   imports: [
     CommonModule,
