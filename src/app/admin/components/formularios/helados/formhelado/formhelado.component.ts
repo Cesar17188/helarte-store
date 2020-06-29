@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
 
-import { HeladosService } from './../../../../core/services/helados/helados.service';
+import { HeladosService } from './../../../../../core/services/helados/helados.service';
 import { Product } from 'src/app/product.model';
 import { Observable } from 'rxjs';
 
@@ -59,7 +59,7 @@ export class FormheladoComponent implements OnInit {
         this.image$.subscribe(url => {
           console.log(url);
           this.form.get('image').setValue(url);
-        })
+        });
       })
     )
     .subscribe();
@@ -76,5 +76,12 @@ export class FormheladoComponent implements OnInit {
       image: [''],
     });
   }
+
+  get codigo() { return this.form.get('codigo'); }
+  get producto() { return this.form.get('producto'); }
+  get descripcion_corta() { return this.form.get('descripcion_corta'); }
+  get descripcion_larga() { return this.form.get('descripcion_larga'); }
+  get precioVenta() { return this.form.get('precioVenta'); }
+  get image() { return this.form.get('image'); }
 
 }

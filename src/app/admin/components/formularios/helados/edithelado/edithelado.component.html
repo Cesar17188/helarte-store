@@ -7,15 +7,11 @@
             <div class="row">
                 <div class="col-xs">
                     <mat-form-field>
-                        <input placeholder="Codigo del helado" formControlName="codigo" matInput type="text">
-                    </mat-form-field>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs">
-                    <mat-form-field>
                         <input placeholder="Nombre del helado" formControlName="producto" matInput type="text">
                     </mat-form-field>
+                    <div *ngIf="producto.errors && producto.dirty">
+                        <p *ngIf="producto.hasError('required')">El producto es requerido</p>
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -23,6 +19,9 @@
                     <mat-form-field>
                         <textarea placeholder="Descripción corta" formControlName="descripcion_corta" matInput></textarea>
                     </mat-form-field>
+                    <div *ngIf="descripcion_corta.errors && descripcion_corta.dirty">
+                        <p *ngIf="descripcion_corta.hasError('required')">La descripción corta es requerido</p>
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -30,6 +29,9 @@
                     <mat-form-field>
                         <textarea placeholder="Descripción larga" formControlName="descripcion_larga" matInput></textarea>
                     </mat-form-field>
+                    <div *ngIf="descripcion_larga.errors && descripcion_larga.dirty">
+                        <p *ngIf="descripcion_larga.hasError('required')">La descripción larga es requerido</p>
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -37,6 +39,9 @@
                     <mat-form-field>
                         <input placeholder="Precio de Venta" formControlName="precioVenta" matInput type="number">
                     </mat-form-field>
+                    <div *ngIf="precioVenta.errors && precioVenta.dirty">
+                        <p *ngIf="precioVenta.hasError('required')">El precio de venta es requerido</p>
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -44,10 +49,13 @@
                     <img *ngIf="(image$ | async) as image" [src]="image" alt="">
                     <input type="file" (change) = "uploadFile($event)">
                 </div>
+                <div *ngIf="image.errors && image.dirty">
+                    <p *ngIf="image.hasError('required')">La imagen es requerido</p>
+                </div>
             </div>
         </mat-card-content>
         <mat-card-actions>
-            <button mat-raised-button type="submit">Guardar</button>
+            <button [disabled]="form.invalid" mat-raised-button type="submit">Guardar</button>
         </mat-card-actions>
     </mat-card>
 </form>

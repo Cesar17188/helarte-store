@@ -6,7 +6,8 @@ import { NavComponent } from './components/nav/nav.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { InventarioComponent } from './components/inventario/inventario.component';
 import { ListasComponent } from './components/listas/listas.component';
-import { FormheladoComponent } from './components/formularios/formhelado/formhelado.component';
+import { FormheladoComponent } from './components/formularios/helados/formhelado/formhelado.component';
+import { EditheladoComponent } from './components/formularios/helados/edithelado/edithelado.component';
 
 
 const routes: Routes = [
@@ -29,6 +30,10 @@ const routes: Routes = [
       {
         path: 'productos/helado/create',
         component: FormheladoComponent
+      },
+      {
+        path: 'productos/helado/edit/:codigo',
+        component: EditheladoComponent
       }
     ]
   },
