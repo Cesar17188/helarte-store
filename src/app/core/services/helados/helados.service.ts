@@ -29,17 +29,15 @@ export class HeladosService {
     .collection('Helados', ref => ref.orderBy('codigo', 'asc')).snapshotChanges();
   }
 
-  public updateProducto(documentId: string, partialData: Partial<Product>){
-    return this.firestore.collection<Product>('Helados').doc(documentId).set(partialData);
+  public updateHelado(documentId: string, partialData: Partial<Product>){
+    this.firestore.collection('Productos').doc(this.idHelado)
+    .collection('Helados').doc(documentId).update(partialData);
   }
 
 
-  public deleteProduct(documentId: string) {
-    this.firestore.collection<Product>('Helados').doc(documentId).delete().then( () => {
-      console.log('Producto Eliminado exitosamente!');
-    }).catch((error) => {
-      console.error('Error al eliminar el producto: ', error);
-    });
+  public deleteHelado(documentId: string) {
+    this.firestore.collection('Productos').doc(this.idHelado)
+    .collection('Helados').doc(documentId).delete();
   }
 
 }

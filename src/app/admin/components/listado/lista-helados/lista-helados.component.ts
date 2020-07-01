@@ -41,4 +41,8 @@ export class ListaHeladosComponent implements OnInit {
     });
   }
 
+  deleteHelado(documentId: string) {
+    this.heladosService.deleteHelado(documentId);
+  }
+
 }

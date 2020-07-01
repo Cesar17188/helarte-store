@@ -17,10 +17,11 @@ import { HeladosService } from 'src/app/core/services/helados/helados.service';
 })
 export class EditheladoComponent implements OnInit {
 
-  newHelado: Product[];
+  newHelado = [];
   image$: Observable<any>;
   form: FormGroup;
   codigo: string;
+  documentId: string;
   img: any;
 
   constructor(
@@ -42,15 +43,13 @@ export class EditheladoComponent implements OnInit {
 
   saveHelado(event: Event) {
     event.preventDefault();
-    const helado = this.form.value;
-    this.heladoService.updateProducto(this.codigo, helado).then(resp => {
+    if (this.form.valid) {
+      const helado = this.form.value;
+      this.heladoService.updateHelado(this.newHelado[0].id, helado);
+      console.log(helado);
       this.form.reset();
-      console.log(resp);
       this.router.navigate(['./admin/productos']);
-    })
-    .catch(error => {
-      console.log(error);
-    });
+    }
   }
 
   fetchHelado(codigo: string) {
@@ -59,6 +58,7 @@ export class EditheladoComponent implements OnInit {
         const ref = this.storage.storage.refFromURL(e.payload.doc.data().image);
         this.img = ref.getDownloadURL();
         return {
+          id: e.payload.doc.id,
           codigo: e.payload.doc.data().codigo,
           producto: e.payload.doc.data().producto,
           img: this.img,

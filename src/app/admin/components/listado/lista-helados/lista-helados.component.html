@@ -38,7 +38,8 @@
               [routerLink]="['helado/edit/', helado.codigo]">
                 <mat-icon>edit</mat-icon>
             </a>  
-            <button mat-mini-fab color="warn" aria-label="boton con icono eliminar">
+            <button mat-mini-fab color="warn" aria-label="boton con icono eliminar"
+            (click)="deleteHelado(helado.id)">
               <mat-icon>delete</mat-icon>
           </button>   
         </td>
