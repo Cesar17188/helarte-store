@@ -1,0 +1,30 @@
+<div class="container">
+    <mat-card class="crepes-card">
+        <mat-card-header class="header">
+            <h1>{{backerie.producto | titlecase}}</h1>
+        </mat-card-header>
+        <mat-dialog-content>
+            <div class="img">
+                <img [src]="backerie.image" alt="">
+            </div>
+            <div class="descr">
+                <div>
+                    <ul>
+                        <li>Producto: {{backerie.producto}}</li>
+                        <li>Descripción: {{backerie.descripcion_corta}}</li>
+                        <li>Precio: {{backerie.precioVenta | currency}}</li>
+                    </ul>
+                    <p>{{backerie.descripcion_larga}}</p>
+                </div>
+            </div>
+        </mat-dialog-content>
+        <mat-card-actions>
+            <button mat-flat-button color="primary">
+                Añadir al carrito
+                <span class="material-icons">
+                    shopping_cart
+                    </span>
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</div>
