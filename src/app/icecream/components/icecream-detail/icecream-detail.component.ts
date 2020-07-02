@@ -3,7 +3,7 @@ import { ActivatedRoute, Params} from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 
 import { HeladosService } from '../../../core/services/helados/helados.service';
-import { Product } from '../../../product.model';
+import { Product } from '../../../models/product.model';
 import { SaboresComponent } from '../sabores/sabores.component';
 import { SaboresService } from 'src/app/core/services/sabores/sabores.service';
 import { Observable } from 'rxjs';

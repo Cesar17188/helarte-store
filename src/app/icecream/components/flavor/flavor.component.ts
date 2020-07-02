@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, Inject } from '@angular/core';
-import { Product } from '../../../product.model';
+import { Product } from '../../../models/product.model';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DialogData, DialogDatados, DialogDatatres } from '../icecream-detail/icecream-detail.component';
 import { SaboresComponent } from '../sabores/sabores.component';

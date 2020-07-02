@@ -5,7 +5,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
 
 import { HeladosService } from './../../../../../core/services/helados/helados.service';
-import { Product } from 'src/app/product.model';
+import { Product } from 'src/app/models/product.model';
 import { Observable } from 'rxjs';
 
 
