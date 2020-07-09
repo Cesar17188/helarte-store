@@ -39,6 +39,29 @@
                         </ng-template>
                     </div>
                 </div>
+                <h2 *ngIf="flagSyrup">Adicionales</h2>
+                <div *ngIf="flagSyrup" class="sabor">
+                    <div id="sabor1">
+                        <h3 *ngIf="syrup">{{syrup.producto}}</h3>
+                        <img *ngIf="syrup" [src]="syrup.image" alt="">
+                        <button *ngIf="flagSyrup; else elseBlock2 "mat-raised-button color="warn" mat-raised-button (click)="aditionSyrup()">
+                            Syrup
+                        </button>
+                        <ng-template #elseBlock2>
+                            <button mat-raised-button disabled>Syrup</button>
+                        </ng-template>
+                    </div>
+                    <div id="sabor2">
+                        <h3 *ngIf="toppingD">{{toppingD.producto}}</h3>
+                        <img *ngIf="toppingD" [src]="toppingD.image" alt="">
+                        <button *ngIf="flagSyrup; else elseBlock2 "mat-raised-button color="warn" mat-raised-button (click)="aditionToping()">
+                            Topping Dulce
+                        </button>
+                        <ng-template #elseBlock2>
+                            <button mat-raised-button disabled>Topping Dulce</button>
+                        </ng-template>
+                    </div>
+                </div>
             <ul>
                 <li> {{helado[0].producto}}</li>
                 <li> {{helado[0].descripcion_corta}}</li>

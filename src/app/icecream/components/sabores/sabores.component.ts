@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../../../models/product.model';
 import { SaboresService } from 'src/app/core/services/sabores/sabores.service';
+import { SABOR } from 'src/app/models/sabor.model';
 
 @Component({
   selector: 'app-sabores',
@@ -9,7 +9,7 @@ import { SaboresService } from 'src/app/core/services/sabores/sabores.service';
 })
 export class SaboresComponent implements OnInit {
 
-  sabores: Product[];
+  sabores: SABOR[];
 
   constructor(
     private saboresService: SaboresService) { }

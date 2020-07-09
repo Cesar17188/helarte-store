@@ -1,19 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params} from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 import { HeladosService } from '../../../core/services/helados/helados.service';
 import { CartService } from '../../../core/services/cart/cart.service';
+import { ToppingDulceService } from 'src/app/core/services/topping-dulce/topping-dulce.service';
+import { SalsasService } from 'src/app/core/services/salsas/salsas.service';
+import { SaboresService } from 'src/app/core/services/sabores/sabores.service';
 
 import { HELADO } from '../../../models/helado.model';
 import { SABOR } from 'src/app/models/sabor.model';
 import { SYRUP } from 'src/app/models/syrup.model';
+import { TOPPING } from 'src/app/models/topping.model';
 
 import { SaboresComponent } from '../sabores/sabores.component';
-import { SaboresService } from 'src/app/core/services/sabores/sabores.service';
-import { AngularFireStorage } from '@angular/fire/storage';
-import { SalsasService } from 'src/app/core/services/salsas/salsas.service';
-
+import { SyrupsComponent } from '../syrups/syrups.component';
+import { ToppingsComponent } from '../toppings/toppings.component';
 
 
 @Component({
@@ -29,12 +32,17 @@ export class IcecreamDetailComponent implements OnInit {
   sabor2: SABOR;
   sabor3: SABOR;
   crema: SYRUP;
+  syrup: SYRUP;
+  codSyrup: string;
+  toppingD: TOPPING;
+  codToppingD: string;
   cono: string;
   codflavor: string;
   codflavor2: string;
   codflavor3: string;
   EneFlavorDos: boolean;
   EneFlavorTres: boolean;
+  flagSyrup: boolean;
   data: any;
   img: any;
   flagCrema = false;
@@ -44,6 +52,7 @@ export class IcecreamDetailComponent implements OnInit {
     private heladosService: HeladosService,
     private saborService: SaboresService,
     private syrupService: SalsasService,
+    private toppingService: ToppingDulceService,
     public dialog: MatDialog,
     private storage: AngularFireStorage,
     private cartService: CartService
@@ -57,6 +66,7 @@ export class IcecreamDetailComponent implements OnInit {
       this.cono = cono(codigo);
       this.EneFlavorDos = EneFlavorDos(codigo);
       this.EneFlavorTres = EneFlavorTres(codigo);
+      this.flagSyrup = addFlavors(codigo);
     });
   }
 
@@ -77,7 +87,7 @@ export class IcecreamDetailComponent implements OnInit {
     });
   }
 
-    selectFlavor(): void{
+  selectFlavor(): void{
     const dialogRef = this.dialog.open(SaboresComponent, {
       width: '50%',
       data: {
@@ -93,7 +103,7 @@ export class IcecreamDetailComponent implements OnInit {
     });
   }
 
-    selectFlavordos(): void{
+  selectFlavordos(): void{
     const dialogRef = this.dialog.open(SaboresComponent, {
       width: '50%',
       data: {
@@ -110,7 +120,7 @@ export class IcecreamDetailComponent implements OnInit {
     });
   }
 
-    selectFlavortres(): void{
+  selectFlavortres(): void{
     const dialogRef = this.dialog.open(SaboresComponent, {
       width: '50%',
       data: {
@@ -124,6 +134,30 @@ export class IcecreamDetailComponent implements OnInit {
       this.codflavor3 = result;
       this.sabor3 = this.saborService.getFlavor(this.codflavor3);
       console.log( this.sabor3 );
+    });
+  }
+
+  aditionSyrup(): void{
+    const dialogRef = this.dialog.open(SyrupsComponent, {
+      width: '50%',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.codSyrup = result;
+      this.syrup = this.syrupService.getSalsa(this.codSyrup);
+    });
+  }
+
+  aditionToping(): void{
+    const dialogRef = this.dialog.open(ToppingsComponent, {
+      width: '50%',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.codToppingD = result;
+      this.toppingD = this.toppingService.getToppingD(this.codToppingD);
     });
   }
 
@@ -141,7 +175,8 @@ export class IcecreamDetailComponent implements OnInit {
       codigo: this.helado[0].codigo,
       producto: this.helado[0].producto,
       sabores: [this.sabor, this.sabor2, this.sabor3],
-      syrups: [this.crema],
+      syrups: [this.crema, this.syrup],
+      topping: this.toppingD,
       precioVenta: this.helado[0].precioVenta,
       img: this.helado[0].img,
     };
@@ -202,6 +237,25 @@ function EneFlavorTres(codigo: string){
       flag = true;
       break;
     case 'h6':
+      flag = true;
+      break;
+    default:
+      flag = false;
+      break;
+  }
+  return flag;
+}
+
+function addFlavors(codigo: string){
+  let flag: boolean;
+  switch (codigo){
+    case 'h3':
+      flag = true;
+      break;
+    case 'h4':
+      flag = true;
+      break;
+    case 'h5':
       flag = true;
       break;
     default:

@@ -6,10 +6,14 @@ import { IcecreamDetailComponent } from './components/icecream-detail/icecream-d
 import { HeladosComponent } from './components/helados/helados.component';
 import { FlavorComponent } from './components/flavor/flavor.component';
 import { SaboresComponent } from './components/sabores/sabores.component';
+import { SyrupsComponent } from './components/syrups/syrups.component';
+import { SyrupComponent } from './components/syrup/syrup.component';
 
 import { IceCreamRoutingModule } from './icecream-routing.module';
 import { SharedModule } from './../shared/shared.module';
 import { MaterialModule } from './../material/material.module';
+import { ToppingComponent } from './components/topping/topping.component';
+import { ToppingsComponent } from './components/toppings/toppings.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +21,11 @@ import { MaterialModule } from './../material/material.module';
     IcecreamDetailComponent,
     HeladosComponent,
     FlavorComponent,
-    SaboresComponent
+    SaboresComponent,
+    SyrupsComponent,
+    SyrupComponent,
+    ToppingComponent,
+    ToppingsComponent
   ],
   imports: [
     CommonModule,
