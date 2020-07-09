@@ -14,7 +14,8 @@ export class SalsasService {
         descripcion_larga: 'Complementa tu elección con el sabor de crema',
         stock: 100,
         unidadMedida: 'gramos',
-        precioCompra: 15
+        precioCompra: 15,
+        precioVenta: 0.50
     },
     {
       codigo: 'sal2',

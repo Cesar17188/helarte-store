@@ -3,26 +3,18 @@ import { ActivatedRoute, Params} from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 
 import { HeladosService } from '../../../core/services/helados/helados.service';
-import { Product } from '../../../models/product.model';
+import { CartService } from '../../../core/services/cart/cart.service';
+
+import { HELADO } from '../../../models/helado.model';
+import { SABOR } from 'src/app/models/sabor.model';
+import { SYRUP } from 'src/app/models/syrup.model';
+
 import { SaboresComponent } from '../sabores/sabores.component';
 import { SaboresService } from 'src/app/core/services/sabores/sabores.service';
-import { Observable } from 'rxjs';
-import { AngularFirestoreDocument } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
+import { SalsasService } from 'src/app/core/services/salsas/salsas.service';
 
 
-export interface DialogData {
-  sabor: Product;
-  codflavor: string;
-}
-export interface DialogDatados {
-  sabor2: Product;
-  codflavor2: string;
-}
-export interface DialogDatatres {
-  sabor3: Product;
-  codflavor3: string;
-}
 
 @Component({
   selector: 'app-icecream-detail',
@@ -31,10 +23,12 @@ export interface DialogDatatres {
 })
 export class IcecreamDetailComponent implements OnInit {
 
-  helado: Product[];
-  sabor: Product;
-  sabor2: Product;
-  sabor3: Product;
+  helado: HELADO[];
+  newHelado: HELADO;
+  sabor: SABOR;
+  sabor2: SABOR;
+  sabor3: SABOR;
+  crema: SYRUP;
   cono: string;
   codflavor: string;
   codflavor2: string;
@@ -43,13 +37,16 @@ export class IcecreamDetailComponent implements OnInit {
   EneFlavorTres: boolean;
   data: any;
   img: any;
+  flagCrema = false;
 
   constructor(
     private route: ActivatedRoute,
     private heladosService: HeladosService,
     private saborService: SaboresService,
+    private syrupService: SalsasService,
     public dialog: MatDialog,
     private storage: AngularFireStorage,
+    private cartService: CartService
   ) {}
 
   ngOnInit(): void {
@@ -77,7 +74,6 @@ export class IcecreamDetailComponent implements OnInit {
           precioVenta: e.payload.doc.data().precioVenta
         };
       });
-      console.log(this.helado);
     });
   }
 
@@ -94,7 +90,6 @@ export class IcecreamDetailComponent implements OnInit {
       console.log('The dialog was closed');
       this.codflavor = result;
       this.sabor = this.saborService.getFlavor(this.codflavor);
-      console.log( this.sabor );
     });
   }
 
@@ -130,6 +125,27 @@ export class IcecreamDetailComponent implements OnInit {
       this.sabor3 = this.saborService.getFlavor(this.codflavor3);
       console.log( this.sabor3 );
     });
+  }
+
+  addCrema(): SYRUP {
+        return this.syrupService.getSalsa('sal1');
+  }
+
+  addcart() {
+    if (this.flagCrema) {
+      this.crema = this.addCrema();
+    } else {
+      this.crema = null;
+    }
+    this.newHelado = {
+      codigo: this.helado[0].codigo,
+      producto: this.helado[0].producto,
+      sabores: [this.sabor, this.sabor2, this.sabor3],
+      syrups: [this.crema],
+      precioVenta: this.helado[0].precioVenta,
+      img: this.helado[0].img,
+    };
+    this.cartService.addCart(this.newHelado);
   }
 }
 
@@ -194,3 +210,4 @@ function EneFlavorTres(codigo: string){
   }
   return flag;
 }
+

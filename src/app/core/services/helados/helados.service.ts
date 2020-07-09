@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { Product } from '../../../models/product.model';
+import { HELADO } from '../../../models/helado.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +13,8 @@ export class HeladosService {
     private firestore: AngularFirestore,
   ) { }
 
-  public createHelado(data: Product) {
-    return this.firestore.collection<Product>('Productos').doc(this.idHelado)
+  public createHelado(data: HELADO) {
+    return this.firestore.collection<HELADO>('Productos').doc(this.idHelado)
     .collection('Helados').add(data);
   }
 
@@ -29,7 +29,7 @@ export class HeladosService {
     .collection('Helados', ref => ref.orderBy('codigo', 'asc')).snapshotChanges();
   }
 
-  public updateHelado(documentId: string, partialData: Partial<Product>){
+  public updateHelado(documentId: string, partialData: Partial<HELADO>){
     this.firestore.collection('Productos').doc(this.idHelado)
     .collection('Helados').doc(documentId).update(partialData);
   }

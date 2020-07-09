@@ -44,11 +44,12 @@
                 <li> {{helado[0].descripcion_corta}}</li>
                 <li> {{helado[0].precioVenta | currency}}</li>  
             </ul>
+            <mat-slide-toggle class="crema" color="primary" [(ngModel)]="flagCrema">Agrega crema a tu helado por 50 ctvs.</mat-slide-toggle>
         </strong>
         </div>
 </mat-card-content>
 <mat-card-actions>
-    <button mat-flat-button color="primary">
+    <button mat-flat-button color="primary" (click)="addcart()">
         Añadir al carrito
         <span class="material-icons">
             shopping_cart

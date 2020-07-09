@@ -21,6 +21,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [],
@@ -45,7 +46,8 @@ import { MatSortModule } from '@angular/material/sort';
     MatMenuModule,
     MatPaginatorModule,
     MatSortModule,
-    LayoutModule
+    LayoutModule,
+    MatSlideToggleModule
   ],
   exports: [
     MatSidenavModule,
@@ -67,7 +69,8 @@ import { MatSortModule } from '@angular/material/sort';
     MatMenuModule,
     MatPaginatorModule,
     MatSortModule,
-    LayoutModule
+    LayoutModule,
+    MatSlideToggleModule
   ]
 })
 export class MaterialModule { }

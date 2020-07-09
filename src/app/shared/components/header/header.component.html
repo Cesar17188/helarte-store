@@ -1,7 +1,7 @@
 <a routerLink="/home"><img src="./../../../../assets/images/logo.jpg" alt=""></a>
 <span class="title"><h1>{{title | uppercase}}</h1></span>
 <span class="example-spacer"></span>
-<a mat-raised-button matBadge="4" matBadgeColor="warn" routerLink="/cart">
+<a mat-raised-button [matBadge]="total" matBadgeColor="warn" routerLink="/cart">
     <mat-icon class="example-icon" 
     aria-hidden="false" aria-label="Example heart icon">
     shopping_cart</mat-icon>

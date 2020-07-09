@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../../../models/product.model';
+import { HELADO } from '../../../models/helado.model';
 import { HeladosService } from '../../../core/services/helados/helados.service';
 import { AngularFireStorage } from '@angular/fire/storage';
 
@@ -11,7 +11,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
 })
 export class IceproductsComponent implements OnInit {
 
-  helados: Product[];
+  helados: HELADO[];
   data: any;
   img: any;
 

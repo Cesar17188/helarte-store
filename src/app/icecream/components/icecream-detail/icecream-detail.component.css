@@ -140,6 +140,10 @@ img {
   width: 95%;
 }
 
+.crema{
+  padding-left: 15px;
+}
+
 mat-card-actions {
   text-align: center;
 }
