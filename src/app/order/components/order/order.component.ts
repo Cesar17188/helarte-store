@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Product } from 'src/app/models/product.model';
-
 import { CartService } from 'src/app/core/services/cart/cart.service';
 import { Observable } from 'rxjs';
-
+import { map } from 'rxjs/operators';
 
 
 @Component({
@@ -15,11 +13,17 @@ import { Observable } from 'rxjs';
 export class OrderComponent implements OnInit {
 
   products$: Observable<Product[]>;
+  displayedColumns: string[] = ['Imagen', 'Producto', 'Adicionales', 'Precio'];
+
   constructor(
     private cartService: CartService
   ) {
-    this.products$ = this.cartService.cart$;
-   }
+    this.products$ = this.cartService.cart$
+    .pipe(map((products: []) => {
+      const distintos = [...new Set(products)];
+      return distintos;
+    }));
+    }
 
   ngOnInit(): void {
   }

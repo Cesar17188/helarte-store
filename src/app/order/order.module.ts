@@ -14,7 +14,7 @@ import { OrderComponent } from './components/order/order.component';
     CommonModule,
     OrderRoutingModule,
     MaterialModule,
-    SharedModule
+    SharedModule,
   ]
 })
 export class OrderModule { }

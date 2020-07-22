@@ -10,6 +10,9 @@ import { CartComponent } from './components/cart/cart.component';
 import { HighlightDirective } from './directives/highlight/highlight.directive';
 import { MaterialModule } from './../material/material.module';
 
+import { CartPipe } from './pipes/cart.pipe';
+import { DeleteRepeatsPipe } from './pipes/deleteRepeats.pipe';
+import { RepeatNumberPipe } from './pipes/repeatNumberPipe.pipe';
 
 
 @NgModule({
@@ -18,7 +21,10 @@ import { MaterialModule } from './../material/material.module';
     FooterComponent,
     SidebarComponent,
     HighlightDirective,
-    CartComponent
+    CartComponent,
+    CartPipe,
+    DeleteRepeatsPipe,
+    RepeatNumberPipe
   ],
   imports: [
     CommonModule,
@@ -30,7 +36,10 @@ import { MaterialModule } from './../material/material.module';
     FooterComponent,
     SidebarComponent,
     HighlightDirective,
-    CartComponent
+    CartComponent,
+    CartPipe,
+    DeleteRepeatsPipe,
+    RepeatNumberPipe
   ]
 })
 export class SharedModule { }

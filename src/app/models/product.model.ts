@@ -1,11 +1,17 @@
 // interface del modelo de product
 
 import { Observable } from 'rxjs';
+import { SABOR } from './sabor.model';
+import { SYRUP } from './syrup.model';
+import { TOPPING } from './topping.model';
 
 export interface Product {
     codigo?: string;
     producto?: string;
-    sabores?: Product[];
+    sabores?: SABOR[];
+    crema?: SYRUP;
+    syrups?: SYRUP[];
+    topping?: TOPPING;
     image?: string;
     img?: Observable<string | null>;
     bebida?: string;

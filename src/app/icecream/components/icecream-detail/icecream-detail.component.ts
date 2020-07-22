@@ -88,28 +88,23 @@ export class IcecreamDetailComponent implements OnInit {
   }
 
   selectFlavor(): void{
+    this.sabor = null;
     const dialogRef = this.dialog.open(SaboresComponent, {
       width: '50%',
-      data: {
-        codflavor: this.codflavor,
-        sabor: this.saborService.getFlavor(this.codflavor),
-      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       this.codflavor = result;
       this.sabor = this.saborService.getFlavor(this.codflavor);
+      console.log(this.sabor);
     });
   }
 
   selectFlavordos(): void{
+    this.sabor2 = null;
     const dialogRef = this.dialog.open(SaboresComponent, {
       width: '50%',
-      data: {
-        codflavor2: this.codflavor2,
-        sabor2: this.saborService.getFlavor(this.codflavor2),
-      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -121,12 +116,9 @@ export class IcecreamDetailComponent implements OnInit {
   }
 
   selectFlavortres(): void{
+    this.sabor3 = null;
     const dialogRef = this.dialog.open(SaboresComponent, {
       width: '50%',
-      data: {
-        codflavor3: this.codflavor3,
-        sabor3: this.saborService.getFlavor(this.codflavor3),
-      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -174,8 +166,9 @@ export class IcecreamDetailComponent implements OnInit {
     this.newHelado = {
       codigo: this.helado[0].codigo,
       producto: this.helado[0].producto,
+      crema: this.crema,
       sabores: [this.sabor, this.sabor2, this.sabor3],
-      syrups: [this.crema, this.syrup],
+      syrups: [this.syrup],
       topping: this.toppingD,
       precioVenta: this.helado[0].precioVenta,
       img: this.helado[0].img,

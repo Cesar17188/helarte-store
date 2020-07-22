@@ -8,6 +8,7 @@ export interface HELADO {
     producto?: string;
     sabores?: SABOR[];
     syrups?: SYRUP[];
+    crema?: SYRUP;
     topping?: TOPPING;
     image?: string;
     img?: Observable<string | null>;
