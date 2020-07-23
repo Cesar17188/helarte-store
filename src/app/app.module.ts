@@ -27,7 +27,7 @@ import { PageNotFoundModule } from './page-not-found/page-not-found.module';
 import { MaterialModule } from './material/material.module';
 import { ShakeModule } from './shake/shake.module';
 import { BebidaModule } from './bebida/bebida.module';
-
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -57,6 +57,7 @@ import { BebidaModule } from './bebida/bebida.module';
     PageNotFoundModule,
     MaterialModule,
     HttpClientModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
