@@ -20,7 +20,14 @@
             </div>
         </mat-card-content>
         <mat-card-actions>
-            <button [disabled]="form.invalid" mat-raised-button type="submit">Ingresar</button>
+            <div class="row">
+                <button [disabled]="form.invalid" mat-raised-button type="submit">Ingresar</button>
+                <button mat-button mat-dialog-close>Cancel</button>
+            </div>
+            <div class="row">
+                <h3><Label>SingIn</Label></h3>
+                <button (click)="loginGoogle()">logingoogle</button>
+            </div>
         </mat-card-actions>
     </mat-card>
 </form>

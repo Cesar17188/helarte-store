@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { TOPPING } from 'src/app/models/topping.model';
+import { TOPPING } from 'src/app/core/models/topping.model';
 import { ToppingsComponent } from '../toppings/toppings.component';
-import { DataToppinD } from 'src/app/models/dialogoToppingDulce';
+import { DataToppinD } from 'src/app/core/models/dialogoToppingDulce';
 
 @Component({
   selector: 'app-topping',

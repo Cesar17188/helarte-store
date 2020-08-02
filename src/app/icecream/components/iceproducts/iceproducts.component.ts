@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HELADO } from '../../../models/helado.model';
+import { HELADO } from 'src/app/core/models/helado.model';
 import { HeladosService } from '../../../core/services/helados/helados.service';
 import { AngularFireStorage } from '@angular/fire/storage';
 

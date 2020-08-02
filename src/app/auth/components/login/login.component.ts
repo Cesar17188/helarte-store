@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login',
@@ -13,15 +15,39 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private router: Router
-  ) { }
+    private router: Router,
+    private authService: AuthService,
+    public dialogRef: MatDialogRef<LoginComponent>
+  ) {
+    this.buildForm();
+  }
 
   ngOnInit(): void {
   }
 
   login(event: Event){
     event.preventDefault();
-    console.log(this.form.value);
+    if (this.form.valid) {
+      const value = this.form.value;
+      this.authService.login(value.email, value.password)
+      .then(() => {
+        this.router.navigate(['/admin']);
+        this.dialogRef.close();
+      })
+      .catch(() => {
+        alert('usuario no valido');
+      });
+    }
+  }
+
+  loginGoogle() {
+    this.authService.loginWithGoogle()
+    .then(() => {
+      this.router.navigate(['/admin']);
+    })
+    .catch(() => {
+      alert('usuario no valido');
+    });
   }
 
   private buildForm() {
@@ -30,5 +56,4 @@ export class LoginComponent implements OnInit {
       password: ['', [Validators.required]]
     });
   }
-
 }

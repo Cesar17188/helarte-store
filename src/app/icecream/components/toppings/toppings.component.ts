@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TOPPING } from 'src/app/models/topping.model';
+import { TOPPING } from 'src/app/core/models/topping.model';
 import { ToppingDulceService } from 'src/app/core/services/topping-dulce/topping-dulce.service';
 
 @Component({

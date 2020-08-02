@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SalsasService } from 'src/app/core/services/salsas/salsas.service';
-import { SYRUP } from 'src/app/models/syrup.model';
+import { SYRUP } from 'src/app/core/models/syrup.model';
 
 @Component({
   selector: 'app-syrups',

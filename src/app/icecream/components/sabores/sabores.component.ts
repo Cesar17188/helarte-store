@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SaboresService } from 'src/app/core/services/sabores/sabores.service';
-import { SABOR } from 'src/app/models/sabor.model';
+import { SABOR } from 'src/app/core/models/sabor.model';
 
 @Component({
   selector: 'app-sabores',

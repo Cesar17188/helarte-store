@@ -9,10 +9,10 @@ import { ToppingDulceService } from 'src/app/core/services/topping-dulce/topping
 import { SalsasService } from 'src/app/core/services/salsas/salsas.service';
 import { SaboresService } from 'src/app/core/services/sabores/sabores.service';
 
-import { HELADO } from '../../../models/helado.model';
-import { SABOR } from 'src/app/models/sabor.model';
-import { SYRUP } from 'src/app/models/syrup.model';
-import { TOPPING } from 'src/app/models/topping.model';
+import { HELADO } from 'src/app/core/models/helado.model';
+import { SABOR } from 'src/app/core/models/sabor.model';
+import { SYRUP } from 'src/app/core/models/syrup.model';
+import { TOPPING } from 'src/app/core/models/topping.model';
 
 import { SaboresComponent } from '../sabores/sabores.component';
 import { SyrupsComponent } from '../syrups/syrups.component';
