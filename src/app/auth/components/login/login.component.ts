@@ -41,9 +41,21 @@ export class LoginComponent implements OnInit {
   }
 
   loginGoogle() {
-    this.authService.loginWithGoogle()
-    .then(() => {
+   this.authService.loginWithGoogle()
+   .then((data) => {
+     this.router.navigate(['/admin']);
+     this.dialogRef.close();
+   })
+   .catch(() => {
+    alert('usuario no valido');
+  });
+  }
+
+  loginInFB() {
+    this.authService.loginWithFB()
+    .then((data) => {
       this.router.navigate(['/admin']);
+      this.dialogRef.close();
     })
     .catch(() => {
       alert('usuario no valido');

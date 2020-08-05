@@ -17,8 +17,16 @@ export class AuthService {
 
 
 
-  loginWithGoogle() {
-    return this.afa.signInWithPopup(new auth.GoogleAuthProvider());
+ async loginWithGoogle() {
+  const res = await this.afa.signInWithPopup ( new auth.GoogleAuthProvider());
+  const user = res.user;
+  console.log(user);
+  return user;
+  }
+
+  loginWithFB() {
+    const res = this.afa.signInWithPopup (new auth.FacebookAuthProvider());
+    return res;
   }
 
   login(email: string, password: string) {
