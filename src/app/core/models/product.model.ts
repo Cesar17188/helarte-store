@@ -23,5 +23,6 @@ export interface Product {
     unidadMedida?: string;
     precioCompra?: number;
     precioVenta?: number;
+    userUid?: string;
 }
 

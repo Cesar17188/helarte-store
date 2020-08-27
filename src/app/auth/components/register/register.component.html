@@ -1,4 +1,4 @@
-<form [formGroup]="form" (ngSubmit)="register($event)">
+<form [formGroup]="form" (ngSubmit)="register()">
     <mat-card>
         <mat-card-header>
             <mat-card-title>Registro</mat-card-title>
@@ -21,6 +21,21 @@
         </mat-card-content>
         <mat-card-actions>
             <button [disabled]="form.invalid" mat-raised-button type="submit">Registro</button>
+            <div class="row">
+                <h3 class="cuenta">Si aun no tienes cuenta</h3>
+            </div>
+            <div class="row">
+                <button mat-button (click)="openLogin()">Login</button>
+            </div>
+            <div class="row">
+                <h3 class="cuenta">Si ya tienes cuenta</h3>
+            </div>
+            <div class="row gl">
+                <button mat-raised-button (click)="registerGoogle()" target="_blanck"><img src="https://img.icons8.com/color/48/000000/google-logo.png"/>Register with Google</button>
+            </div>
+            <div class="row fb">
+                <button mat-raised-button color="primary" (click)="registerFacebook()"><img src="https://img.icons8.com/color/48/000000/facebook-new.png"/>Register with Facebook</button>
+            </div>
         </mat-card-actions>
     </mat-card>
 </form>

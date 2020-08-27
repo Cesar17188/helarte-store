@@ -14,6 +14,7 @@ import { ListasComponent } from './components/listas/listas.component';
 import { ListaHeladosComponent } from './components/listado/lista-helados/lista-helados.component';
 import { FormheladoComponent } from './components/formularios/helados/formhelado/formhelado.component';
 import { EditheladoComponent } from './components/formularios/helados/edithelado/edithelado.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 
@@ -28,6 +29,7 @@ import { EditheladoComponent } from './components/formularios/helados/edithelado
     ListaHeladosComponent,
     FormheladoComponent,
     EditheladoComponent,
+    ProfileComponent,
   ],
   imports: [
     CommonModule,

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
@@ -21,12 +21,22 @@ export class NavComponent {
 
   constructor(
     private breakpointObserver: BreakpointObserver,
-    private auth: AuthService,
+    private authService: AuthService,
     private router: Router
     ) {}
 
+
+    public isAdmin: any = null;
+    public userUid: string = null;
+
+    // tslint:disable-next-line: use-lifecycle-interface
+    ngOnInit(){
+
+    }
+
+
   logout() {
-    this.auth.logout()
+    this.authService.logout()
     .then(() => {
       this.router.navigate(['./home']);
     });

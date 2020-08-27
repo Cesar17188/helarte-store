@@ -5,6 +5,7 @@ import { CartService } from './../../../core/services/cart/cart.service';
 import { Observable } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from 'src/app/auth/components/login/login.component';
+import { RegisterComponent } from 'src/app/auth/components/register/register.component';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -29,7 +30,7 @@ export class HeaderComponent implements OnInit {
 
   openLogin() {
     const dialogRef = this.dialog.open(LoginComponent, {
-      width: '50%',
+      width: '80%',
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('login cerrado');

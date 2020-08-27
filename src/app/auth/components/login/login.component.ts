@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef, MatDialog } from '@angular/material/dialog';
+import { User } from 'src/app/core/models/user';
+import { RegisterComponent } from '../register/register.component';
+
 
 @Component({
   selector: 'app-login',
@@ -14,6 +17,7 @@ export class LoginComponent implements OnInit {
   form: FormGroup;
 
   constructor(
+    public dialog: MatDialog,
     private formBuilder: FormBuilder,
     private router: Router,
     private authService: AuthService,
@@ -31,7 +35,7 @@ export class LoginComponent implements OnInit {
       const value = this.form.value;
       this.authService.login(value.email, value.password)
       .then(() => {
-        this.router.navigate(['/admin']);
+        this.onLoginRedirect();
         this.dialogRef.close();
       })
       .catch(() => {
@@ -40,21 +44,22 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  loginGoogle() {
-   this.authService.loginWithGoogle()
-   .then((data) => {
-     this.router.navigate(['/admin']);
-     this.dialogRef.close();
-   })
-   .catch(() => {
-    alert('usuario no valido');
-  });
+  async loginGoogle() {
+    try {
+      const user = await this.authService.loginWithGoogle();
+      console.log(user);
+      if (user) {
+        this.checkUserIsVerified(user);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   loginInFB() {
     this.authService.loginWithFB()
     .then((data) => {
-      this.router.navigate(['/admin']);
+      this.onLoginRedirect();
       this.dialogRef.close();
     })
     .catch(() => {
@@ -67,5 +72,29 @@ export class LoginComponent implements OnInit {
       email: ['', [Validators.required]],
       password: ['', [Validators.required]]
     });
+  }
+
+  onLoginRedirect(): void {
+    this.router.navigate(['admin/panel']);
+  }
+
+  openRegister() {
+    this.dialogRef.close();
+    const dialogRef2 = this.dialog.open(RegisterComponent, {
+      width: '80%',
+    });
+    dialogRef2.afterClosed().subscribe(result => {
+      console.log('register cerrado');
+    });
+  }
+
+  private checkUserIsVerified( user: User) {
+    if (user && user.emailVerified) {
+      this.router.navigate(['/home']);
+    } else if (user) {
+      this.router.navigate(['/verification-email']);
+    } else {
+      this.router.navigate(['/register']);
+    }
   }
 }
