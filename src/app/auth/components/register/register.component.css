@@ -1,0 +1,78 @@
+form{
+    text-align: center;
+}
+.login {
+    width: auto;
+}
+
+mat-card-header{
+    width: 100%;
+    
+}
+
+mat-card-actions{
+    width: 100%;
+    display: inline-block;
+}
+
+mat-card-actions .formulario{
+    display: block;
+}
+
+mat-card-actions .boton1{
+    margin-right: 3px;
+}
+
+mat-card-actions .boton2{
+    margin-left: 3px;
+}
+
+mat-card-actions .cuenta{
+    width: 100%;
+}
+
+mat-card-actions .gl button{
+    width: 100%;
+}
+
+mat-card-actions .fb button{
+    width: 100%;
+}
+
+mat-card-actions .gl{
+    width: 100%;
+    margin-bottom: 5px;
+}
+mat-card-actions .fb{
+    width: 100%;
+    margin-top: 5px;
+}
+
+@media(min-width: 1024px) {
+    .login {
+        display: block;
+    }
+    
+    mat-card-actions .gl button{
+        display: block;
+        width: 50%;
+    }
+    
+    mat-card-actions .fb button{
+        width: 50%;
+        display: block;
+    }
+
+    mat-card-actions .gl{
+        width: 100%;
+        margin-bottom: 5px;
+        padding-left: 33%;
+    }
+
+    mat-card-actions .fb{
+        width: 100%;
+        margin-top: 5px;
+        padding-left: 33%;
+    }
+    
+}

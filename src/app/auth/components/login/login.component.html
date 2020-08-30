@@ -1,7 +1,9 @@
 <form [formGroup]="form" (ngSubmit)="login($event)">
     <mat-card class="login">
         <mat-card-header>
-            <mat-card-title>Login</mat-card-title>
+            <div class="row">
+                <mat-card-title>Login</mat-card-title>
+            </div>
         </mat-card-header>
         <mat-card-content>
             <div class="row">
@@ -25,7 +27,7 @@
                 <button class="boton2" mat-stroked-button mat-dialog-close>Cancel</button>
             </div>
             <div class="row">
-                <h3 class="cuenta">Si ya tienes cuenta</h3>
+                <h3 class="cuenta">O ingresa con</h3>
             </div>
             <div class="row gl">
                 <button mat-raised-button (click)="loginGoogle()" target="_blanck"><img src="https://img.icons8.com/color/48/000000/google-logo.png"/>Sign in with Google</button>
@@ -34,10 +36,7 @@
                 <button mat-raised-button color="primary" (click)="loginInFB()"><img src="https://img.icons8.com/color/48/000000/facebook-new.png"/>login facebook</button>
             </div>
             <div class="row">
-                <h3 class="cuenta">Si aun no tienes cuenta</h3>
-            </div>
-            <div class="row">
-                <button mat-button (click)="openRegister()">Register</button>
+                <h4 class="cuenta">Aun no tienes cuenta? <button mat-button (click)="openRegister()">Register</button></h4>
             </div>
         </mat-card-actions>
     </mat-card>

@@ -1,6 +1,7 @@
 import { Component, OnDestroy, ChangeDetectorRef } from '@angular/core';
-import {MediaMatcher} from '@angular/cdk/layout';
-
+import { MediaMatcher } from '@angular/cdk/layout';
+import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -11,7 +12,11 @@ export class SidebarComponent implements OnDestroy {
   mobileQuery: MediaQueryList;
   private mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher){
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    changeDetectorRef: ChangeDetectorRef,
+    media: MediaMatcher){
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this.mobileQueryListener = () => changeDetectorRef.detectChanges();
     // tslint:disable-next-line: deprecation
@@ -20,6 +25,13 @@ export class SidebarComponent implements OnDestroy {
   ngOnDestroy(): void {
     // tslint:disable-next-line: deprecation
     this.mobileQuery.removeListener(this.mobileQueryListener);
+  }
+
+  logout() {
+    this.authService.logout()
+    .then(() => {
+      this.router.navigate(['./home']);
+    });
   }
 
   // tslint:disable-next-line: member-ordering

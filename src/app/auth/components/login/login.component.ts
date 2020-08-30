@@ -56,15 +56,16 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  loginInFB() {
-    this.authService.loginWithFB()
-    .then((data) => {
-      this.onLoginRedirect();
-      this.dialogRef.close();
-    })
-    .catch(() => {
-      alert('usuario no valido');
-    });
+  async loginInFB() {
+    try {
+      const user = await this.authService.loginWithFB();
+      console.log(user);
+      if (user) {
+        this.checkUserIsVerified(user);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   private buildForm() {
@@ -89,8 +90,9 @@ export class LoginComponent implements OnInit {
   }
 
   private checkUserIsVerified( user: User) {
-    if (user && user.emailVerified) {
+    if (user) {
       this.router.navigate(['/home']);
+      this.dialogRef.close();
     } else if (user) {
       this.router.navigate(['/verification-email']);
     } else {

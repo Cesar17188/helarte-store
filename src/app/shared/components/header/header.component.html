@@ -6,7 +6,14 @@
     aria-hidden="false" aria-label="Example heart icon">
     shopping_cart</mat-icon>
 </a>
-<button mat-button (click)="openLogin()">Login</button>
+
+<img *ngIf="user$ | async as user; else login" 
+ mat-card-avatar [src]="user?.photoURL" alt="">
+
+ <ng-template #login>
+    <button mat-button (click)="openLogin()">Login</button>
+ </ng-template>
+
 
 
 

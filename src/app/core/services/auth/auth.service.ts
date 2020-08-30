@@ -62,7 +62,12 @@ export class AuthService extends RoleValidator {
       const { user } = await this.afa.signInWithPopup(
         new auth.GoogleAuthProvider()
       );
-      this.createUserData(user);
+      if (!this.getUser(user)){
+        this.createUserData(user);
+      }
+      else{
+        alert('El usuario ya esta registrado');
+      }
       return user;
     } catch (error) {
       console.log(error);
@@ -74,17 +79,17 @@ export class AuthService extends RoleValidator {
       const { user } = await this.afa.signInWithPopup(
         new auth.FacebookAuthProvider()
       );
-      this.createUserData(user);
+      if (!this.getUser(user)){
+        this.createUserData(user);
+      }
+      else{
+        alert('El usuario ya esta registrado');
+      }
       return user;
     } catch (error) {
       console.log(error);
     }
   }
-
-  // loginWithFB() {
-  //   const provider =  new auth.FacebookAuthProvider();
-  //   return this.oAuthLogin(provider);
-  // }
 
   async loginWithFB(): Promise<User> {
     try {
@@ -124,15 +129,7 @@ export class AuthService extends RoleValidator {
     }
   }
 
-  // private oAuthLogin(provider) {
-  //   return this.afa.signInWithPopup(provider)
-  //   .then((credential) => {
-  //     this.updateUserData(credential.user);
-  //   });
-  // }
-
   async logout(): Promise<void> {
-    // return this.afa.signOut();
     try {
       await this.afa.signOut();
     } catch (error) {
@@ -148,6 +145,16 @@ export class AuthService extends RoleValidator {
   getCurrentUser() {
     return this.afa.authState.pipe(first()).toPromise();
   }
+
+  public getUsers() {
+    return this.afs.collection('users').snapshotChanges();
+  }
+
+  public getUser(user: User) {
+    return this.afs.doc<User>(`users/${user.email}`)
+    .valueChanges();
+  }
+
 
   private updateUserData(user: User) {
     const userRef: AngularFirestoreDocument<User> =
@@ -165,7 +172,6 @@ export class AuthService extends RoleValidator {
   }
 
   private createUserData(user: User) {
-    console.log(user);
     const userRef = this.afs.collection('users');
 
     const data: User = {
@@ -178,6 +184,7 @@ export class AuthService extends RoleValidator {
     };
     return userRef.add(data);
   }
+
 
 
 }
