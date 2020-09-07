@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { auth } from 'firebase/app';
+import { auth, database } from 'firebase/app';
 import { Observable, of } from 'rxjs';
 import { switchMap, map, first } from 'rxjs/operators';
 import { User } from '../../models/user';
@@ -96,7 +96,6 @@ export class AuthService extends RoleValidator {
       const { user } = await this.afa.signInWithPopup(
         new auth.FacebookAuthProvider()
       );
-      this.updateUserData(user);
       return user;
     } catch (error) {
       console.log(error);
@@ -154,7 +153,6 @@ export class AuthService extends RoleValidator {
     return this.afs.doc<User>(`users/${user.email}`)
     .valueChanges();
   }
-
 
   private updateUserData(user: User) {
     const userRef: AngularFirestoreDocument<User> =

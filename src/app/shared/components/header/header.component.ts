@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { CartService } from './../../../core/services/cart/cart.service';
 import { Observable } from 'rxjs';
@@ -23,6 +23,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private cartService: CartService,
+    private router: Router,
     public dialog: MatDialog,
     private authService: AuthService
   ) {
@@ -33,6 +34,7 @@ export class HeaderComponent implements OnInit {
     this.user$ = this.authService.hasUser();
   }
 
+  panelOpenState = false;
   ngOnInit(): void {
 
   }
@@ -46,6 +48,11 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-
+  logout() {
+    this.authService.logout()
+    .then(() => {
+      this.router.navigate(['./home']);
+    });
+  }
 
 }

@@ -5,8 +5,6 @@ import { ProductsService } from '../../../core/services/products/products.servic
 import { Product } from 'src/app/core/models/product.model';
 
 
-
-
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -55,4 +53,5 @@ export class ProductsComponent implements OnInit {
       console.log(this.products);
     });
   }
+
 }

@@ -10,9 +10,15 @@ import { MaterialModule } from 'src/app/material/material.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { SendEmailComponent } from './components/send-email/send-email.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
 
 @NgModule({
-  declarations: [RegisterComponent, LoginComponent, SendEmailComponent, ForgotPasswordComponent],
+  declarations: [
+    RegisterComponent,
+    LoginComponent,
+    SendEmailComponent,
+    ForgotPasswordComponent,
+    PerfilComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
