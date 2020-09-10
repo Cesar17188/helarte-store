@@ -14,7 +14,6 @@ export class SidebarComponent implements OnDestroy {
   mobileQuery: MediaQueryList;
   private mobileQueryListener: () => void;
   public user$: Observable<User> = this.authService.afa.user;
-  Huser = false;
 
   constructor(
     private authService: AuthService,
@@ -25,8 +24,8 @@ export class SidebarComponent implements OnDestroy {
     this.mobileQueryListener = () => changeDetectorRef.detectChanges();
     // tslint:disable-next-line: deprecation
     this.mobileQuery.addListener(this.mobileQueryListener);
-    this.user$ = this.authService.hasUser();
   }
+
   ngOnDestroy(): void {
     // tslint:disable-next-line: deprecation
     this.mobileQuery.removeListener(this.mobileQueryListener);
@@ -38,6 +37,7 @@ export class SidebarComponent implements OnDestroy {
       this.router.navigate(['./home']);
     });
   }
+
 
   // tslint:disable-next-line: member-ordering
   shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h =>

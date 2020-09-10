@@ -3,6 +3,7 @@ import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTr
 import { Observable } from 'rxjs';
 import { map, tap, take } from 'rxjs/operators';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { promise } from 'protractor';
 
 
 @Injectable({
@@ -15,13 +16,23 @@ export class AdminGuard implements CanActivate {
     private router: Router
   ) {}
 
-  canActivate(){
-    if (this.authService.user$) {
-      return true;
-    }else {
-      this.router.navigate(['home']);
-      return false;
-    }
+  canActivate(): Observable<boolean> | Promise<boolean> | boolean{
+  //   if (this.authService.user$) {
+  //     return true;
+  //   }else {
+  //     this.router.navigate(['home']);
+  //     return false;
+  //   }
+  // }
+  return this.authService.user$.pipe(
+    take(1),
+    map((user) => user && this.authService.isAdmin(user)),
+    tap((canEdit) => {
+      if (!canEdit) {
+        window.alert('Acces denied');
+        this.router.navigate(['home']);
+        }
+      })
+    );
   }
-
 }
