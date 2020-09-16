@@ -1,39 +1,45 @@
 import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { Product } from 'src/app/core/models/product.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BackeriesService {
-  backeries: Product[] = [
-    {
-        codigo: 'cp1',
-        image: 'assets/images/hchocolate.jpg',
-        producto: 'Crepe de dulce',
-        sabores: [],
-        descripcion_corta: 'Crepe de dulce con topping de dulce',
-        descripcion_larga: 'Crepe de dulce con un topping de dulce a tu elección',
-        unidadMedida: 'unidad',
-        precioVenta: 2.95
-    },
-    {
-      codigo: 'cp2',
-      image: 'assets/images/hvainilla.jpg',
-      producto: 'Crepe de sal',
-      sabores: [],
-      descripcion_corta: 'Crepe de sal con topping de sal',
-      descripcion_larga: 'Crepe de sal con un topping de sal a tu elección',
-      unidadMedida: 'unidad',
-      precioVenta: 3.25
-  },
-];
-  constructor() { }
 
-  getAllBackeries() {
-    return this.backeries;
+  idCrepe = 'VeHLjG6fV98aK5QjBIGg';
+
+  constructor(
+    private firestore: AngularFirestore,
+  ) { }
+
+  public createBackerie(data: Product) {
+    return this.firestore.collection<Product>('Productos').doc(this.idCrepe)
+    .collection('crepes').add(data);
   }
 
-  getBackerie(codigo: string){
-    return this.backeries.find(item => codigo === item.codigo);
+
+  public getBackerie(codigo: string) {
+    return this.firestore.collection('Productos').doc(this.idCrepe)
+    .collection('crepes', ref => ref.where('codigo', '==', codigo)).snapshotChanges();
   }
+
+  public getAllBackeries() {
+    return this.firestore.collection('Productos').doc(this.idCrepe)
+    .collection('crepes', ref => ref.orderBy('codigo', 'asc')).snapshotChanges();
+    // return this.firestore.collection(`Productos/{crepes}`,
+    // ref => ref.orderBy('codigo', 'asc')).snapshotChanges();
+  }
+
+  public updateBackerie(documentId: string, partialData: Partial<Product>){
+    this.firestore.collection('Productos').doc(this.idCrepe)
+    .collection('crepes').doc(documentId).update(partialData);
+  }
+
+
+  public deleteBackerie(documentId: string) {
+    this.firestore.collection('Productos').doc(this.idCrepe)
+    .collection('crepes').doc(documentId).delete();
+  }
+
 }

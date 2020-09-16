@@ -8,7 +8,8 @@
     <mat-card-content>
         <h3>{{usuario[0].email}}</h3>
     </mat-card-content>
-    <mat-card-actions *ngIf="usuario[0].role === 'ADMIN'">
+    <mat-card-actions *ngIf="usuario[0].role === 'ADMIN' 
+                          || usuario[0].role === 'CAJERO'">
         <a href="/admin">Panel Administrador</a>
     </mat-card-actions>
 </mat-card>

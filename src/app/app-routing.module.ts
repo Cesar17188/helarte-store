@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules} from '@angular/router';
 
 import { LayoutComponent } from './layout/layout.component';
-import { AdminGuard } from './guardianes/admin.guard';
+import { AdminGuard } from './guardianes/admin/admin.guard';
+import { CajeroGuard } from './guardianes/cajero/cajero.guard';
 
 
 const routes: Routes = [
@@ -30,6 +31,10 @@ const routes: Routes = [
       {
         path: 'crepes',
         loadChildren: () => import('./backerie/backerie.module').then(m => m.BackerieModule)
+      },
+      {
+        path: 'shakes',
+        loadChildren: () => import('./shake/shake.module').then(m => m.ShakeModule)
       },
       {
         path: 'cafes',
@@ -60,7 +65,7 @@ const routes: Routes = [
   {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
-    canActivate: [AdminGuard],
+    canActivate: [AdminGuard]
   },
   {
     path: '**',

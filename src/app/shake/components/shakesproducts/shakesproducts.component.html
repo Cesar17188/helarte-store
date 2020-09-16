@@ -1,1 +1,5 @@
-<p>shakesproducts works!</p>
+<div class="product-grid">
+    <app-shakes *ngFor="let shake of shakes" 
+    (productAdd)="clickProduct($event)" 
+    [product]='shake'></app-shakes>  
+</div>

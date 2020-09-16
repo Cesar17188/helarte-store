@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireStorage } from '@angular/fire/storage';
 import { Product } from 'src/app/core/models/product.model';
 import { CafesService } from '../../../core/services/cafes/cafes.service';
 
@@ -11,14 +12,42 @@ import { CafesService } from '../../../core/services/cafes/cafes.service';
 export class CafesproductsComponent implements OnInit {
 
   cafes: Product[];
+  data: any;
+  img: any;
 
   constructor(
-    private cafesService: CafesService
+  private cafesService: CafesService,
+  private storage: AngularFireStorage,
   ) { }
 
   ngOnInit(): void {
-    this.cafes = this.cafesService.getAllCafes();
+    // this.shakes = this.shakesService.getAllshakes();
+    this.getCafes();
   }
+
+  getCafes() {
+    this.cafesService.getAllCafes().subscribe(data => {
+      this.cafes = data.map( e => {
+        // tslint:disable-next-line: no-string-literal
+        const ref = this.storage.storage.refFromURL(e.payload.doc.data()['image']);
+        this.img = ref.getDownloadURL();
+        return {
+          // tslint:disable-next-line: no-string-literal
+          codigo: e.payload.doc.data()['codigo'],
+          // tslint:disable-next-line: no-string-literal
+          producto: e.payload.doc.data()['producto'],
+          img: this.img,
+          // tslint:disable-next-line: no-string-literal
+          descripcion_corta: e.payload.doc.data()['descripcion_corta'],
+          // tslint:disable-next-line: no-string-literal
+          descripcion_larga: e.payload.doc.data()['descripcion_larga']
+        };
+      });
+      console.log(this.cafes);
+    });
+  }
+
+
   clickProduct(codigo: string) {
     console.log('producto');
     console.log(codigo);

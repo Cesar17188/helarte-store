@@ -13,7 +13,7 @@ const routes: Routes = [
     component: ShakesproductsComponent,
   },
   {
-    path: 'codigo',
+    path: ':codigo',
     component: ShakedetailComponent
   }
 ];
