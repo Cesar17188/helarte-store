@@ -13,10 +13,9 @@ import { HELADO } from 'src/app/core/models/helado.model';
 import { SABOR } from 'src/app/core/models/sabor.model';
 import { SYRUP } from 'src/app/core/models/syrup.model';
 import { TOPPING } from 'src/app/core/models/topping.model';
-
-import { SaboresComponent } from 'src/app/ingredients/sabores/sabores.component';
-import { SyrupsComponent } from 'src/app/ingredients/syrups/syrups.component';
-import { ToppingsComponent } from 'src/app/ingredients/toppings/toppings.component';
+import { SaboresComponent } from '../sabores/sabores.component';
+import { SyrupsComponent } from '../syrups/syrups.component';
+import { ToppingsComponent } from '../toppings/toppings.component';
 
 
 
