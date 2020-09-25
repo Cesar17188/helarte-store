@@ -8,33 +8,35 @@ import { Product } from 'src/app/core/models/product.model';
 })
 export class ProductsService {
 
+  docRef = this.firestore.collection('Productos');
   constructor(
     private firestore: AngularFirestore
   ) { }
 
 
     public createProducto(data: Product) {
-      return this.firestore.collection('Productos').add(data);
+      return this.docRef.add(data);
     }
 
 
     public getProducto(documentId: string) {
-      return this.firestore.collection('Productos').doc(documentId).snapshotChanges();
+      return this.docRef.doc(documentId).snapshotChanges();
     }
 
 
     public getProductos() {
-      return this.firestore.collection('Productos', ref => ref.orderBy('codigo', 'asc')).snapshotChanges();
+      return this.firestore.collection('Productos', ref => ref.
+                    orderBy('codigo', 'asc')).snapshotChanges();
     }
 
 
     public updateProducto(documentId: string, partialData: Partial<Product>){
-      return this.firestore.collection('Productos').doc(documentId).set(partialData);
+      return this.docRef.doc(documentId).set(partialData);
     }
 
 
     public deleteProduct(documentId: string) {
-      this.firestore.collection('Productos').doc(documentId).delete().then( () => {
+      this.docRef.doc(documentId).delete().then( () => {
         console.log('Producto Eliminado exitosamente!');
       }).catch((error) => {
         console.error('Error al eliminar el producto: ', error);

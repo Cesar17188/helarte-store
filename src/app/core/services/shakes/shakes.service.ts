@@ -7,38 +7,34 @@ import { Product } from '../../models/product.model';
 })
 export class ShakesService {
   idShake = 'nw8lXO7GyQP9mujejwwN';
-
+  docRef = this.firestore.collection<Product>('Productos').doc(this.idShake);
   constructor(
     private firestore: AngularFirestore,
   ) { }
 
   public createShake(data: Product) {
-    return this.firestore.collection<Product>('Productos').doc(this.idShake)
-    .collection('shakes').add(data);
+    return this.docRef.collection('shakes').add(data);
   }
 
 
   public getShake(codigo: string) {
-    return this.firestore.collection('Productos').doc(this.idShake)
-    .collection('shakes', ref => ref.where('codigo', '==', codigo)).snapshotChanges();
+    return this.docRef.collection('shakes', ref => ref.
+      where('codigo', '==', codigo)).snapshotChanges();
   }
 
   public getAllShakes() {
-    return this.firestore.collection('Productos').doc(this.idShake)
-    .collection('shakes', ref => ref.orderBy('codigo', 'asc')).snapshotChanges();
-    // return this.firestore.collection(`Productos/{shakes}`,
-    // ref => ref.orderBy('codigo', 'asc')).snapshotChanges();
+    return this.docRef.collection('shakes', ref => ref.
+           orderBy('codigo', 'asc')).snapshotChanges();
   }
 
   public updateShake(documentId: string, partialData: Partial<Product>){
-    this.firestore.collection('Productos').doc(this.idShake)
-    .collection('shakes').doc(documentId).update(partialData);
+    this.docRef.collection('shakes').doc(documentId).
+                                 update(partialData);
   }
 
 
   public deleteShake(documentId: string) {
-    this.firestore.collection('Productos').doc(this.idShake)
-    .collection('shakes').doc(documentId).delete();
+    this.docRef.collection('shakes').doc(documentId).delete();
   }
 
 }

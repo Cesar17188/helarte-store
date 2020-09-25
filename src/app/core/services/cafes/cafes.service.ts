@@ -7,37 +7,33 @@ import { Product } from 'src/app/core/models/product.model';
 })
 export class CafesService {
   idCafe = 'fI3wqufs38vXboW3728a';
+  docRef = this.firestore.collection<Product>('Productos').doc(this.idCafe);
 
   constructor(
     private firestore: AngularFirestore,
   ) { }
 
   public createCafe(data: Product) {
-    return this.firestore.collection<Product>('Productos').doc(this.idCafe)
-    .collection('cafes').add(data);
+    return this.docRef.collection('cafes').add(data);
   }
 
 
   public getCafe(codigo: string) {
-    return this.firestore.collection('Productos').doc(this.idCafe)
-    .collection('cafes', ref => ref.where('codigo', '==', codigo)).snapshotChanges();
+    return this.docRef.collection('cafes', ref => ref.
+     where('codigo', '==', codigo)).snapshotChanges();
   }
 
   public getAllCafes() {
-    return this.firestore.collection('Productos').doc(this.idCafe)
-    .collection('cafes', ref => ref.orderBy('codigo', 'asc')).snapshotChanges();
-    // return this.firestore.collection(`Productos/{cafes}`,
-    // ref => ref.orderBy('codigo', 'asc')).snapshotChanges();
+    return this.docRef.collection('cafes', ref => ref.
+          orderBy('codigo', 'asc')).snapshotChanges();
   }
 
   public updateCafe(documentId: string, partialData: Partial<Product>){
-    this.firestore.collection('Productos').doc(this.idCafe)
-    .collection('cafes').doc(documentId).update(partialData);
+    this.docRef.collection('cafes').doc(documentId).
+                                update(partialData);
   }
 
-
   public deleteCafe(documentId: string) {
-    this.firestore.collection('Productos').doc(this.idCafe)
-    .collection('cafes').doc(documentId).delete();
+    this.docRef.collection('cafes').doc(documentId).delete();
   }
 }

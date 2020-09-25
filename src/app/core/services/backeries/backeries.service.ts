@@ -8,38 +8,35 @@ import { Product } from 'src/app/core/models/product.model';
 export class BackeriesService {
 
   idCrepe = 'VeHLjG6fV98aK5QjBIGg';
+  docRef = this.firestore.collection('Productos').doc(this.idCrepe);
 
   constructor(
     private firestore: AngularFirestore,
   ) { }
 
   public createBackerie(data: Product) {
-    return this.firestore.collection<Product>('Productos').doc(this.idCrepe)
-    .collection('crepes').add(data);
+    return this.docRef.collection('crepes').add(data);
   }
 
 
   public getBackerie(codigo: string) {
-    return this.firestore.collection('Productos').doc(this.idCrepe)
-    .collection('crepes', ref => ref.where('codigo', '==', codigo)).snapshotChanges();
+    return this.docRef.collection('crepes',
+    ref => ref.where('codigo', '==', codigo)).snapshotChanges();
   }
 
   public getAllBackeries() {
-    return this.firestore.collection('Productos').doc(this.idCrepe)
-    .collection('crepes', ref => ref.orderBy('codigo', 'asc')).snapshotChanges();
-    // return this.firestore.collection(`Productos/{crepes}`,
-    // ref => ref.orderBy('codigo', 'asc')).snapshotChanges();
+    return this.docRef.collection('crepes',
+    ref => ref.orderBy('codigo', 'asc')).snapshotChanges();
   }
 
   public updateBackerie(documentId: string, partialData: Partial<Product>){
-    this.firestore.collection('Productos').doc(this.idCrepe)
-    .collection('crepes').doc(documentId).update(partialData);
+    this.docRef.collection('crepes')
+    .doc(documentId).update(partialData);
   }
 
 
   public deleteBackerie(documentId: string) {
-    this.firestore.collection('Productos').doc(this.idCrepe)
-    .collection('crepes').doc(documentId).delete();
+    this.docRef.collection('crepes').doc(documentId).delete();
   }
 
 }

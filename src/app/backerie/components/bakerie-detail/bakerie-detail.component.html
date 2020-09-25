@@ -19,6 +19,15 @@
             </div>
         </mat-dialog-content>
         <mat-card-actions>
+            <div class="sabor">
+                <div id="sabor1">
+                    <h3 *ngIf="toppingD">{{toppingD[0].producto}}</h3>
+                    <img *ngIf="toppingD" [src]="toppingD[0].img | async" alt="">
+                    <button mat-raised-button color="warn" mat-raised-button (click)="aditionToping()">
+                        Topping Dulce
+                    </button>
+                </div>
+            </div>
             <button mat-flat-button color="primary">
                 Añadir al carrito
                 <span class="material-icons">

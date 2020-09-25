@@ -1,80 +1,50 @@
 import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { Product } from 'src/app/core/models/product.model';
+import { SYRUP } from '../../models/syrup.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SalsasService {
-  salsas: Product [] = [
-    {
-        codigo: 'sal1',
-        image: 'assets/images/hchocolate.jpg',
-        producto: 'Crema',
-        descripcion_corta: 'Complemento de crema',
-        descripcion_larga: 'Complementa tu elección con el sabor de crema',
-        stock: 100,
-        unidadMedida: 'gramos',
-        precioCompra: 15,
-        precioVenta: 0.50
-    },
-    {
-      codigo: 'sal2',
-      image: 'assets/images/hchocolate.jpg',
-      producto: 'chocolate',
-      descripcion_corta: 'Complemento de chocolate',
-      descripcion_larga: 'Complementa tu elección con el sabor de chocolate',
-      stock: 100,
-      unidadMedida: 'gramos',
-      precioCompra: 15
-    },
-    {
-      codigo: 'sal3',
-      image: 'assets/images/hchocolate.jpg',
-      producto: 'Fresa',
-      descripcion_corta: 'Complemento de fresa',
-      descripcion_larga: 'Complementa tu elección con el sabor de fresa',
-      stock: 100,
-      unidadMedida: 'gramos',
-      precioCompra: 15
-    },
-    {
-      codigo: 'sal4',
-      image: 'assets/images/hchocolate.jpg',
-      producto: 'Mangar',
-      descripcion_corta: 'Complemento de mangar',
-      descripcion_larga: 'Complementa tu elección con el sabor del mangar',
-      stock: 100,
-      unidadMedida: 'gramos',
-      precioCompra: 15
-    },
-    {
-      codigo: 'sal5',
-      image: 'assets/images/hchocolate.jpg',
-      producto: 'Chicles',
-      descripcion_corta: 'Complemento de chicles',
-      descripcion_larga: 'Complementa tu elección con el sabor del chicles',
-      stock: 100,
-      unidadMedida: 'gramos',
-      precioCompra: 15
-    },
-    {
-      codigo: 'sal6',
-      image: 'assets/images/hchocolate.jpg',
-      producto: 'Mani',
-      descripcion_corta: 'Complemento de mani',
-      descripcion_larga: 'Complementa tu elección con el sabor del mani',
-      stock: 100,
-      unidadMedida: 'gramos',
-      precioCompra: 15
-    },
-  ];
-  constructor() { }
 
-  getAllSalsas() {
-    return this.salsas;
+  idSalsa = 'j6siqvLUplaRZKQb3zuG';
+  idCrema = 'hJkD0KrAf98OsrquNHhM';
+  docRef = this.firestore.collection<SYRUP>('inventario').doc(this.idSalsa);
+  cremRef = this.firestore.collection<SYRUP>('inventario');
+
+  constructor(
+    private firestore: AngularFirestore,
+  ) { }
+
+  public createSyrup(data: SYRUP) {
+    return this.docRef.collection('syrups').add(data);
   }
 
-  getSalsa(codigo: string) {
-    return this.salsas.find(item => codigo === item.codigo);
+
+  public getSyrup(codigo: string) {
+    return this.docRef.collection('syrups', ref => ref.
+       where('codigo', '==', codigo)).snapshotChanges();
   }
+
+  public getAllSyrups() {
+    return this.docRef.collection('syrups', ref => ref.
+            orderBy('codigo', 'asc')).snapshotChanges();
+  }
+
+  public updateSyrup(documentId: string, partialData: Partial<SYRUP>){
+    this.docRef.collection('syrups').doc(documentId).
+    update(partialData);
+  }
+
+
+  public deleteSyrup(documentId: string) {
+    this.docRef.collection('syrups').doc(documentId).delete();
+  }
+
+ public getCrema() {
+   return this.firestore.collection<SYRUP>('inventario',
+   ref => ref.where('codigo', '==', 'crem0001')).snapshotChanges();
+ }
+
 }
