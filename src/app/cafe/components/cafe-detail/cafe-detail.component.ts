@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { ActivatedRoute, Params } from '@angular/router';
 
 import { Product } from 'src/app/core/models/product.model';
 import { CafesService } from './../../../core/services/cafes/cafes.service';
+import { CartService } from 'src/app/core/services/cart/cart.service';
 
 @Component({
   selector: 'app-cafe-detail',
@@ -13,19 +15,21 @@ import { CafesService } from './../../../core/services/cafes/cafes.service';
 export class CafeDetailComponent implements OnInit {
 
   cafe: Product[];
+  newCafe: Product;
   data: any;
   img: any;
 
   constructor(
     private route: ActivatedRoute,
+    private location: Location,
     private cafesService: CafesService,
     private storage: AngularFireStorage,
+    private cartService: CartService
   ) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
       const codigo = params.codigo;
-      // this.shake = this.cafesService.getshake(codigo);
       this.fetchCafe(codigo);
     });
   }
@@ -46,6 +50,20 @@ export class CafeDetailComponent implements OnInit {
       });
       console.log(this.cafe);
     });
+  }
+
+  addcart() {
+    this.newCafe = {
+      codigo: this.cafe[0].codigo,
+      producto: this.cafe[0].producto,
+      precioVenta: this.cafe[0].precioVenta,
+      img: this.cafe[0].img,
+    };
+    this.cartService.addCart(this.newCafe);
+  }
+
+  backClicked() {
+    this.location.back();
   }
 
 }

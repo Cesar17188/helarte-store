@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params} from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { AngularFireStorage } from '@angular/fire/storage';
+import { Location } from '@angular/common';
 
 import { HeladosService } from '../../../core/services/helados/helados.service';
 import { CartService } from '../../../core/services/cart/cart.service';
@@ -17,8 +18,7 @@ import { TOPPING } from 'src/app/core/models/topping.model';
 import { SaboresComponent } from 'src/app/ingredients/components/sabores/sabores.component';
 import { SyrupsComponent } from 'src/app/ingredients/components/syrups/syrups.component';
 import { ToppingsComponent } from 'src/app/ingredients/components/toppings/toppings.component';
-import { AnyMxRecord } from 'dns';
-
+import { Product } from 'src/app/core/models/product.model';
 
 
 @Component({
@@ -28,36 +28,48 @@ import { AnyMxRecord } from 'dns';
 })
 export class IcecreamDetailComponent implements OnInit {
 
+// Variables de control del objeto helado
   helado: HELADO[];
-  newHelado: HELADO;
+  newHelado: Product;
+  precioHelado: number;
+  cono: string;
+
+// Variables de control de sabores de helado
+
   sabor: SABOR[];
   sabor2: SABOR[];
   sabor3: SABOR[];
   listaSabores: SABOR[];
-  crema: SYRUP[];
-  isCrema: SYRUP;
-  syrup: SYRUP[];
-  listaSyrups: SYRUP[];
-  codSyrup: string;
-  toppingD: TOPPING[];
-  listaToppingD: TOPPING;
-  codToppingD: string;
-  cono: string;
   codflavor: string;
   codflavor2: string;
   codflavor3: string;
   EneFlavorDos: boolean;
   EneFlavorTres: boolean;
-  flagSyrup: boolean;
   data: any;
   img: any;
-  Timg: any;
-  Syimg: any;
   Saimg: any;
+
+// Variables de control de Syrups (salsas o dulces)
+
+  crema: SYRUP[];
+  isCrema: SYRUP;
+  syrup: SYRUP[];
+  listaSyrups: SYRUP[];
+  codSyrup: string;
+  flagSyrup: boolean;
+  Syimg: any;
   flagCrema = false;
+
+// Variables de control de Toppings
+
+  toppingD: TOPPING[];
+  listaToppingD: TOPPING;
+  codToppingD: string;
+  Timg: any;
 
   constructor(
     private route: ActivatedRoute,
+    private location: Location,
     private heladosService: HeladosService,
     private saborService: SaboresService,
     private syrupService: SalsasService,
@@ -68,7 +80,6 @@ export class IcecreamDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-
     this.route.params.subscribe((params: Params) => {
       const codigo = params.codigo;
       this.fetchHelado(codigo);
@@ -78,6 +89,9 @@ export class IcecreamDetailComponent implements OnInit {
       this.flagSyrup = addFlavors(codigo);
     });
   }
+
+// Recuperación de la información del servicio
+// y asignación de variables para sabor de helado, topping, syrup y crema
 
   fetchHelado(codigo: string) {
     this.heladosService.getHelado(codigo).subscribe(data => {
@@ -185,7 +199,6 @@ export class IcecreamDetailComponent implements OnInit {
   }
 
   addCrema(){
-    // return this.syrupService.getSalsa('sal1');
     this.syrupService.getCrema().subscribe(data => {
     this.crema = data.map ( e => {
       return {
@@ -201,6 +214,8 @@ export class IcecreamDetailComponent implements OnInit {
     });
 }
 
+// Selectores en Dialogs para sabores, syrups y toppings
+
   selectFlavor(): void{
     this.sabor = null;
     const dialogRef = this.dialog.open(SaboresComponent, {
@@ -210,7 +225,6 @@ export class IcecreamDetailComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       this.codflavor = result;
-      // this.sabor = this.saborService.getFlavor(this.codflavor);
       this.fetchSabor(this.codflavor);
       console.log(this.sabor);
     });
@@ -253,7 +267,6 @@ export class IcecreamDetailComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       this.codSyrup = result;
-      // this.syrup = this.syrupService.getSalsa(this.codSyrup);
       this.fetchSyrup(this.codSyrup);
     });
   }
@@ -272,6 +285,9 @@ export class IcecreamDetailComponent implements OnInit {
     });
   }
 
+// asignación de objetos a variables de asignación
+// para el nuevo objeto Helado
+
   getSyrups() {
 
   if (this.syrup != null){
@@ -285,16 +301,14 @@ export class IcecreamDetailComponent implements OnInit {
 
   getCrema(){
     this.addCrema();
-    // let listaCrema: SYRUP[];
     if (this.flagCrema){
       this.isCrema = this.crema[0];
-
+      this.precioHelado = this.helado[0].precioVenta + this.crema[0].precioVenta;
     }
     else {
       this.isCrema = null;
+      this.precioHelado = this.helado[0].precioVenta;
     }
-
-
   }
 
   getSabores() {
@@ -320,6 +334,8 @@ export class IcecreamDetailComponent implements OnInit {
     return this.listaToppingD;
   }
 
+// Agrega el objeto helado a la tienda
+
   addcart() {
     this.getCrema();
     this.getSyrups();
@@ -328,20 +344,21 @@ export class IcecreamDetailComponent implements OnInit {
     this.newHelado = {
       codigo: this.helado[0].codigo,
       producto: this.helado[0].producto,
-      // sabores: [this.sabor[0], this.sabor2[0], this.sabor3[0]],
       sabores: this.listaSabores,
-      // syrups: [this.crema[0], this.syrup[0]],
       syrups: this.listaSyrups,
       crema: this.isCrema,
-      // topping: this.toppingD[0],
-      topping: this.listaToppingD,
-      precioVenta: this.helado[0].precioVenta,
+      toppingsD: this.listaToppingD,
+      precioVenta: this.precioHelado,
       img: this.helado[0].img,
     };
     this.cartService.addCart(this.newHelado);
   }
-}
 
+  backClicked() {
+    this.location.back();
+  }
+}
+// Función de bandera con booleano para determinar el tipo de helado
 function cono(codigo: string){
   let title: string;
   switch (codigo){
@@ -364,6 +381,27 @@ function cono(codigo: string){
   return title;
 }
 
+// Función de bandera con booleano para habilitar el primer sabor
+function addFlavors(codigo: string){
+  let flag: boolean;
+  switch (codigo){
+    case 'h0003':
+      flag = true;
+      break;
+    case 'h0004':
+      flag = true;
+      break;
+    case 'h0005':
+      flag = true;
+      break;
+    default:
+      flag = false;
+      break;
+  }
+  return flag;
+}
+
+// Función de bandera con booleano para habilitar el segundo sabor
 function EneFlavorDos(codigo: string){
   let flag: boolean;
   switch (codigo){
@@ -387,7 +425,7 @@ function EneFlavorDos(codigo: string){
 }
 
 
-// Función de bandera con booleano para habilitar el sabor tres
+// Función de bandera con booleano para habilitar el tercer sabor
 function EneFlavorTres(codigo: string){
   let flag: boolean;
   switch (codigo){
@@ -404,22 +442,5 @@ function EneFlavorTres(codigo: string){
   return flag;
 }
 
-function addFlavors(codigo: string){
-  let flag: boolean;
-  switch (codigo){
-    case 'h0003':
-      flag = true;
-      break;
-    case 'h0004':
-      flag = true;
-      break;
-    case 'h0005':
-      flag = true;
-      break;
-    default:
-      flag = false;
-      break;
-  }
-  return flag;
-}
+
 

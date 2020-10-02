@@ -1,9 +1,9 @@
-<div class="toppingsD">
+<div class="toppingsS">
     <div class="product-grid">
         <h2>Elige tu topping</h2>
-        <app-topping *ngFor="let toppingD of toppingsD" 
+        <app-topping-sal *ngFor="let toppingS of toppingsS" 
          (productAdd)="clickProduct($event)"
-        [toppingD]='toppingD'></app-topping>  
+        [toppingS]='toppingS'></app-topping-sal>  
     </div>
     <mat-dialog-actions>
         <button mat-button mat-dialog-close>Cancelar</button>

@@ -144,6 +144,10 @@ img {
   padding-left: 15px;
 }
 
+.btntienda #btntienda1 {
+  margin-bottom: 10px;
+}
+
 mat-card-actions {
   text-align: center;
 }

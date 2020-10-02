@@ -19,12 +19,23 @@
             </div>
         </mat-dialog-content>
         <mat-card-actions>
-            <button mat-flat-button color="primary">
-                Añadir al carrito
-                <span class="material-icons">
-                    shopping_cart
-                    </span>
-            </button>
+            <div class="btntienda">
+                <div id="btntienda1">
+                    <button  mat-flat-button color="primary" (click)="addcart()">
+                        Añadir al carrito
+                        <span class="material-icons">
+                            shopping_cart
+                            </span>
+                    </button>
+                </div>
+                </div>
+                <div id="btntienda2">
+                    <button mat-flat-button color="primary" (click)="backClicked()">
+                        <span class="material-icons">
+                            arrow_back
+                            </span>
+                    </button>
+                </div>
         </mat-card-actions>
     </mat-card>
 </div>

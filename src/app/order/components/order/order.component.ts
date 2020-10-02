@@ -13,7 +13,7 @@ import { map } from 'rxjs/operators';
 export class OrderComponent implements OnInit {
 
   products$: Observable<Product[]>;
-  displayedColumns: string[] = ['Imagen', 'Producto', 'Adicionales', 'Precio'];
+  displayedColumns: string[] = ['Imagen', 'Producto', 'Adicionales', 'Fruta', 'Precio'];
 
   constructor(
     private cartService: CartService
