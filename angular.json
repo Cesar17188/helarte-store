@@ -126,5 +126,8 @@
       }
     }
   },
-  "defaultProject": "helarte-store"
+  "defaultProject": "helarte-store",
+  "cli": {
+    "analytics": "975ab78c-3b24-4b68-ac12-0344fef0f0a1"
+  }
 }
