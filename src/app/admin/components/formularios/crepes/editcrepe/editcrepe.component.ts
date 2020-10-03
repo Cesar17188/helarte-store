@@ -1,23 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { Router, ActivatedRoute, Params } from '@angular/router';
 import { AngularFireStorage } from '@angular/fire/storage';
-
-
-import { Product } from 'src/app/core/models/product.model';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
-import { HeladosService } from 'src/app/core/services/helados/helados.service';
-
+import { BackeriesService } from 'src/app/core/services/backeries/backeries.service';
 
 @Component({
-  selector: 'app-edithelado',
-  templateUrl: './edithelado.component.html',
-  styleUrls: ['./edithelado.component.css']
+  selector: 'app-editcrepe',
+  templateUrl: './editcrepe.component.html',
+  styleUrls: ['./editcrepe.component.css']
 })
-export class EditheladoComponent implements OnInit {
+export class EditcrepeComponent implements OnInit {
 
-  newHelado = [];
+  newCrepe = [];
   image$: Observable<any>;
   form: FormGroup;
   codigo: string;
@@ -26,35 +22,35 @@ export class EditheladoComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private heladoService: HeladosService,
+    private crepeService: BackeriesService,
     private router: Router,
     private activateRoute: ActivatedRoute,
     private storage: AngularFireStorage
   ) {
     this.buildForm();
-   }
+  }
 
   ngOnInit(): void {
     this.activateRoute.params.subscribe((params: Params) => {
       this.codigo = params.codigo;
-      this.fetchHelado(this.codigo);
+      this.fetchCrepe(this.codigo);
     });
   }
 
-  saveHelado(event: Event) {
+  saveCrepe(event: Event) {
     event.preventDefault();
     if (this.form.valid) {
-      const helado = this.form.value;
-      this.heladoService.updateHelado(this.newHelado[0].id, helado);
-      console.log(helado);
+      const crepe = this.form.value;
+      this.crepeService.updateBackerie(this.newCrepe[0].id, crepe);
+      console.log(crepe);
       this.form.reset();
       this.router.navigate(['./admin/productos']);
     }
   }
 
-  fetchHelado(codigo: string) {
-    this.heladoService.getHelado(codigo).subscribe(data => {
-      this.newHelado = data.map ( e => {
+  fetchCrepe(codigo: string) {
+    this.crepeService.getBackerie(codigo).subscribe(data => {
+      this.newCrepe = data.map ( e => {
         const ref = this.storage.storage.refFromURL(e.payload.doc.data().image);
         this.img = ref.getDownloadURL();
         return {
@@ -67,8 +63,8 @@ export class EditheladoComponent implements OnInit {
           precioVenta: e.payload.doc.data().precioVenta
         };
       });
-      this.form.patchValue(this.newHelado[0]);
-      console.log(this.newHelado);
+      this.form.patchValue(this.newCrepe[0]);
+      console.log(this.newCrepe);
     });
   }
 
@@ -92,7 +88,6 @@ export class EditheladoComponent implements OnInit {
     .subscribe();
   }
 
-
   private buildForm() {
     this.form = this.formBuilder.group({
       producto: ['', [Validators.required]],
@@ -102,7 +97,6 @@ export class EditheladoComponent implements OnInit {
       image: [''],
     });
   }
-
 
   get producto() { return this.form.get('producto'); }
   get descripcion_corta() { return this.form.get('descripcion_corta'); }

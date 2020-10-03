@@ -8,6 +8,8 @@ import { InventarioComponent } from './components/inventario/inventario.componen
 import { ListasComponent } from './components/listas/listas.component';
 import { FormheladoComponent } from './components/formularios/helados/formhelado/formhelado.component';
 import { EditheladoComponent } from './components/formularios/helados/edithelado/edithelado.component';
+import { FormcrepeComponent } from './components/formularios/crepes/formcrepe/formcrepe.component';
+import { EditcrepeComponent } from './components/formularios/crepes/editcrepe/editcrepe.component';
 
 
 const routes: Routes = [
@@ -34,6 +36,14 @@ const routes: Routes = [
       {
         path: 'productos/helado/edit/:codigo',
         component: EditheladoComponent
+      },
+      {
+        path: 'productos/crepe/create',
+        component: FormcrepeComponent
+      },
+      {
+        path: 'productos/crepe/edit/:codigo',
+        component: EditcrepeComponent
       }
     ]
   },

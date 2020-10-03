@@ -9,6 +9,7 @@ import { RegisterComponent } from 'src/app/auth/components/register/register.com
 import { User } from 'src/app/core/models/user';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { async } from '@angular/core/testing';
+import { AutentificationComponent } from 'src/app/auth/components/autentification/autentification.component';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',

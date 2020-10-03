@@ -1,13 +1,23 @@
-<form [formGroup]="form" (ngSubmit)="saveHelado($event)"> 
+<form [formGroup]="form" (ngSubmit)="saveCrepe($event)"> 
     <mat-card>
         <mat-card-header>
-            <mat-card-title>Helado</mat-card-title>
+            <mat-card-title>Crepe</mat-card-title>
         </mat-card-header>
         <mat-card-content>
             <div class="row">
+                <div class="col-xs col-md col-lg">
+                    <mat-form-field>
+                        <input placeholder="Codigo del crepe" formControlName="codigo" matInput type="text">
+                    </mat-form-field>
+                    <div *ngIf="codigo.errors && codigo.dirty">
+                        <p *ngIf="codigo.hasError('required')">El código es requerido</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-xs">
                     <mat-form-field>
-                        <input placeholder="Nombre del helado" formControlName="producto" matInput type="text">
+                        <input placeholder="Nombre del crepe" formControlName="producto" matInput type="text">
                     </mat-form-field>
                     <div *ngIf="producto.errors && producto.dirty">
                         <p *ngIf="producto.hasError('required')">El producto es requerido</p>
@@ -46,17 +56,16 @@
             </div>
             <div class="row">
                 <div class="img">
-                    <img *ngIf="newHelado[0].img" [src]="img | async">
                     <img *ngIf="(image$ | async) as image" [src]="image" alt="">
                     <input type="file" (change) = "uploadFile($event)">
                 </div>
                 <div *ngIf="image.errors && image.dirty">
-                    <p *ngIf="image.hasError('required')">La imagen es requerida</p>
+                    <p *ngIf="image.hasError('required')">La imagen es requerido</p>
                 </div>
             </div>
         </mat-card-content>
         <mat-card-actions>
-            <button [disabled]="form.invalid" mat-raised-button type="submit">Actualizar</button>
+            <button [disabled]="form.invalid" mat-raised-button type="submit">Guardar</button>
         </mat-card-actions>
     </mat-card>
 </form>

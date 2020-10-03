@@ -15,6 +15,9 @@ import { ListaHeladosComponent } from './components/listado/lista-helados/lista-
 import { FormheladoComponent } from './components/formularios/helados/formhelado/formhelado.component';
 import { EditheladoComponent } from './components/formularios/helados/edithelado/edithelado.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ListaCrepesComponent } from './components/listado/lista-crepes/lista-crepes.component';
+import { EditcrepeComponent } from './components/formularios/crepes/editcrepe/editcrepe.component';
+import { FormcrepeComponent } from './components/formularios/crepes/formcrepe/formcrepe.component';
 
 
 
@@ -30,6 +33,9 @@ import { ProfileComponent } from './components/profile/profile.component';
     FormheladoComponent,
     EditheladoComponent,
     ProfileComponent,
+    ListaCrepesComponent,
+    EditcrepeComponent,
+    FormcrepeComponent,
   ],
   imports: [
     CommonModule,

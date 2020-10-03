@@ -24,6 +24,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTabsModule } from '@angular/material/tabs';
 @NgModule({
   declarations: [],
   imports: [
@@ -50,7 +51,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
     LayoutModule,
     MatSlideToggleModule,
     MatStepperModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatTabsModule
   ],
   exports: [
     MatSidenavModule,
@@ -75,7 +77,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
     LayoutModule,
     MatSlideToggleModule,
     MatStepperModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatTabsModule
   ]
 })
 export class MaterialModule { }
