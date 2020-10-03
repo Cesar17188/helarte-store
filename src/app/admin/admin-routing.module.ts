@@ -10,6 +10,8 @@ import { FormheladoComponent } from './components/formularios/helados/formhelado
 import { EditheladoComponent } from './components/formularios/helados/edithelado/edithelado.component';
 import { FormcrepeComponent } from './components/formularios/crepes/formcrepe/formcrepe.component';
 import { EditcrepeComponent } from './components/formularios/crepes/editcrepe/editcrepe.component';
+import { FormshakeComponent } from './components/formularios/shakes/formshake/formshake.component';
+import { EditshakeComponent } from './components/formularios/shakes/editshake/editshake.component';
 
 
 const routes: Routes = [
@@ -44,6 +46,14 @@ const routes: Routes = [
       {
         path: 'productos/crepe/edit/:codigo',
         component: EditcrepeComponent
+      },
+      {
+        path: 'productos/shake/create',
+        component: FormshakeComponent
+      },
+      {
+        path: 'productos/shake/edit/:codigo',
+        component: EditshakeComponent
       }
     ]
   },

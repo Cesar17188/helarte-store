@@ -18,6 +18,12 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { ListaCrepesComponent } from './components/listado/lista-crepes/lista-crepes.component';
 import { EditcrepeComponent } from './components/formularios/crepes/editcrepe/editcrepe.component';
 import { FormcrepeComponent } from './components/formularios/crepes/formcrepe/formcrepe.component';
+import { ListaShakesComponent } from './components/listado/lista-shakes/lista-shakes.component';
+import { FormshakeComponent } from './components/formularios/shakes/formshake/formshake.component';
+import { EditshakeComponent } from './components/formularios/shakes/editshake/editshake.component';
+import { ListaCafesComponent } from './components/listado/lista-cafes/lista-cafes.component';
+import { FormcafeComponent } from './components/formularios/cafes/formcafe/formcafe.component';
+import { EditcafeComponent } from './components/formularios/cafes/editcafe/editcafe.component';
 
 
 
@@ -36,6 +42,12 @@ import { FormcrepeComponent } from './components/formularios/crepes/formcrepe/fo
     ListaCrepesComponent,
     EditcrepeComponent,
     FormcrepeComponent,
+    ListaShakesComponent,
+    FormshakeComponent,
+    EditshakeComponent,
+    ListaCafesComponent,
+    FormcafeComponent,
+    EditcafeComponent,
   ],
   imports: [
     CommonModule,

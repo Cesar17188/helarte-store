@@ -1,0 +1,13 @@
+mat-card{
+    width: 100%;
+}
+
+img {
+    margin-top: 3px;
+    background-size: cover;
+    border-radius: 15px;
+    border: 1px solid white;
+    width: 30%; 
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
