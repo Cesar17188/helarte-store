@@ -25,6 +25,10 @@ export class OrderComponent implements OnInit {
     }));
     }
 
+  getTotalPrice() {
+   return this.cartService.totalCart();
+  }
+
   ngOnInit(): void {
   }
 
