@@ -23,4 +23,6 @@ export class UsersService {
   public getUsers() {
     return this.firestore.collection('users').snapshotChanges();
   }
+
+
 }

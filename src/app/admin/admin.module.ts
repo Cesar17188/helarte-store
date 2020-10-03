@@ -24,6 +24,7 @@ import { EditshakeComponent } from './components/formularios/shakes/editshake/ed
 import { ListaCafesComponent } from './components/listado/lista-cafes/lista-cafes.component';
 import { FormcafeComponent } from './components/formularios/cafes/formcafe/formcafe.component';
 import { EditcafeComponent } from './components/formularios/cafes/editcafe/editcafe.component';
+import { ListaUsuariosComponent } from './components/listado/lista-usuarios/lista-usuarios.component';
 
 
 
@@ -48,6 +49,7 @@ import { EditcafeComponent } from './components/formularios/cafes/editcafe/editc
     ListaCafesComponent,
     FormcafeComponent,
     EditcafeComponent,
+    ListaUsuariosComponent,
   ],
   imports: [
     CommonModule,
