@@ -5,10 +5,11 @@ import { ShakesService } from 'src/app/core/services/shakes/shakes.service';
 
 @Component({
   selector: 'app-shakesproducts',
-  templateUrl: './shakesproducts.component.html',
-  styleUrls: ['./shakesproducts.component.css']
+  templateUrl: './shakesproducts.container.html',
+  styleUrls: ['./shakesproducts.container.css']
 })
-export class ShakesproductsComponent implements OnInit {
+// tslint:disable-next-line: component-class-suffix
+export class ShakesproductsContainer implements OnInit {
 
   shakes: Product[];
   data: any;
@@ -20,11 +21,10 @@ export class ShakesproductsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // this.shakes = this.shakesService.getAllshakes();
-    this.getShakes();
+    this.fetchShakes();
   }
 
-  getShakes() {
+  fetchShakes() {
     this.shakesService.getAllShakes().subscribe(data => {
       this.shakes = data.map( e => {
         // tslint:disable-next-line: no-string-literal

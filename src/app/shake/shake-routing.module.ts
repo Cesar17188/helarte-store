@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ShakesproductsComponent } from './components/shakesproducts/shakesproducts.component';
+import { ShakesproductsContainer } from './containers/shakesproducts/shakesproducts.container';
 import { ShakedetailComponent } from './components/shakedetail/shakedetail.component';
 
 
@@ -10,7 +10,7 @@ import { ShakedetailComponent } from './components/shakedetail/shakedetail.compo
 const routes: Routes = [
   {
     path: '',
-    component: ShakesproductsComponent,
+    component: ShakesproductsContainer,
   },
   {
     path: ':codigo',
