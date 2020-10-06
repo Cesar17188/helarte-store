@@ -4,10 +4,10 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { AngularFireStorage } from '@angular/fire/storage';
 
 
-import { Product } from 'src/app/core/models/product.model';
+import { Product } from '@core/models/product.model';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
-import { HeladosService } from 'src/app/core/services/helados/helados.service';
+import { HeladosService } from '@core/services/helados/helados.service';
 
 
 @Component({

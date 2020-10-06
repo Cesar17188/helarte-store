@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, Inject } from '@angular/core';
-import { SYRUP } from 'src/app/core/models/syrup.model';
+import { SYRUP } from '@core/models/syrup.model';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { syrupData } from 'src/app/core/models/dialogoSyrup';
+import { syrupData } from '@core/models/dialogoSyrup';
 import { SyrupsContainer} from '../../containers/syrups/syrups.container';
 
 

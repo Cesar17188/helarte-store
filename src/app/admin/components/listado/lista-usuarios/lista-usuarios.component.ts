@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { UsersService } from 'src/app/core/services/users/users.service';
+import { UsersService } from '@core/services/users/users.service';
 
 @Component({
   selector: 'app-lista-usuarios',

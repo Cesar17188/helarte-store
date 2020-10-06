@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
 
-import { ProductsService } from '../../../core/services/products/products.service';
-import { Product } from 'src/app/core/models/product.model';
+import { ProductsService } from '@core/services/products/products.service';
+import { Product } from '@core/models/product.model';
 
 
 @Component({

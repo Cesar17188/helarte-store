@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
-import { ShakesService } from 'src/app/core/services/shakes/shakes.service';
+import { ShakesService } from '@core/services/shakes/shakes.service';
 
 @Component({
   selector: 'app-editshake',

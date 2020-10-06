@@ -6,8 +6,8 @@ import { BackeriesComponent } from './components/backeries/backeries.component';
 import { BackeriesproductsContainer } from './containers/backeriesproducts/backeriesproducts.container';
 
 import { BackerieRoutingModule } from './backerie-routing.module';
-import { SharedModule } from '../shared/shared.module';
-import { MaterialModule } from './../material/material.module';
+import { SharedModule } from '@shared/shared.module';
+import { MaterialModule } from '@material/material.module';
 
 @NgModule({
   declarations: [

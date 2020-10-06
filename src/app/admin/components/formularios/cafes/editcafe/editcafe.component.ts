@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
-import { CafesService } from 'src/app/core/services/cafes/cafes.service';
+import { CafesService } from '@core/services/cafes/cafes.service';
 
 @Component({
   selector: 'app-editcafe',

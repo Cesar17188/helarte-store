@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MaterialModule } from '../material/material.module';
+import { MaterialModule } from '@material/material.module';
 
 import { FlavorComponent } from './components/flavor/flavor.component';
 import { SyrupComponent } from './components/syrup/syrup.component';

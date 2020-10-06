@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { Product } from 'src/app/core/models/product.model';
-import { BackeriesService } from '../../../core/services/backeries/backeries.service';
+import { Product } from '@core/models/product.model';
+import { BackeriesService } from '@core/services/backeries/backeries.service';
 
 @Component({
   selector: 'app-backeriesproducts',

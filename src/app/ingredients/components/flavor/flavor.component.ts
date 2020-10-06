@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, Inject } from '@angular/core';
-import { Product } from 'src/app/core/models/product.model';
+import { Product } from '@core/models/product.model';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { DialogData } from 'src/app/core/models/dialogoSaborHelado';
+import { DialogData } from '@core/models/dialogoSaborHelado';
 import { SaboresContainer } from '../../containers/sabores/sabores.container';
 
 @Component({

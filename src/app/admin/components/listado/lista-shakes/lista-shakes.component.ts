@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { ShakesService } from 'src/app/core/services/shakes/shakes.service';
+import { ShakesService } from '@core/services/shakes/shakes.service';
 
 @Component({
   selector: 'app-lista-shakes',

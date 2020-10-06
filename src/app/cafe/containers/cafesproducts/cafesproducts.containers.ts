@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { Product } from 'src/app/core/models/product.model';
-import { CafesService } from '../../../core/services/cafes/cafes.service';
+import { Product } from '@core/models/product.model';
+import { CafesService } from '@core/services/cafes/cafes.service';
 
 
 @Component({

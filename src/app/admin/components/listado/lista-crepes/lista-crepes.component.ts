@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { BackeriesService } from 'src/app/core/services/backeries/backeries.service';
+import { BackeriesService } from '@core/services/backeries/backeries.service';
 
 @Component({
   selector: 'app-lista-crepes',

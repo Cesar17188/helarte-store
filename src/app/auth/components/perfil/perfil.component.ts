@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User } from 'src/app/core/models/user';
-import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { User } from '@core/models/user';
+import { AuthService } from '@core/services/auth/auth.service';
 import { async } from '@angular/core/testing';
-import { UsersService } from 'src/app/core/services/users/users.service';
+import { UsersService } from '@core/services/users/users.service';
 
 @Component({
   selector: 'app-perfil',

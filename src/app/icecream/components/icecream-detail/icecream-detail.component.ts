@@ -4,21 +4,22 @@ import { MatDialog } from '@angular/material/dialog';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { Location } from '@angular/common';
 
-import { HeladosService } from '../../../core/services/helados/helados.service';
-import { CartService } from '../../../core/services/cart/cart.service';
-import { ToppingDulceService } from 'src/app/core/services/topping-dulce/topping-dulce.service';
-import { SalsasService } from 'src/app/core/services/salsas/salsas.service';
-import { SaboresService } from 'src/app/core/services/sabores/sabores.service';
+import { HeladosService } from '@core/services/helados/helados.service';
+import { CartService } from '@core/services/cart/cart.service';
+import { ToppingDulceService } from '@core/services/topping-dulce/topping-dulce.service';
+import { SalsasService } from '@core/services/salsas/salsas.service';
+import { SaboresService } from '@core/services/sabores/sabores.service';
 
-import { HELADO } from 'src/app/core/models/helado.model';
-import { SABOR } from 'src/app/core/models/sabor.model';
-import { SYRUP } from 'src/app/core/models/syrup.model';
-import { TOPPING } from 'src/app/core/models/topping.model';
+import { HELADO } from '@core/models/helado.model';
+import { SABOR } from '@core/models/sabor.model';
+import { SYRUP } from '@core/models/syrup.model';
+import { TOPPING } from '@core/models/topping.model';
+import { Product } from '@core/models/product.model';
 
-import { SaboresContainer } from 'src/app/ingredients/containers/sabores/sabores.container';
-import { SyrupsContainer } from 'src/app/ingredients/containers/syrups/syrups.container';
-import { ToppingsContainer } from 'src/app/ingredients/containers/toppings/toppings.container';
-import { Product } from 'src/app/core/models/product.model';
+import { SaboresContainer } from '@ingredients/containers/sabores/sabores.container';
+import { SyrupsContainer } from '@ingredients/containers/syrups/syrups.container';
+import { ToppingsContainer } from '@ingredients/containers/toppings/toppings.container';
+
 
 
 @Component({

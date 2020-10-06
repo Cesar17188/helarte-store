@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SaboresService } from 'src/app/core/services/sabores/sabores.service';
-import { SABOR } from 'src/app/core/models/sabor.model';
+import { SaboresService } from '@core/services/sabores/sabores.service';
+import { SABOR } from '@core/models/sabor.model';
 import { AngularFireStorage } from '@angular/fire/storage';
 
 @Component({

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, tap, take } from 'rxjs/operators';
-import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { AuthService } from '@core/services/auth/auth.service';
 import { promise } from 'protractor';
 
 

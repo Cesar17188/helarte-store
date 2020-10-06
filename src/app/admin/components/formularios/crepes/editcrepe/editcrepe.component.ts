@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
-import { BackeriesService } from 'src/app/core/services/backeries/backeries.service';
+import { BackeriesService } from '@core/services/backeries/backeries.service';
 
 @Component({
   selector: 'app-editcrepe',

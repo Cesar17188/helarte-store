@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { Product } from 'src/app/core/models/product.model';
-import { ShakesService } from 'src/app/core/services/shakes/shakes.service';
+import { Product } from '@core/models/product.model';
+import { ShakesService } from '@core/services/shakes/shakes.service';
 
 @Component({
   selector: 'app-shakesproducts',

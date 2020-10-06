@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { FRUTA } from 'src/app/core/models/fruta.model';
-import { FrutasService } from 'src/app/core/services/frutas/frutas.service';
+import { FRUTA } from '@core/models/fruta.model';
+import { FrutasService } from '@core/services/frutas/frutas.service';
 
 @Component({
   selector: 'app-frutas',

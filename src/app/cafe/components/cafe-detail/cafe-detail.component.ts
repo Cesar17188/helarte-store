@@ -3,9 +3,9 @@ import { Location } from '@angular/common';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { ActivatedRoute, Params } from '@angular/router';
 
-import { Product } from 'src/app/core/models/product.model';
-import { CafesService } from './../../../core/services/cafes/cafes.service';
-import { CartService } from 'src/app/core/services/cart/cart.service';
+import { Product } from '@core/models/product.model';
+import { CafesService } from '@core/services/cafes/cafes.service';
+import { CartService } from '@core/services/cart/cart.service';
 
 @Component({
   selector: 'app-cafe-detail',

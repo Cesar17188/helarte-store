@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs';
 
-import { Product } from 'src/app/core/models/product.model';
+import { Product } from '@core/models/product.model';
 import { HELADO } from '../../models/helado.model';
 
 @Injectable({

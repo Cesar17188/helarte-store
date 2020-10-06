@@ -2,17 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { ActivatedRoute, Params } from '@angular/router';
-import { FRUTA } from 'src/app/core/models/fruta.model';
-import { Product } from 'src/app/core/models/product.model';
-import { SABOR } from 'src/app/core/models/sabor.model';
-import { ShakesService } from 'src/app/core/services/shakes/shakes.service';
-import { SaboresService } from 'src/app/core/services/sabores/sabores.service';
-import { FrutasService } from 'src/app/core/services/frutas/frutas.service';
+import { FRUTA } from '@core/models/fruta.model';
+import { Product } from '@core/models/product.model';
+import { SABOR } from '@core/models/sabor.model';
+import { ShakesService } from '@core/services/shakes/shakes.service';
+import { SaboresService } from '@core/services/sabores/sabores.service';
+import { FrutasService } from '@core/services/frutas/frutas.service';
 import { MatDialog } from '@angular/material/dialog';
-import { CartService } from 'src/app/core/services/cart/cart.service';
-import { SaboresContainer } from 'src/app/ingredients/containers/sabores/sabores.container';
-import { FrutasContainer } from 'src/app/ingredients/containers/frutas/frutas.container';
-import { SHAKE } from 'src/app/core/models/shake.model';
+import { CartService } from '@core/services/cart/cart.service';
+import { SaboresContainer } from '@ingredients/containers/sabores/sabores.container';
+import { FrutasContainer } from '@ingredients/containers/frutas/frutas.container';
+import { SHAKE } from '@core/models/shake.model';
 
 @Component({
   selector: 'app-shakedetail',

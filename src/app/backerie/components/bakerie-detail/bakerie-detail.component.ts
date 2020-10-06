@@ -4,26 +4,26 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { MatDialog } from '@angular/material/dialog';
 
-import { ToppingDulceService } from 'src/app/core/services/topping-dulce/topping-dulce.service';
-import { BackeriesService } from '../../../core/services/backeries/backeries.service';
-import { SalsasService } from 'src/app/core/services/salsas/salsas.service';
-import { SaboresService } from 'src/app/core/services/sabores/sabores.service';
-import { FrutasService } from 'src/app/core/services/frutas/frutas.service';
-import { ToppingSalService } from 'src/app/core/services/topping-sal/topping-sal.service';
-import { CartService } from 'src/app/core/services/cart/cart.service';
+import { ToppingDulceService } from '@core/services/topping-dulce/topping-dulce.service';
+import { BackeriesService } from '@core/services/backeries/backeries.service';
+import { SalsasService } from '@core/services/salsas/salsas.service';
+import { SaboresService } from '@core/services/sabores/sabores.service';
+import { FrutasService } from '@core/services/frutas/frutas.service';
+import { ToppingSalService } from '@core/services/topping-sal/topping-sal.service';
+import { CartService } from '@core/services/cart/cart.service';
 
-import { ToppingsContainer } from 'src/app/ingredients/containers/toppings/toppings.container';
-import { SyrupsContainer } from 'src/app/ingredients/containers/syrups/syrups.container';
-import { SaboresContainer } from 'src/app/ingredients/containers/sabores/sabores.container';
-import { FrutasContainer } from 'src/app/ingredients/containers/frutas/frutas.container';
-import { ToppingsSalContainer } from 'src/app/ingredients/containers/toppings-sal/toppings-sal.container';
+import { ToppingsContainer } from '@ingredients/containers/toppings/toppings.container';
+import { SyrupsContainer } from '@ingredients/containers/syrups/syrups.container';
+import { SaboresContainer } from '@ingredients/containers/sabores/sabores.container';
+import { FrutasContainer } from '@ingredients/containers/frutas/frutas.container';
+import { ToppingsSalContainer } from '@ingredients/containers/toppings-sal/toppings-sal.container';
 
-import { Product } from 'src/app/core/models/product.model';
-import { TOPPING } from 'src/app/core/models/topping.model';
-import { SYRUP } from 'src/app/core/models/syrup.model';
-import { SABOR } from 'src/app/core/models/sabor.model';
-import { FRUTA } from 'src/app/core/models/fruta.model';
-import { CREPE } from 'src/app/core/models/crepe.model';
+import { Product } from '@core/models/product.model';
+import { TOPPING } from '@core/models/topping.model';
+import { SYRUP } from '@core/models/syrup.model';
+import { SABOR } from '@core/models/sabor.model';
+import { FRUTA } from '@core/models/fruta.model';
+import { CREPE } from '@core/models/crepe.model';
 
 
 @Component({

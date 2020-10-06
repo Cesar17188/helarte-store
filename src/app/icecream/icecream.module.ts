@@ -6,10 +6,10 @@ import { IcecreamDetailComponent } from './components/icecream-detail/icecream-d
 import { HeladosComponent } from './components/helados/helados.component';
 
 import { IceCreamRoutingModule } from './icecream-routing.module';
-import { SharedModule } from './../shared/shared.module';
-import { MaterialModule } from './../material/material.module';
+import { SharedModule } from '@shared/shared.module';
+import { MaterialModule } from '@material/material.module';
 
-import { IngredientsModule } from '../ingredients/ingredients.module';
+import { IngredientsModule } from '@ingredients/ingredients.module';
 
 @NgModule({
   declarations: [

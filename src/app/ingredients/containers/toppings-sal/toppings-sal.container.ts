@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { TOPPING } from 'src/app/core/models/topping.model';
-import { ToppingSalService } from 'src/app/core/services/topping-sal/topping-sal.service';
+import { TOPPING } from '@core/models/topping.model';
+import { ToppingSalService } from '@core/services/topping-sal/topping-sal.service';
 
 @Component({
   selector: 'app-toppings-sal',

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { AuthService } from '@core/services/auth/auth.service';
 import { MatDialogRef, MatDialog } from '@angular/material/dialog';
-import { User } from 'src/app/core/models/user';
-import { RegisterComponent } from '../register/register.component';
+import { User } from '@core/models/user';
+import { RegisterComponent } from '@auth/components/register/register.component';
 
 
 @Component({

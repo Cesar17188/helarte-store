@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SalsasService } from 'src/app/core/services/salsas/salsas.service';
-import { SYRUP } from 'src/app/core/models/syrup.model';
+import { SalsasService } from '@core/services/salsas/salsas.service';
+import { SYRUP } from '@core/models/syrup.model';
 import { AngularFireStorage } from '@angular/fire/storage';
 
 @Component({

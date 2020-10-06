@@ -4,8 +4,8 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 import { auth, database } from 'firebase/app';
 import { Observable, of } from 'rxjs';
 import { switchMap, map, first } from 'rxjs/operators';
-import { User } from '../../models/user';
-import { RoleValidator } from '../../helpers/roleValidator';
+import { User } from '@core/models/user';
+import { RoleValidator } from '@core/helpers/roleValidator';
 import { AngularFireStorage } from '@angular/fire/storage';
 
 @Injectable({
