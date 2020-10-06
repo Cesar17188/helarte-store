@@ -1,32 +1,32 @@
 import { Component, OnInit } from '@angular/core';
+import { SaboresService } from 'src/app/core/services/sabores/sabores.service';
+import { SABOR } from 'src/app/core/models/sabor.model';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { TOPPING } from 'src/app/core/models/topping.model';
-import { ToppingDulceService } from 'src/app/core/services/topping-dulce/topping-dulce.service';
 
 @Component({
-  selector: 'app-toppings',
-  templateUrl: './toppings.component.html',
-  styleUrls: ['./toppings.component.css']
+  selector: 'app-sabores',
+  templateUrl: './sabores.container.html',
+  styleUrls: ['./sabores.container.css']
 })
-export class ToppingsComponent implements OnInit {
+// tslint:disable-next-line: component-class-suffix
+export class SaboresContainer implements OnInit {
 
-  toppingsD: TOPPING[];
+  sabores: SABOR[];
   data: any;
   img: any;
 
   constructor(
-    private toppingService: ToppingDulceService,
+    private saboresService: SaboresService,
     private storage: AngularFireStorage,
-  ) { }
+    ) { }
 
   ngOnInit(): void {
-    // this.toppingsD = this.toppingService.getAllToppingsD();
-    this.getToppings();
+    this.fetchSabores();
   }
 
-  getToppings() {
-    this.toppingService.getAllToppingD().subscribe(data => {
-      this.toppingsD = data.map( e => {
+  fetchSabores() {
+    this.saboresService.getAllSabores().subscribe(data => {
+      this.sabores = data.map( e => {
         // tslint:disable-next-line: no-string-literal
         const ref = this.storage.storage.refFromURL(e.payload.doc.data()['image']);
         this.img = ref.getDownloadURL();
@@ -42,7 +42,7 @@ export class ToppingsComponent implements OnInit {
           descripcion_larga: e.payload.doc.data()['descripcion_larga']
         };
       });
-      console.log(this.toppingsD);
+      console.log(this.sabores);
     });
   }
 
@@ -52,3 +52,4 @@ export class ToppingsComponent implements OnInit {
   }
 
 }
+

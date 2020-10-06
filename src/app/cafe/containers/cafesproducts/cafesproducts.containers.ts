@@ -1,32 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { Product } from 'src/app/core/models/product.model';
-import { BackeriesService } from '../../../core/services/backeries/backeries.service';
+import { CafesService } from '../../../core/services/cafes/cafes.service';
+
 
 @Component({
-  selector: 'app-backeriesproducts',
-  templateUrl: './backeriesproducts.component.html',
-  styleUrls: ['./backeriesproducts.component.css']
+  selector: 'app-cafesproducts',
+  templateUrl: './cafesproducts.containers.html',
+  styleUrls: ['./cafesproducts.containers.css']
 })
-export class BackeriesproductsComponent implements OnInit {
+// tslint:disable-next-line: component-class-suffix
+export class CafesproductsContainer implements OnInit {
 
-  backeries: Product[];
+  cafes: Product[];
   data: any;
   img: any;
 
   constructor(
-  private backeriesService: BackeriesService,
+  private cafesService: CafesService,
   private storage: AngularFireStorage,
   ) { }
 
   ngOnInit(): void {
-    // this.backeries = this.backeriesService.getAllBackeries();
-    this.getCrepes();
+    // this.shakes = this.shakesService.getAllshakes();
+    this.fetchCafes();
   }
 
-  getCrepes() {
-    this.backeriesService.getAllBackeries().subscribe(data => {
-      this.backeries = data.map( e => {
+  fetchCafes() {
+    this.cafesService.getAllCafes().subscribe(data => {
+      this.cafes = data.map( e => {
         // tslint:disable-next-line: no-string-literal
         const ref = this.storage.storage.refFromURL(e.payload.doc.data()['image']);
         this.img = ref.getDownloadURL();
@@ -42,7 +44,7 @@ export class BackeriesproductsComponent implements OnInit {
           descripcion_larga: e.payload.doc.data()['descripcion_larga']
         };
       });
-      console.log(this.backeries);
+      console.log(this.cafes);
     });
   }
 

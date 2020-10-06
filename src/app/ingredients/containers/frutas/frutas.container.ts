@@ -1,33 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { Product } from 'src/app/core/models/product.model';
-import { CafesService } from '../../../core/services/cafes/cafes.service';
-
+import { FRUTA } from 'src/app/core/models/fruta.model';
+import { FrutasService } from 'src/app/core/services/frutas/frutas.service';
 
 @Component({
-  selector: 'app-cafesproducts',
-  templateUrl: './cafesproducts.component.html',
-  styleUrls: ['./cafesproducts.component.css']
+  selector: 'app-frutas',
+  templateUrl: './frutas.container.html',
+  styleUrls: ['./frutas.container.css']
 })
-export class CafesproductsComponent implements OnInit {
+// tslint:disable-next-line: component-class-suffix
+export class FrutasContainer implements OnInit {
 
-  cafes: Product[];
+  frutas: FRUTA[];
   data: any;
   img: any;
 
   constructor(
-  private cafesService: CafesService,
-  private storage: AngularFireStorage,
+    private frutaService: FrutasService,
+    private storage: AngularFireStorage,
   ) { }
 
   ngOnInit(): void {
-    // this.shakes = this.shakesService.getAllshakes();
-    this.getCafes();
+    this.fetchFrutas();
   }
 
-  getCafes() {
-    this.cafesService.getAllCafes().subscribe(data => {
-      this.cafes = data.map( e => {
+  fetchFrutas() {
+    this.frutaService.getAllFrutas().subscribe(data => {
+      this.frutas = data.map( e => {
         // tslint:disable-next-line: no-string-literal
         const ref = this.storage.storage.refFromURL(e.payload.doc.data()['image']);
         this.img = ref.getDownloadURL();
@@ -43,13 +42,13 @@ export class CafesproductsComponent implements OnInit {
           descripcion_larga: e.payload.doc.data()['descripcion_larga']
         };
       });
-      console.log(this.cafes);
+      console.log(this.frutas);
     });
   }
-
 
   clickProduct(codigo: string) {
     console.log('producto');
     console.log(codigo);
   }
+
 }

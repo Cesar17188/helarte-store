@@ -15,9 +15,9 @@ import { SABOR } from 'src/app/core/models/sabor.model';
 import { SYRUP } from 'src/app/core/models/syrup.model';
 import { TOPPING } from 'src/app/core/models/topping.model';
 
-import { SaboresComponent } from 'src/app/ingredients/components/sabores/sabores.component';
-import { SyrupsComponent } from 'src/app/ingredients/components/syrups/syrups.component';
-import { ToppingsComponent } from 'src/app/ingredients/components/toppings/toppings.component';
+import { SaboresContainer } from 'src/app/ingredients/containers/sabores/sabores.container';
+import { SyrupsContainer } from 'src/app/ingredients/containers/syrups/syrups.container';
+import { ToppingsContainer } from 'src/app/ingredients/containers/toppings/toppings.container';
 import { Product } from 'src/app/core/models/product.model';
 
 
@@ -218,7 +218,7 @@ export class IcecreamDetailComponent implements OnInit {
 
   selectFlavor(): void{
     this.sabor = null;
-    const dialogRef = this.dialog.open(SaboresComponent, {
+    const dialogRef = this.dialog.open(SaboresContainer, {
       width: '50%',
     });
 
@@ -232,7 +232,7 @@ export class IcecreamDetailComponent implements OnInit {
 
   selectFlavordos(): void{
     this.sabor2 = null;
-    const dialogRef = this.dialog.open(SaboresComponent, {
+    const dialogRef = this.dialog.open(SaboresContainer, {
       width: '50%',
     });
 
@@ -246,7 +246,7 @@ export class IcecreamDetailComponent implements OnInit {
 
   selectFlavortres(): void{
     this.sabor3 = null;
-    const dialogRef = this.dialog.open(SaboresComponent, {
+    const dialogRef = this.dialog.open(SaboresContainer, {
       width: '50%',
     });
 
@@ -260,7 +260,7 @@ export class IcecreamDetailComponent implements OnInit {
 
   aditionSyrup(): void{
     this.syrup = null;
-    const dialogRef = this.dialog.open(SyrupsComponent, {
+    const dialogRef = this.dialog.open(SyrupsContainer, {
       width: '50%',
     });
 
@@ -273,7 +273,7 @@ export class IcecreamDetailComponent implements OnInit {
 
   aditionToping(): void{
     this.toppingD = null;
-    const dialogRef = this.dialog.open(ToppingsComponent, {
+    const dialogRef = this.dialog.open(ToppingsContainer, {
       width: '50%',
     });
 

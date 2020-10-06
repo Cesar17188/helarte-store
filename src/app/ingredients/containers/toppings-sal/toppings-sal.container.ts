@@ -1,40 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
-
-import { ProductsService } from '../../../core/services/products/products.service';
-import { Product } from 'src/app/core/models/product.model';
-
+import { TOPPING } from 'src/app/core/models/topping.model';
+import { ToppingSalService } from 'src/app/core/services/topping-sal/topping-sal.service';
 
 @Component({
-  selector: 'app-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  selector: 'app-toppings-sal',
+  templateUrl: './toppings-sal.container.html',
+  styleUrls: ['./toppings-sal.container.css']
 })
-export class ProductsComponent implements OnInit {
+// tslint:disable-next-line: component-class-suffix
+export class ToppingsSalContainer implements OnInit {
 
-  products: Product[];
+  toppingsS: TOPPING[];
   data: any;
   img: any;
-  constructor(
-    private productsService: ProductsService,
-    private storage: AngularFireStorage,
-  ) {
 
-  }
+  constructor(
+    private toppingService: ToppingSalService,
+    private storage: AngularFireStorage,
+  ) { }
 
   ngOnInit(): void {
-    this.getProducts();
+    this.fetchToppings();
   }
 
-
-  clickProduct(codigo: string) {
-    console.log('producto');
-    console.log(codigo);
-  }
-
-  getProducts() {
-    this.productsService.getProductos().subscribe(data => {
-      this.products = data.map( e => {
+  fetchToppings() {
+    this.toppingService.getAllToppingsS().subscribe(data => {
+      this.toppingsS = data.map( e => {
         // tslint:disable-next-line: no-string-literal
         const ref = this.storage.storage.refFromURL(e.payload.doc.data()['image']);
         this.img = ref.getDownloadURL();
@@ -50,8 +42,13 @@ export class ProductsComponent implements OnInit {
           descripcion_larga: e.payload.doc.data()['descripcion_larga']
         };
       });
-      console.log(this.products);
+      console.log(this.toppingsS);
     });
+  }
+
+  clickProduct(codigo: string) {
+    console.log('producto');
+    console.log(codigo);
   }
 
 }

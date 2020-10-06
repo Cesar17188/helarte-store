@@ -10,8 +10,8 @@ import { SaboresService } from 'src/app/core/services/sabores/sabores.service';
 import { FrutasService } from 'src/app/core/services/frutas/frutas.service';
 import { MatDialog } from '@angular/material/dialog';
 import { CartService } from 'src/app/core/services/cart/cart.service';
-import { SaboresComponent } from 'src/app/ingredients/components/sabores/sabores.component';
-import { FrutasComponent } from 'src/app/ingredients/components/frutas/frutas.component';
+import { SaboresContainer } from 'src/app/ingredients/containers/sabores/sabores.container';
+import { FrutasContainer } from 'src/app/ingredients/containers/frutas/frutas.container';
 import { SHAKE } from 'src/app/core/models/shake.model';
 
 @Component({
@@ -135,7 +135,7 @@ export class ShakedetailComponent implements OnInit {
 
   selectFlavor(): void{
     this.sabor = null;
-    const dialogRef = this.dialog.open(SaboresComponent, {
+    const dialogRef = this.dialog.open(SaboresContainer, {
       width: '50%',
     });
 
@@ -149,7 +149,7 @@ export class ShakedetailComponent implements OnInit {
 
   aditionFruta(): void{
     this.fruta1 = null;
-    const dialogRef = this.dialog.open(FrutasComponent, {
+    const dialogRef = this.dialog.open(FrutasContainer, {
       width: '50%',
     });
 
@@ -162,7 +162,7 @@ export class ShakedetailComponent implements OnInit {
 
   aditionFruta2(): void{
     this.fruta2 = null;
-    const dialogRef = this.dialog.open(FrutasComponent, {
+    const dialogRef = this.dialog.open(FrutasContainer, {
       width: '50%',
     });
 

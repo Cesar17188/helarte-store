@@ -1,32 +1,41 @@
 import { Component, OnInit } from '@angular/core';
-import { SaboresService } from 'src/app/core/services/sabores/sabores.service';
-import { SABOR } from 'src/app/core/models/sabor.model';
 import { AngularFireStorage } from '@angular/fire/storage';
 
-@Component({
-  selector: 'app-sabores',
-  templateUrl: './sabores.component.html',
-  styleUrls: ['./sabores.component.css']
-})
-export class SaboresComponent implements OnInit {
+import { ProductsService } from '../../../core/services/products/products.service';
+import { Product } from 'src/app/core/models/product.model';
 
-  sabores: SABOR[];
+
+@Component({
+  selector: 'app-products',
+  templateUrl: './products.container.html',
+  styleUrls: ['./products.container.css']
+})
+// tslint:disable-next-line: component-class-suffix
+export class ProductsContainer implements OnInit {
+
+  products: Product[];
   data: any;
   img: any;
-
   constructor(
-    private saboresService: SaboresService,
+    private productsService: ProductsService,
     private storage: AngularFireStorage,
-    ) { }
+  ) {
 
-  ngOnInit(): void {
-    // this.sabores = this.saboresService.getAllFlavor();
-    this.getSabores();
   }
 
-  getSabores() {
-    this.saboresService.getAllSabores().subscribe(data => {
-      this.sabores = data.map( e => {
+  ngOnInit(): void {
+    this.fetchProducts();
+  }
+
+
+  clickProduct(codigo: string) {
+    console.log('producto');
+    console.log(codigo);
+  }
+
+  fetchProducts() {
+    this.productsService.getProductos().subscribe(data => {
+      this.products = data.map( e => {
         // tslint:disable-next-line: no-string-literal
         const ref = this.storage.storage.refFromURL(e.payload.doc.data()['image']);
         this.img = ref.getDownloadURL();
@@ -42,14 +51,8 @@ export class SaboresComponent implements OnInit {
           descripcion_larga: e.payload.doc.data()['descripcion_larga']
         };
       });
-      console.log(this.sabores);
+      console.log(this.products);
     });
   }
 
-  clickProduct(codigo: string) {
-    console.log('producto');
-    console.log(codigo);
-  }
-
 }
-

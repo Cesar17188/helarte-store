@@ -5,10 +5,11 @@ import { AngularFireStorage } from '@angular/fire/storage';
 
 @Component({
   selector: 'app-syrups',
-  templateUrl: './syrups.component.html',
-  styleUrls: ['./syrups.component.css']
+  templateUrl: './syrups.container.html',
+  styleUrls: ['./syrups.container.css']
 })
-export class SyrupsComponent implements OnInit {
+// tslint:disable-next-line: component-class-suffix
+export class SyrupsContainer implements OnInit {
 
   syrups: SYRUP[];
   data: any;
@@ -20,10 +21,10 @@ export class SyrupsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getSyrups();
+    this.fetchSyrups();
   }
 
-  getSyrups() {
+  fetchSyrups() {
     this.syrupServices.getAllSyrups().subscribe(data => {
       this.syrups = data.map( e => {
         // tslint:disable-next-line: no-string-literal

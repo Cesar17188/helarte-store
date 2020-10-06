@@ -20,10 +20,10 @@ export class ListaProductosComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getProducts();
+    this.fetchProducts();
   }
 
-  getProducts() {
+  fetchProducts() {
     this.productsService.getProductos().subscribe(data => {
       this.products = data.map( e => {
         // tslint:disable-next-line: no-string-literal

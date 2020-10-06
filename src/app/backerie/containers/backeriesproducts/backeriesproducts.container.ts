@@ -1,31 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { TOPPING } from 'src/app/core/models/topping.model';
-import { ToppingSalService } from 'src/app/core/services/topping-sal/topping-sal.service';
+import { Product } from 'src/app/core/models/product.model';
+import { BackeriesService } from '../../../core/services/backeries/backeries.service';
 
 @Component({
-  selector: 'app-toppings-sal',
-  templateUrl: './toppings-sal.component.html',
-  styleUrls: ['./toppings-sal.component.css']
+  selector: 'app-backeriesproducts',
+  templateUrl: './backeriesproducts.container.html',
+  styleUrls: ['./backeriesproducts.container.css']
 })
-export class ToppingsSalComponent implements OnInit {
+// tslint:disable-next-line: component-class-suffix
+export class BackeriesproductsContainer implements OnInit {
 
-  toppingsS: TOPPING[];
+  backeries: Product[];
   data: any;
   img: any;
 
   constructor(
-    private toppingService: ToppingSalService,
-    private storage: AngularFireStorage,
+  private backeriesService: BackeriesService,
+  private storage: AngularFireStorage,
   ) { }
 
   ngOnInit(): void {
-    this.getToppings();
+    // this.backeries = this.backeriesService.getAllBackeries();
+    this.fetchCrepes();
   }
 
-  getToppings() {
-    this.toppingService.getAllToppingsS().subscribe(data => {
-      this.toppingsS = data.map( e => {
+  fetchCrepes() {
+    this.backeriesService.getAllBackeries().subscribe(data => {
+      this.backeries = data.map( e => {
         // tslint:disable-next-line: no-string-literal
         const ref = this.storage.storage.refFromURL(e.payload.doc.data()['image']);
         this.img = ref.getDownloadURL();
@@ -41,13 +43,13 @@ export class ToppingsSalComponent implements OnInit {
           descripcion_larga: e.payload.doc.data()['descripcion_larga']
         };
       });
-      console.log(this.toppingsS);
+      console.log(this.backeries);
     });
   }
+
 
   clickProduct(codigo: string) {
     console.log('producto');
     console.log(codigo);
   }
-
 }

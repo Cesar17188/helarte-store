@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { IceproductsComponent } from './components/iceproducts/iceproducts.component';
+import { IceproductsContainer } from './containers/iceproducts/iceproducts.container';
 import { IcecreamDetailComponent } from './components/icecream-detail/icecream-detail.component';
 import { HeladosComponent } from './components/helados/helados.component';
 
@@ -13,7 +13,7 @@ import { IngredientsModule } from '../ingredients/ingredients.module';
 
 @NgModule({
   declarations: [
-    IceproductsComponent,
+    IceproductsContainer,
     IcecreamDetailComponent,
     HeladosComponent,
   ],

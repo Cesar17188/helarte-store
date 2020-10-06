@@ -20,10 +20,10 @@ export class ListaCafesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getCafes();
+    this.fetchCafes();
   }
 
-  getCafes() {
+  fetchCafes() {
     this.cafesService.getAllCafes().subscribe(data => {
       this.cafes = data.map( e => {
         const ref = this.storage.storage.refFromURL(e.payload.doc.data().image);

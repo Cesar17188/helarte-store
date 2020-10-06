@@ -1,32 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-import { HELADO } from 'src/app/core/models/helado.model';
-import { HeladosService } from '../../../core/services/helados/helados.service';
 import { AngularFireStorage } from '@angular/fire/storage';
-
+import { TOPPING } from 'src/app/core/models/topping.model';
+import { ToppingDulceService } from 'src/app/core/services/topping-dulce/topping-dulce.service';
 
 @Component({
-  selector: 'app-iceproducts',
-  templateUrl: './iceproducts.component.html',
-  styleUrls: ['./iceproducts.component.css']
+  selector: 'app-toppings',
+  templateUrl: './toppings.container.html',
+  styleUrls: ['./toppings.container.css']
 })
-export class IceproductsComponent implements OnInit {
+// tslint:disable-next-line: component-class-suffix
+export class ToppingsContainer implements OnInit {
 
-  helados: HELADO[];
+  toppingsD: TOPPING[];
   data: any;
   img: any;
 
   constructor(
-    private heladosService: HeladosService,
+    private toppingService: ToppingDulceService,
     private storage: AngularFireStorage,
   ) { }
 
   ngOnInit(): void {
-        this.getHelados();
+    this.fetchToppings();
   }
 
-  getHelados() {
-    this.heladosService.getHelados().subscribe(data => {
-      this.helados = data.map( e => {
+  fetchToppings() {
+    this.toppingService.getAllToppingD().subscribe(data => {
+      this.toppingsD = data.map( e => {
         // tslint:disable-next-line: no-string-literal
         const ref = this.storage.storage.refFromURL(e.payload.doc.data()['image']);
         this.img = ref.getDownloadURL();
@@ -42,7 +42,7 @@ export class IceproductsComponent implements OnInit {
           descripcion_larga: e.payload.doc.data()['descripcion_larga']
         };
       });
-      console.log(this.helados);
+      console.log(this.toppingsD);
     });
   }
 

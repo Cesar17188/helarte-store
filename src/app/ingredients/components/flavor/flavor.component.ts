@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter, Inject } from '@angular
 import { Product } from 'src/app/core/models/product.model';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DialogData } from 'src/app/core/models/dialogoSaborHelado';
-import { SaboresComponent } from '../sabores/sabores.component';
+import { SaboresContainer } from '../../containers/sabores/sabores.container';
 
 @Component({
   selector: 'app-flavor',
@@ -14,7 +14,7 @@ export class FlavorComponent implements OnInit {
   @Output() productAdd: EventEmitter<any> = new EventEmitter();
 
     constructor(
-    public dialogRef: MatDialogRef<SaboresComponent>,
+    public dialogRef: MatDialogRef<SaboresContainer>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData
     ) {
     }

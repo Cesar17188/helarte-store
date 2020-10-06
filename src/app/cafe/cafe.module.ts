@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { CafeDetailComponent } from './components/cafe-detail/cafe-detail.component';
 import { CafesComponent } from './components/cafes/cafes.component';
-import { CafesproductsComponent } from './components/cafesproducts/cafesproducts.component';
+import { CafesproductsContainer } from './containers/cafesproducts/cafesproducts.containers';
 
 import { CafeRoutingModule } from './cafe-routing.module';
 import { SharedModule } from './../shared/shared.module';
@@ -13,7 +13,7 @@ import { MaterialModule } from './../material/material.module';
   declarations: [
     CafeDetailComponent,
     CafesComponent,
-    CafesproductsComponent
+    CafesproductsContainer
   ],
   imports: [
     CommonModule,

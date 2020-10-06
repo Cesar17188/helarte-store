@@ -20,10 +20,10 @@ export class ListaCrepesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getCrepes();
+    this.fetchCrepes();
   }
 
-  getCrepes() {
+  fetchCrepes() {
     this.crepeService.getAllBackeries().subscribe(data => {
       this.crepes = data.map( e => {
         const ref = this.storage.storage.refFromURL(e.payload.doc.data().image);

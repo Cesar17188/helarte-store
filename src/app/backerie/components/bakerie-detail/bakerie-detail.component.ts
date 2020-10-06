@@ -12,11 +12,11 @@ import { FrutasService } from 'src/app/core/services/frutas/frutas.service';
 import { ToppingSalService } from 'src/app/core/services/topping-sal/topping-sal.service';
 import { CartService } from 'src/app/core/services/cart/cart.service';
 
-import { ToppingsComponent } from 'src/app/ingredients/components/toppings/toppings.component';
-import { SyrupsComponent } from 'src/app/ingredients/components/syrups/syrups.component';
-import { SaboresComponent } from 'src/app/ingredients/components/sabores/sabores.component';
-import { FrutasComponent } from 'src/app/ingredients/components/frutas/frutas.component';
-import { ToppingsSalComponent } from 'src/app/ingredients/components/toppings-sal/toppings-sal.component';
+import { ToppingsContainer } from 'src/app/ingredients/containers/toppings/toppings.container';
+import { SyrupsContainer } from 'src/app/ingredients/containers/syrups/syrups.container';
+import { SaboresContainer } from 'src/app/ingredients/containers/sabores/sabores.container';
+import { FrutasContainer } from 'src/app/ingredients/containers/frutas/frutas.container';
+import { ToppingsSalContainer } from 'src/app/ingredients/containers/toppings-sal/toppings-sal.container';
 
 import { Product } from 'src/app/core/models/product.model';
 import { TOPPING } from 'src/app/core/models/topping.model';
@@ -140,7 +140,7 @@ export class BakerieDetailComponent implements OnInit {
 
   selectFlavor(): void{
     this.sabor = null;
-    const dialogRef = this.dialog.open(SaboresComponent, {
+    const dialogRef = this.dialog.open(SaboresContainer, {
       width: '50%',
     });
 
@@ -171,7 +171,7 @@ export class BakerieDetailComponent implements OnInit {
 
   aditionToping(): void{
     this.toppingD = null;
-    const dialogRef = this.dialog.open(ToppingsComponent, {
+    const dialogRef = this.dialog.open(ToppingsContainer, {
       width: '50%',
     });
 
@@ -203,7 +203,7 @@ export class BakerieDetailComponent implements OnInit {
 
   aditionTopingSal(): void{
     this.toppingS = null;
-    const dialogRef = this.dialog.open(ToppingsSalComponent, {
+    const dialogRef = this.dialog.open(ToppingsSalContainer, {
       width: '50%',
     });
 
@@ -233,7 +233,7 @@ export class BakerieDetailComponent implements OnInit {
 
   aditionTopingSal2(): void{
     this.toppingS2 = null;
-    const dialogRef = this.dialog.open(ToppingsSalComponent, {
+    const dialogRef = this.dialog.open(ToppingsSalContainer, {
       width: '50%',
     });
 
@@ -263,7 +263,7 @@ export class BakerieDetailComponent implements OnInit {
 
   aditionTopingSal3(): void{
     this.toppingS3 = null;
-    const dialogRef = this.dialog.open(ToppingsSalComponent, {
+    const dialogRef = this.dialog.open(ToppingsSalContainer, {
       width: '50%',
     });
 
@@ -294,7 +294,7 @@ export class BakerieDetailComponent implements OnInit {
 
   aditionSyrup(): void{
     this.syrup = null;
-    const dialogRef = this.dialog.open(SyrupsComponent, {
+    const dialogRef = this.dialog.open(SyrupsContainer, {
       width: '50%',
     });
 
@@ -324,7 +324,7 @@ export class BakerieDetailComponent implements OnInit {
 
   aditionFruta(): void{
     this.fruta = null;
-    const dialogRef = this.dialog.open(FrutasComponent, {
+    const dialogRef = this.dialog.open(FrutasContainer, {
       width: '50%',
     });
 
