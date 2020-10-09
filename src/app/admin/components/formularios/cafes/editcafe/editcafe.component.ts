@@ -64,25 +64,25 @@ export class EditcafeComponent implements OnInit {
     });
   }
 
-  uploadFile(event) {
-    this.img = null;
-    const file = event.target.files[0];
-    const name = file.name;
-    const fileRef = this.storage.ref(name);
-    const task = this.storage.upload(name, file);
+  // uploadFile(event) {
+  //   this.img = null;
+  //   const file = event.target.files[0];
+  //   const name = file.name;
+  //   const fileRef = this.storage.ref(name);
+  //   const task = this.storage.upload(name, file);
 
-    task.snapshotChanges()
-    .pipe(
-      finalize(() => {
-        this.image$ = fileRef.getDownloadURL();
-        this.image$.subscribe(url => {
-          console.log(url);
-          this.form.get('image').setValue(url);
-        });
-      })
-    )
-    .subscribe();
-  }
+  //   task.snapshotChanges()
+  //   .pipe(
+  //     finalize(() => {
+  //       this.image$ = fileRef.getDownloadURL();
+  //       this.image$.subscribe(url => {
+  //         console.log(url);
+  //         this.form.get('image').setValue(url);
+  //       });
+  //     })
+  //   )
+  //   .subscribe();
+  // }
 
   private buildForm() {
     this.form = this.formBuilder.group({
@@ -90,7 +90,7 @@ export class EditcafeComponent implements OnInit {
       descripcion_corta: ['', [Validators.required]],
       descripcion_larga: ['', [Validators.required]],
       precioVenta: [0, [Validators.required]],
-      image: [''],
+      // image: [''],
     });
   }
 
@@ -98,6 +98,6 @@ export class EditcafeComponent implements OnInit {
   get descripcion_corta() { return this.form.get('descripcion_corta'); }
   get descripcion_larga() { return this.form.get('descripcion_larga'); }
   get precioVenta() { return this.form.get('precioVenta'); }
-  get image() { return this.form.get('image'); }
+  // get image() { return this.form.get('image'); }
 
 }

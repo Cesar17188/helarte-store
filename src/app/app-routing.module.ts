@@ -18,27 +18,27 @@ const routes: Routes = [
       },
       {
         path: 'home',
-        loadChildren: () => import('@home/home.module').then(m => m.HomeModule)
+        loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
       },
       {
         path: 'productos',
-        loadChildren: () => import('@home/home.module').then(m => m.HomeModule)
+        loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
       },
       {
         path: 'helados',
-        loadChildren: () => import('@icecream/icecream.module').then(m => m.IcecreamModule)
+        loadChildren: () => import('./icecream/icecream.module').then(m => m.IcecreamModule)
       },
       {
         path: 'crepes',
-        loadChildren: () => import('@backerie/backerie.module').then(m => m.BackerieModule)
+        loadChildren: () => import('./backerie/backerie.module').then(m => m.BackerieModule)
       },
       {
         path: 'shakes',
-        loadChildren: () => import('@shake/shake.module').then(m => m.ShakeModule)
+        loadChildren: () => import('./shake/shake.module').then(m => m.ShakeModule)
       },
       {
         path: 'cafes',
-        loadChildren: () => import('@cafe/cafe.module').then(m => m.CafeModule)
+        loadChildren: () => import('./cafe/cafe.module').then(m => m.CafeModule)
       },
       {
         path: 'snacks',
@@ -46,25 +46,25 @@ const routes: Routes = [
       },
       {
         path: 'contacto',
-        loadChildren: () => import('@contacto/contacto.module').then(m => m.ContactoModule)
+        loadChildren: () => import('./contacto/contacto.module').then(m => m.ContactoModule)
       },
       {
         path: 'order',
-        loadChildren: () => import('@order/order.module').then(m => m.OrderModule)
+        loadChildren: () => import('./order/order.module').then(m => m.OrderModule)
       },
       {
         path: 'perfil',
-        loadChildren: () => import('@auth/auth.module').then(m => m.AuthModule)
+        loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
       }
     ]
   },
   {
     path: 'auth',
-    loadChildren: () => import('@auth/auth.module').then(m => m.AuthModule)
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
   {
     path: 'admin',
-    loadChildren: () => import('@admin/admin.module').then(m => m.AdminModule),
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
     canActivate: [AdminGuard]
   },
   {

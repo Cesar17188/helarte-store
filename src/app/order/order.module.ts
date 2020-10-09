@@ -6,10 +6,11 @@ import { MaterialModule } from '@material/material.module';
 import { SharedModule } from '@shared/shared.module';
 
 import { OrderComponent } from './components/order/order.component';
+import { DatosPersonalesComponent } from './components/datos-personales/datos-personales.component';
 
 
 @NgModule({
-  declarations: [OrderComponent],
+  declarations: [OrderComponent, DatosPersonalesComponent],
   imports: [
     CommonModule,
     OrderRoutingModule,
