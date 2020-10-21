@@ -10,11 +10,10 @@
                 <div class="descr">
                     <div>
                         <ul>
-                            <li>Producto: {{backerie[0].producto}}</li>
-                            <li>Descripción: {{backerie[0].descripcion_corta}}</li>
-                            <li>Precio: {{backerie[0].precioVenta | currency}}</li>
+                            <li><strong>Descripción: {{backerie[0].descripcion_corta}}</strong></li>
+                            <li><strong>Precio: {{backerie[0].precioVenta | currency}}</strong></li>
+                            <li><strong><p>Elige los componentes de tu crepe presionando los botones</p></strong></li>
                         </ul>
-                        <p>{{backerie[0].descripcion_larga}}</p>
                     </div>
                     <div class="Dulce" *ngIf="crepeDulce; else crepeSal">
                         <div class="sabor">
@@ -82,7 +81,7 @@
         </mat-dialog-content>
         <mat-card-actions>
             <div class="btntienda">
-                <div id="btntienda1">
+                <div id="btntienda1" *ngIf="sabor && fruta && toppingD; else elseBlock3">
                     <button  mat-flat-button color="primary" (click)="addcart()">
                         Añadir al carrito
                         <span class="material-icons">
@@ -90,7 +89,26 @@
                             </span>
                     </button>
                 </div>
-                </div>
+                <ng-template #elseBlock3>
+                    <div id="btntienda1" *ngIf="toppingS; else elseBlock4">
+                        <button  mat-flat-button color="primary" (click)="addcart()">
+                            Añadir al carrito
+                            <span class="material-icons">
+                                shopping_cart
+                                </span>
+                        </button>
+                    </div>
+                    <ng-template #elseBlock4>
+                        <button mat-raised-button disabled>
+                            Añadir al carrito
+                            <span class="material-icons">
+                                shopping_cart
+                            </span>
+                        </button>
+                    </ng-template>
+                </ng-template>
+            </div>
+                
                 <div id="btntienda2">
                     <button mat-flat-button color="primary" (click)="backClicked()">
                         <span class="material-icons">

@@ -44,16 +44,22 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <!-- <div class="row">
                 <div class="img">
+                    <h2>Imagen actual</h2>
                     <img *ngIf="newCafe[0].img" [src]="img | async">
+                </div>
+            </div>
+            <div class="row">
+                <h2>Seleccione una nueva imagen para continuar</h2>
+                <div class="img">
                     <img *ngIf="(image$ | async) as image" [src]="image" alt="">
                     <input type="file" (change) = "uploadFile($event)">
                 </div>
                 <div *ngIf="image.errors && image.dirty">
                     <p *ngIf="image.hasError('required')">La imagen es requerida</p>
                 </div>
-            </div>
+            </div> -->
         </mat-card-content>
         <mat-card-actions>
             <button [disabled]="form.invalid" mat-raised-button type="submit">Actualizar</button>

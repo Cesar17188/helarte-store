@@ -116,6 +116,10 @@
     width: 95%;
   }
   
+  .btntienda #btntienda1 {
+    margin-bottom: 10px;
+  }
+
   mat-card-actions {
     text-align: center;
   }

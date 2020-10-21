@@ -4,8 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
-import { Product } from 'src/app/core/models/product.model';
-import { BackeriesService } from 'src/app/core/services/backeries/backeries.service';
+import { Product } from '@core/models/product.model';
+import { BackeriesService } from '@core/services/backeries/backeries.service';
 
 @Component({
   selector: 'app-formcrepe',

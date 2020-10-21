@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter, Inject } from '@angular/core';
-import { SYRUP } from 'src/app/core/models/syrup.model';
+import { SYRUP } from '@core/models/syrup.model';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { syrupData } from 'src/app/core/models/dialogoSyrup';
-import { SyrupsComponent } from '../syrups/syrups.component';
+import { syrupData } from '@core/models/dialogoSyrup';
+import { SyrupsContainer} from '../../containers/syrups/syrups.container';
 
 
 @Component({
@@ -16,7 +16,7 @@ export class SyrupComponent implements OnInit {
   @Output() syrupAdd: EventEmitter<any> = new EventEmitter();
 
   constructor(
-    public dialogRef: MatDialogRef<SyrupsComponent>,
+    public dialogRef: MatDialogRef<SyrupsContainer>,
     @Inject(MAT_DIALOG_DATA) public data: syrupData
   ) { }
 

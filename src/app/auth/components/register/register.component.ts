@@ -4,10 +4,10 @@ import { Router } from '@angular/router';
 import { AngularFireStorage } from '@angular/fire/storage';
 
 
-import { AuthService } from 'src/app/core/services/auth/auth.service';
-import { User } from 'src/app/core/models/user';
+import { AuthService } from '@core/services/auth/auth.service';
+import { User } from '@core/models/user';
 import { MatDialogRef, MatDialog } from '@angular/material/dialog';
-import { LoginComponent } from '../login/login.component';
+import { LoginComponent } from '@auth/components/login/login.component';
 
 
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { BackeriesService } from 'src/app/core/services/backeries/backeries.service';
+import { BackeriesService } from '@core/services/backeries/backeries.service';
 
 @Component({
   selector: 'app-lista-crepes',
@@ -20,10 +20,10 @@ export class ListaCrepesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getCrepes();
+    this.fetchCrepes();
   }
 
-  getCrepes() {
+  fetchCrepes() {
     this.crepeService.getAllBackeries().subscribe(data => {
       this.crepes = data.map( e => {
         const ref = this.storage.storage.refFromURL(e.payload.doc.data().image);

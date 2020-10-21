@@ -1,0 +1,2 @@
+[1011/200041.339:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\USER\AppData\Local\Temp\karma-15623518\Crashpad\attachments\abe84ab5-851e-4436-af3f-b3b8fe2bc12b: El sistema no puede encontrar la ruta especificada. (0x3)
+[1011/200148.798:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\USER\AppData\Local\Temp\karma-45239891\Crashpad\attachments\8b789cdf-5d75-4f0c-8517-94fc90a14061: El sistema no puede encontrar la ruta especificada. (0x3)

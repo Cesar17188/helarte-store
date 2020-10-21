@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule} from '@angular/router';
 
-import { BackeriesproductsComponent } from './components/backeriesproducts/backeriesproducts.component';
+import { BackeriesproductsContainer } from './containers/backeriesproducts/backeriesproducts.container';
 import { BakerieDetailComponent } from './components/bakerie-detail/bakerie-detail.component';
 
 const routes: Routes = [
     {
         path: '',
-        component: BackeriesproductsComponent
+        component: BackeriesproductsContainer
     },
     {
         path: ':codigo',

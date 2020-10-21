@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { ShakesService } from 'src/app/core/services/shakes/shakes.service';
+import { ShakesService } from '@core/services/shakes/shakes.service';
 
 @Component({
   selector: 'app-lista-shakes',
@@ -20,10 +20,10 @@ export class ListaShakesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getShakes();
+    this.fetchShakes();
   }
 
-  getShakes() {
+  fetchShakes() {
     this.shakesService.getAllShakes().subscribe(data => {
       this.shakes = data.map( e => {
         const ref = this.storage.storage.refFromURL(e.payload.doc.data().image);

@@ -10,11 +10,10 @@
             <div class="descr">
                 <div>
                     <ul>
-                        <li>Producto: {{shake[0].producto}}</li>
-                        <li>Descripción: {{shake[0].descripcion_corta}}</li>
-                        <li>Precio: {{shake[0].precioVenta | currency}}</li>
+                        <li><strong>Descripción: {{shake[0].descripcion_corta}}</strong></li>
+                        <li><strong>Precio: {{shake[0].precioVenta | currency}}</strong></li>
+                        <li><strong><p>Elige tu sabor o tu fruta presionando los botones</p></strong></li>
                     </ul>
-                    <p>{{shake[0].descripcion_larga}}</p>
                 </div>
                 <div *ngIf="isMilkshake; else Normalshake">
                     <div class="sabor">
@@ -50,7 +49,7 @@
         </mat-dialog-content>
         <mat-card-actions>
             <div class="btntienda">
-                <div id="btntienda1">
+                <div id="btntienda1" *ngIf="sabor || fruta1; else elseBlock3">
                     <button  mat-flat-button color="primary" (click)="addcart()">
                         Añadir al carrito
                         <span class="material-icons">
@@ -58,7 +57,15 @@
                             </span>
                     </button>
                 </div>
-                </div>
+                <ng-template #elseBlock3>
+                    <button mat-raised-button disabled>
+                        Añadir al carrito
+                        <span class="material-icons">
+                            shopping_cart
+                        </span>
+                    </button>
+                </ng-template>
+            </div>
                 <div id="btntienda2">
                     <button mat-flat-button color="primary" (click)="backClicked()">
                         <span class="material-icons">

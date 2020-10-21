@@ -16,16 +16,16 @@ import { LayoutComponent } from './layout/layout.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { SharedModule } from './shared/shared.module';
-import { CoreModule } from './core/core.module';
-import { IcecreamModule } from './icecream/icecream.module';
-import { CafeModule } from './cafe/cafe.module';
-import { BackerieModule } from './backerie/backerie.module';
+import { SharedModule } from '@shared/shared.module';
+import { CoreModule } from '@core/core.module';
+import { IcecreamModule } from '@icecream/icecream.module';
+import { CafeModule } from '@cafe/cafe.module';
+import { BackerieModule } from '@backerie/backerie.module';
 import { SnackModule } from './snack/snack.module';
-import { ContactoModule } from './contacto/contacto.module';
+import { ContactoModule } from '@contacto/contacto.module';
 import { PageNotFoundModule } from './page-not-found/page-not-found.module';
-import { MaterialModule } from './material/material.module';
-import { ShakeModule } from './shake/shake.module';
+import { MaterialModule } from '@material/material.module';
+import { ShakeModule } from '@shake/shake.module';
 import { BebidaModule } from './bebida/bebida.module';
 import { AuthModule } from './auth/auth.module';
 

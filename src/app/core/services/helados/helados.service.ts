@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { HELADO } from 'src/app/core/models/helado.model';
+import { HELADO } from '@core/models/helado.model';
 
 @Injectable({
   providedIn: 'root'

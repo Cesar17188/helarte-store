@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule} from '@angular/router';
 
-import { IceproductsComponent } from './components/iceproducts/iceproducts.component';
+import { IceproductsContainer } from './containers/iceproducts/iceproducts.container';
 import { IcecreamDetailComponent } from './components/icecream-detail/icecream-detail.component';
 
 const routes: Routes = [
     {
         path: '',
-        component: IceproductsComponent
+        component: IceproductsContainer
     },
     {
         path: ':codigo',

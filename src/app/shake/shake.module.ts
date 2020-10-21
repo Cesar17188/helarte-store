@@ -3,17 +3,17 @@ import { CommonModule } from '@angular/common';
 
 import { ShakedetailComponent } from './components/shakedetail/shakedetail.component';
 import { ShakesComponent } from './components/shakes/shakes.component';
-import { ShakesproductsComponent } from './components/shakesproducts/shakesproducts.component';
+import { ShakesproductsContainer } from './containers/shakesproducts/shakesproducts.container';
 
 import { ShakeRoutingModule } from './shake-routing.module';
-import { SharedModule } from './../shared/shared.module';
-import { MaterialModule } from './../material/material.module';
+import { SharedModule } from '@shared/shared.module';
+import { MaterialModule } from '@material/material.module';
 
 @NgModule({
   declarations: [
     ShakedetailComponent,
     ShakesComponent,
-    ShakesproductsComponent,
+    ShakesproductsContainer,
 
   ],
   imports: [
@@ -24,4 +24,3 @@ import { MaterialModule } from './../material/material.module';
   ]
 })
 export class ShakeModule { }
- 

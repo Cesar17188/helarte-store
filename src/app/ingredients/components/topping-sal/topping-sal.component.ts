@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { DataToppinS } from 'src/app/core/models/dialogoToppingSal';
-import { TOPPING } from 'src/app/core/models/topping.model';
+import { DataToppinS } from '@core/models/dialogoToppingSal';
+import { TOPPING } from '@core/models/topping.model';
 
 @Component({
   selector: 'app-topping-sal',

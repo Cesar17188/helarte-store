@@ -9,7 +9,12 @@
         </div>
         <div class="descr">
             <strong>
-                <h2>{{cono}}</h2>
+                <ul>
+                    <li><strong> Descripcion : {{helado[0].descripcion_corta}}</strong></li>
+                    <li><strong> Precio : {{helado[0].precioVenta | currency}}</strong></li>  
+                    <li><strong><p>Elige tus sabores y adicionales presionando los botones</p></strong></li>
+                </ul>
+                
                 <div class="sabor" >
                     <div id="sabor1">
                         <h3 *ngIf="sabor">{{sabor[0].producto}}</h3>
@@ -44,7 +49,7 @@
                     <div id="sabor1">
                         <h3 *ngIf="syrup">{{syrup[0].producto}}</h3>
                         <img *ngIf="syrup" [src]="syrup[0].img | async" alt="">
-                        <button *ngIf="flagSyrup; else elseBlock2 "mat-raised-button color="warn" mat-raised-button (click)="aditionSyrup()">
+                        <button *ngIf="flagSyrup; else elseBlock2" mat-raised-button color="warn" mat-raised-button (click)="aditionSyrup()">
                             Syrup
                         </button>
                         <ng-template #elseBlock2>
@@ -62,26 +67,29 @@
                         </ng-template>
                     </div>
                 </div>
-            <ul>
-                <li> {{helado[0].producto}}</li>
-                <li> {{helado[0].descripcion_corta}}</li>
-                <li> {{helado[0].precioVenta | currency}}</li>  
-            </ul>
             <mat-slide-toggle class="crema" color="primary" [(ngModel)]="flagCrema">Agrega crema a tu helado por 50 ctvs.</mat-slide-toggle>
         </strong>
         </div>
 </mat-card-content>
 <mat-card-actions>
     <div class="btntienda">
-        <div id="btntienda1">
+        <div id="btntienda1" *ngIf="sabor; else elseBlock3">
             <button  mat-flat-button color="primary" (click)="addcart()">
                 Añadir al carrito
                 <span class="material-icons">
                     shopping_cart
-                    </span>
+                </span>
             </button>
         </div>
-        </div>
+        <ng-template #elseBlock3>
+            <button mat-raised-button disabled>
+                Añadir al carrito
+                <span class="material-icons">
+                    shopping_cart
+                </span>
+            </button>
+        </ng-template>
+    </div>
         <div id="btntienda2">
             <button mat-flat-button color="primary" (click)="backClicked()">
                 <span class="material-icons">

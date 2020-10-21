@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules} from '@angular/router';
 
-import { LayoutComponent } from './layout/layout.component';
-import { AdminGuard } from './guardianes/admin/admin.guard';
+import { LayoutComponent } from '@layout/layout.component';
+import { AdminGuard } from '@guardianes/admin/admin.guard';
 import { CajeroGuard } from './guardianes/cajero/cajero.guard';
 
 

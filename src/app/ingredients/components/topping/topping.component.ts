@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { TOPPING } from 'src/app/core/models/topping.model';
-import { ToppingsComponent } from '../toppings/toppings.component';
-import { DataToppinD } from 'src/app/core/models/dialogoToppingDulce';
+import { TOPPING } from '@core/models/topping.model';
+import { ToppingsContainer } from '../../containers/toppings/toppings.container';
+import { DataToppinD } from '@core/models/dialogoToppingDulce';
 
 @Component({
   selector: 'app-topping',
@@ -15,7 +15,7 @@ export class ToppingComponent implements OnInit {
   @Output() toppingAdd: EventEmitter<any> = new EventEmitter();
 
   constructor(
-    public dialogRef: MatDialogRef<ToppingsComponent>,
+    public dialogRef: MatDialogRef<ToppingsContainer>,
     @Inject(MAT_DIALOG_DATA) public data: DataToppinD
   ) { }
 

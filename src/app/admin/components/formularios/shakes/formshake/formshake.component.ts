@@ -4,8 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
-import { Product } from 'src/app/core/models/product.model';
-import { ShakesService } from 'src/app/core/services/shakes/shakes.service';
+import { Product } from '@core/models/product.model';
+import { ShakesService } from '@core/services/shakes/shakes.service';
 
 @Component({
   selector: 'app-formshake',

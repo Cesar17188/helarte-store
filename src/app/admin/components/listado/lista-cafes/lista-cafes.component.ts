@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { CafesService } from 'src/app/core/services/cafes/cafes.service';
+import { CafesService } from '@core/services/cafes/cafes.service';
 
 @Component({
   selector: 'app-lista-cafes',
@@ -20,10 +20,10 @@ export class ListaCafesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getCafes();
+    this.fetchCafes();
   }
 
-  getCafes() {
+  fetchCafes() {
     this.cafesService.getAllCafes().subscribe(data => {
       this.cafes = data.map( e => {
         const ref = this.storage.storage.refFromURL(e.payload.doc.data().image);

@@ -4,8 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
-import { Product } from 'src/app/core/models/product.model';
-import { CafesService } from 'src/app/core/services/cafes/cafes.service';
+import { Product } from '@core/models/product.model';
+import { CafesService } from '@core/services/cafes/cafes.service';
 
 @Component({
   selector: 'app-formcafe',

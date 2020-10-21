@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
-import { ShakesService } from 'src/app/core/services/shakes/shakes.service';
+import { ShakesService } from '@core/services/shakes/shakes.service';
 
 @Component({
   selector: 'app-editshake',
@@ -68,25 +68,25 @@ export class EditshakeComponent implements OnInit {
     });
   }
 
-  uploadFile(event) {
-    this.img = null;
-    const file = event.target.files[0];
-    const name = file.name;
-    const fileRef = this.storage.ref(name);
-    const task = this.storage.upload(name, file);
+  // uploadFile(event) {
+  //   this.img = null;
+  //   const file = event.target.files[0];
+  //   const name = file.name;
+  //   const fileRef = this.storage.ref(name);
+  //   const task = this.storage.upload(name, file);
 
-    task.snapshotChanges()
-    .pipe(
-      finalize(() => {
-        this.image$ = fileRef.getDownloadURL();
-        this.image$.subscribe(url => {
-          console.log(url);
-          this.form.get('image').setValue(url);
-        });
-      })
-    )
-    .subscribe();
-  }
+  //   task.snapshotChanges()
+  //   .pipe(
+  //     finalize(() => {
+  //       this.image$ = fileRef.getDownloadURL();
+  //       this.image$.subscribe(url => {
+  //         console.log(url);
+  //         this.form.get('image').setValue(url);
+  //       });
+  //     })
+  //   )
+  //   .subscribe();
+  // }
 
 
   private buildForm() {
@@ -95,7 +95,7 @@ export class EditshakeComponent implements OnInit {
       descripcion_corta: ['', [Validators.required]],
       descripcion_larga: ['', [Validators.required]],
       precioVenta: [0, [Validators.required]],
-      image: [''],
+      // image: [''],
     });
   }
 
@@ -104,6 +104,6 @@ export class EditshakeComponent implements OnInit {
   get descripcion_corta() { return this.form.get('descripcion_corta'); }
   get descripcion_larga() { return this.form.get('descripcion_larga'); }
   get precioVenta() { return this.form.get('precioVenta'); }
-  get image() { return this.form.get('image'); }
+  // get image() { return this.form.get('image'); }
 
 }

@@ -4,21 +4,23 @@ import { MatDialog } from '@angular/material/dialog';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { Location } from '@angular/common';
 
-import { HeladosService } from '../../../core/services/helados/helados.service';
-import { CartService } from '../../../core/services/cart/cart.service';
-import { ToppingDulceService } from 'src/app/core/services/topping-dulce/topping-dulce.service';
-import { SalsasService } from 'src/app/core/services/salsas/salsas.service';
-import { SaboresService } from 'src/app/core/services/sabores/sabores.service';
+import { HeladosService } from '@core/services/helados/helados.service';
+import { CartService } from '@core/services/cart/cart.service';
+import { ToppingDulceService } from '@core/services/topping-dulce/topping-dulce.service';
+import { SalsasService } from '@core/services/salsas/salsas.service';
+import { SaboresService } from '@core/services/sabores/sabores.service';
 
-import { HELADO } from 'src/app/core/models/helado.model';
-import { SABOR } from 'src/app/core/models/sabor.model';
-import { SYRUP } from 'src/app/core/models/syrup.model';
-import { TOPPING } from 'src/app/core/models/topping.model';
+import { HELADO } from '@core/models/helado.model';
+import { SABOR } from '@core/models/sabor.model';
+import { SYRUP } from '@core/models/syrup.model';
+import { TOPPING } from '@core/models/topping.model';
+import { Product } from '@core/models/product.model';
 
-import { SaboresComponent } from 'src/app/ingredients/components/sabores/sabores.component';
-import { SyrupsComponent } from 'src/app/ingredients/components/syrups/syrups.component';
-import { ToppingsComponent } from 'src/app/ingredients/components/toppings/toppings.component';
-import { Product } from 'src/app/core/models/product.model';
+import { SaboresContainer } from '@ingredients/containers/sabores/sabores.container';
+import { SyrupsContainer } from '@ingredients/containers/syrups/syrups.container';
+import { ToppingsContainer } from '@ingredients/containers/toppings/toppings.container';
+import { switchMap } from 'rxjs/operators';
+
 
 
 @Component({
@@ -80,22 +82,18 @@ export class IcecreamDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe((params: Params) => {
-      const codigo = params.codigo;
-      this.fetchHelado(codigo);
-      this.cono = cono(codigo);
-      this.EneFlavorDos = EneFlavorDos(codigo);
-      this.EneFlavorTres = EneFlavorTres(codigo);
-      this.flagSyrup = addFlavors(codigo);
-    });
-  }
-
-// Recuperación de la información del servicio
-// y asignación de variables para sabor de helado, topping, syrup y crema
-
-  fetchHelado(codigo: string) {
-    this.heladosService.getHelado(codigo).subscribe(data => {
-      this.helado = data.map ( e => {
+    this.route.params
+    .pipe(
+      switchMap((params: Params) => {
+        this.cono = cono(params.codigo);
+        this.EneFlavorDos = EneFlavorDos(params.codigo);
+        this.EneFlavorTres = EneFlavorTres(params.codigo);
+        this.flagSyrup = addFlavors(params.codigo);
+        return this.heladosService.getHelado(params.codigo);
+      })
+    )
+    .subscribe((product) => {
+      this.helado = product.map ( e => {
         const ref = this.storage.storage.refFromURL(e.payload.doc.data().image);
         this.img = ref.getDownloadURL();
         return {
@@ -109,6 +107,10 @@ export class IcecreamDetailComponent implements OnInit {
       });
     });
   }
+
+// Recuperación de la información del servicio
+// y asignación de variables para sabor de helado, topping, syrup y crema
+
 
   fetchToppingD(codigo: string) {
     this.toppingService.getToppingD(codigo).subscribe(data => {
@@ -218,7 +220,7 @@ export class IcecreamDetailComponent implements OnInit {
 
   selectFlavor(): void{
     this.sabor = null;
-    const dialogRef = this.dialog.open(SaboresComponent, {
+    const dialogRef = this.dialog.open(SaboresContainer, {
       width: '50%',
     });
 
@@ -232,7 +234,7 @@ export class IcecreamDetailComponent implements OnInit {
 
   selectFlavordos(): void{
     this.sabor2 = null;
-    const dialogRef = this.dialog.open(SaboresComponent, {
+    const dialogRef = this.dialog.open(SaboresContainer, {
       width: '50%',
     });
 
@@ -246,7 +248,7 @@ export class IcecreamDetailComponent implements OnInit {
 
   selectFlavortres(): void{
     this.sabor3 = null;
-    const dialogRef = this.dialog.open(SaboresComponent, {
+    const dialogRef = this.dialog.open(SaboresContainer, {
       width: '50%',
     });
 
@@ -260,7 +262,7 @@ export class IcecreamDetailComponent implements OnInit {
 
   aditionSyrup(): void{
     this.syrup = null;
-    const dialogRef = this.dialog.open(SyrupsComponent, {
+    const dialogRef = this.dialog.open(SyrupsContainer, {
       width: '50%',
     });
 
@@ -273,14 +275,13 @@ export class IcecreamDetailComponent implements OnInit {
 
   aditionToping(): void{
     this.toppingD = null;
-    const dialogRef = this.dialog.open(ToppingsComponent, {
+    const dialogRef = this.dialog.open(ToppingsContainer, {
       width: '50%',
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       this.codToppingD = result;
-      // this.toppingD = this.toppingService.getToppingD(this.codToppingD);
       this.fetchToppingD(this.codToppingD);
     });
   }
@@ -385,6 +386,12 @@ function cono(codigo: string){
 function addFlavors(codigo: string){
   let flag: boolean;
   switch (codigo){
+    case 'h0001':
+      flag = true;
+      break;
+    case 'h0002':
+      flag = true;
+      break;
     case 'h0003':
       flag = true;
       break;

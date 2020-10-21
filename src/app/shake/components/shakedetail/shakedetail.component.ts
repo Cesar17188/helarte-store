@@ -2,17 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { ActivatedRoute, Params } from '@angular/router';
-import { FRUTA } from 'src/app/core/models/fruta.model';
-import { Product } from 'src/app/core/models/product.model';
-import { SABOR } from 'src/app/core/models/sabor.model';
-import { ShakesService } from 'src/app/core/services/shakes/shakes.service';
-import { SaboresService } from 'src/app/core/services/sabores/sabores.service';
-import { FrutasService } from 'src/app/core/services/frutas/frutas.service';
 import { MatDialog } from '@angular/material/dialog';
-import { CartService } from 'src/app/core/services/cart/cart.service';
-import { SaboresComponent } from 'src/app/ingredients/components/sabores/sabores.component';
-import { FrutasComponent } from 'src/app/ingredients/components/frutas/frutas.component';
-import { SHAKE } from 'src/app/core/models/shake.model';
+
+import { FRUTA } from '@core/models/fruta.model';
+import { Product } from '@core/models/product.model';
+import { SABOR } from '@core/models/sabor.model';
+import { SHAKE } from '@core/models/shake.model';
+
+import { ShakesService } from '@core/services/shakes/shakes.service';
+import { SaboresService } from '@core/services/sabores/sabores.service';
+import { FrutasService } from '@core/services/frutas/frutas.service';
+import { CartService } from '@core/services/cart/cart.service';
+
+import { SaboresContainer } from '@ingredients/containers/sabores/sabores.container';
+import { FrutasContainer } from '@ingredients/containers/frutas/frutas.container';
+
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-shakedetail',
@@ -56,16 +61,16 @@ export class ShakedetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe((params: Params) => {
-      const codigo = params.codigo;
-      this.isMilkshake = shakeorMilk(codigo);
-      this.fetchShake(codigo);
-    });
-  }
 
-  fetchShake(codigo: string) {
-    this.shakesService.getShake(codigo).subscribe(data => {
-      this.shake = data.map ( e => {
+    this.route.params
+    .pipe(
+      switchMap((params: Params) => {
+        this.isMilkshake = shakeorMilk(params.codigo);
+        return this.shakesService.getShake(params.codigo);
+      })
+    )
+    .subscribe((product) => {
+      this.shake = product.map ( e => {
         const ref = this.storage.storage.refFromURL(e.payload.doc.data().image);
         this.img = ref.getDownloadURL();
         return {
@@ -77,9 +82,12 @@ export class ShakedetailComponent implements OnInit {
           precioVenta: e.payload.doc.data().precioVenta
         };
       });
-      console.log(this.shake);
     });
   }
+
+// Recuperación de la información del servicio
+// y asignación de variables para sabor de helado y los toppings de sal y dulce
+
 
   fetchSabor(codigo: string) {
     this.saborService.getSabor(codigo).subscribe(data => {
@@ -133,9 +141,11 @@ export class ShakedetailComponent implements OnInit {
     });
   }
 
+// Selectores en Dialogs para sabores y toppings
+
   selectFlavor(): void{
     this.sabor = null;
-    const dialogRef = this.dialog.open(SaboresComponent, {
+    const dialogRef = this.dialog.open(SaboresContainer, {
       width: '50%',
     });
 
@@ -149,7 +159,7 @@ export class ShakedetailComponent implements OnInit {
 
   aditionFruta(): void{
     this.fruta1 = null;
-    const dialogRef = this.dialog.open(FrutasComponent, {
+    const dialogRef = this.dialog.open(FrutasContainer, {
       width: '50%',
     });
 
@@ -162,7 +172,7 @@ export class ShakedetailComponent implements OnInit {
 
   aditionFruta2(): void{
     this.fruta2 = null;
-    const dialogRef = this.dialog.open(FrutasComponent, {
+    const dialogRef = this.dialog.open(FrutasContainer, {
       width: '50%',
     });
 
@@ -172,6 +182,9 @@ export class ShakedetailComponent implements OnInit {
       this.fetchFruta2(this.codfruta2);
     });
   }
+
+// asignación de objetos a variables de asignación
+// para el nuevo objeto Shake
 
   getSabores() {
     if (this.sabor != null){
@@ -204,6 +217,8 @@ export class ShakedetailComponent implements OnInit {
     }
 }
 
+// Agrega el objeto shake a la tienda
+
   addcart() {
     this.getSabores();
     this.getFrutas();
@@ -227,6 +242,7 @@ export class ShakedetailComponent implements OnInit {
 
 
 // Función de bandera con booleano para determinar el tipo de crepe
+
 function shakeorMilk(codigo: string){
   if (codigo === 'sh0001'){
     return true;

@@ -1,9 +1,9 @@
 import { Component, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
-import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { AuthService } from '@core/services/auth/auth.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { User } from 'src/app/core/models/user';
+import { User } from '@core/models/user';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',

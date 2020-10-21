@@ -3,9 +3,11 @@ import { Location } from '@angular/common';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { ActivatedRoute, Params } from '@angular/router';
 
-import { Product } from 'src/app/core/models/product.model';
-import { CafesService } from './../../../core/services/cafes/cafes.service';
-import { CartService } from 'src/app/core/services/cart/cart.service';
+import { Product } from '@core/models/product.model';
+
+import { CafesService } from '@core/services/cafes/cafes.service';
+import { CartService } from '@core/services/cart/cart.service';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-cafe-detail',
@@ -28,15 +30,14 @@ export class CafeDetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe((params: Params) => {
-      const codigo = params.codigo;
-      this.fetchCafe(codigo);
-    });
-  }
-
-  fetchCafe(codigo: string) {
-    this.cafesService.getCafe(codigo).subscribe(data => {
-      this.cafe = data.map ( e => {
+    this.route.params
+    .pipe(
+      switchMap((params: Params) => {
+        return this.cafesService.getCafe(params.codigo);
+      })
+    )
+    .subscribe((product) => {
+      this.cafe = product.map ( e => {
         const ref = this.storage.storage.refFromURL(e.payload.doc.data().image);
         this.img = ref.getDownloadURL();
         return {
@@ -48,9 +49,9 @@ export class CafeDetailComponent implements OnInit {
           precioVenta: e.payload.doc.data().precioVenta
         };
       });
-      console.log(this.cafe);
     });
   }
+
 
   addcart() {
     this.newCafe = {

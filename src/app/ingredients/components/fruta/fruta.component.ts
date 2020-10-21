@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { frutaData } from 'src/app/core/models/dialogoFruta';
-import { FRUTA } from 'src/app/core/models/fruta.model';
+import { frutaData } from '@core/models/dialogoFruta';
+import { FRUTA } from '@core/models/fruta.model';
 
 @Component({
   selector: 'app-fruta',
