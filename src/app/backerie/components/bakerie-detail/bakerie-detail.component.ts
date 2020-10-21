@@ -3,6 +3,7 @@ import { Location } from '@angular/common';
 import { ActivatedRoute, Params } from '@angular/router';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { MatDialog } from '@angular/material/dialog';
+import { switchMap } from 'rxjs/operators';
 
 import { ToppingDulceService } from '@core/services/topping-dulce/topping-dulce.service';
 import { BackeriesService } from '@core/services/backeries/backeries.service';
@@ -24,6 +25,7 @@ import { SYRUP } from '@core/models/syrup.model';
 import { SABOR } from '@core/models/sabor.model';
 import { FRUTA } from '@core/models/fruta.model';
 import { CREPE } from '@core/models/crepe.model';
+
 
 
 @Component({
@@ -92,19 +94,15 @@ export class BakerieDetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe((params: Params) => {
-      const codigo = params.codigo;
-      this.crepeDulce = dulceSal(codigo);
-      this.fetchBackerie(codigo);
-    });
-  }
-
-// Recuperación de la información del servicio
-// y asignación de variables para sabor de helado, topping, syrup y crema
-
-  fetchBackerie(codigo: string) {
-    this.bakeriesService.getBackerie(codigo).subscribe(data => {
-      this.backerie = data.map ( e => {
+    this.route.params
+    .pipe(
+      switchMap((params: Params) => {
+        this.crepeDulce = dulceSal(params.codigo);
+        return this.bakeriesService.getBackerie(params.codigo);
+      })
+    )
+    .subscribe((product) => {
+      this.backerie = product.map ( e => {
         const ref = this.storage.storage.refFromURL(e.payload.doc.data().image);
         this.img = ref.getDownloadURL();
         return {
@@ -116,9 +114,12 @@ export class BakerieDetailComponent implements OnInit {
           precioVenta: e.payload.doc.data().precioVenta
         };
       });
-      console.log(this.backerie);
     });
-  }
+    }
+
+// Recuperación de la información del servicio
+// y asignación de variables para sabor de helado, topping, syrup y crema
+
 
   fetchSabor(codigo: string) {
     this.saborService.getSabor(codigo).subscribe(data => {

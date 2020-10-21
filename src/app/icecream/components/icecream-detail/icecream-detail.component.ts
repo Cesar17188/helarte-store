@@ -19,6 +19,7 @@ import { Product } from '@core/models/product.model';
 import { SaboresContainer } from '@ingredients/containers/sabores/sabores.container';
 import { SyrupsContainer } from '@ingredients/containers/syrups/syrups.container';
 import { ToppingsContainer } from '@ingredients/containers/toppings/toppings.container';
+import { switchMap } from 'rxjs/operators';
 
 
 
@@ -81,22 +82,18 @@ export class IcecreamDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe((params: Params) => {
-      const codigo = params.codigo;
-      this.fetchHelado(codigo);
-      this.cono = cono(codigo);
-      this.EneFlavorDos = EneFlavorDos(codigo);
-      this.EneFlavorTres = EneFlavorTres(codigo);
-      this.flagSyrup = addFlavors(codigo);
-    });
-  }
-
-// Recuperación de la información del servicio
-// y asignación de variables para sabor de helado, topping, syrup y crema
-
-  fetchHelado(codigo: string) {
-    this.heladosService.getHelado(codigo).subscribe(data => {
-      this.helado = data.map ( e => {
+    this.route.params
+    .pipe(
+      switchMap((params: Params) => {
+        this.cono = cono(params.codigo);
+        this.EneFlavorDos = EneFlavorDos(params.codigo);
+        this.EneFlavorTres = EneFlavorTres(params.codigo);
+        this.flagSyrup = addFlavors(params.codigo);
+        return this.heladosService.getHelado(params.codigo);
+      })
+    )
+    .subscribe((product) => {
+      this.helado = product.map ( e => {
         const ref = this.storage.storage.refFromURL(e.payload.doc.data().image);
         this.img = ref.getDownloadURL();
         return {
@@ -110,6 +107,10 @@ export class IcecreamDetailComponent implements OnInit {
       });
     });
   }
+
+// Recuperación de la información del servicio
+// y asignación de variables para sabor de helado, topping, syrup y crema
+
 
   fetchToppingD(codigo: string) {
     this.toppingService.getToppingD(codigo).subscribe(data => {
@@ -281,7 +282,6 @@ export class IcecreamDetailComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       this.codToppingD = result;
-      // this.toppingD = this.toppingService.getToppingD(this.codToppingD);
       this.fetchToppingD(this.codToppingD);
     });
   }
@@ -386,6 +386,12 @@ function cono(codigo: string){
 function addFlavors(codigo: string){
   let flag: boolean;
   switch (codigo){
+    case 'h0001':
+      flag = true;
+      break;
+    case 'h0002':
+      flag = true;
+      break;
     case 'h0003':
       flag = true;
       break;
