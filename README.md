@@ -1,6 +1,7 @@
 # HelarteStore
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
+install angular cli with 'npm install -g @angular/cli'
 
 ## Development server
 
